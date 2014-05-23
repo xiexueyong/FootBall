@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:5474cd6ca56f330c68fc7e0bf3488789:d19135116769d8aa1536f0ba97553f1a:eaa3945baeeb01ac3875da18d4591669$ -->
+<TextureAtlas imagePath="noxgames.png">
+    <SubTexture name="branka4" x="897" y="3" width="53" height="150"/>
+    <SubTexture name="download_appstore" x="268" y="444" width="176" height="53"/>
+    <SubTexture name="download_googleplay" x="845" y="442" width="176" height="53"/>
+    <SubTexture name="nox_logo600_blackwhite_wide" x="547" y="188" width="188" height="60"/>
+    <SubTexture name="nox_logo600_white_wide" x="355" y="188" width="188" height="60"/>
+    <SubTexture name="nox_logo600_wide" x="3" y="427" width="188" height="60"/>
+    <SubTexture name="nox_logo600x600" x="509" y="252" width="166" height="188" frameX="-13" frameY="0" frameWidth="188" frameHeight="188"/>
+    <SubTexture name="nox_logo600x600_blackwhite" x="339" y="252" width="166" height="188" frameX="-13" frameY="0" frameWidth="188" frameHeight="188"/>
+    <SubTexture name="nox_logo600x600_white" x="169" y="214" width="166" height="188" frameX="-13" frameY="0" frameWidth="188" frameHeight="188"/>
+    <SubTexture name="nox_social_facebookHD" x="667" y="444" width="69" height="59" frameX="0" frameY="-5" frameWidth="69" frameHeight="69"/>
+    <SubTexture name="nox_social_googleHD" x="594" y="444" width="69" height="59" frameX="0" frameY="-5" frameWidth="69" frameHeight="69"/>
+    <SubTexture name="nox_social_noxplayHD" x="521" y="444" width="69" height="59" frameX="0" frameY="-5" frameWidth="69" frameHeight="69"/>
+    <SubTexture name="nox_social_twitterHD" x="448" y="444" width="69" height="59" frameX="0" frameY="-5" frameWidth="69" frameHeight="69"/>
+    <SubTexture name="nox_social_youtubeHD" x="195" y="406" width="69" height="59" frameX="0" frameY="-5" frameWidth="69" frameHeight="69"/>
+    <SubTexture name="noxplay_logo600_wide" x="739" y="188" width="186" height="60" frameX="0" frameY="0" frameWidth="188" frameHeight="60"/>
+    <SubTexture name="noxplay_logo600x600" x="845" y="252" width="156" height="186" frameX="-17" frameY="-1" frameWidth="188" frameHeight="188"/>
+    <SubTexture name="tutorial1" x="177" y="3" width="174" height="187" frameX="-41" frameY="-47" frameWidth="274" frameHeight="249"/>
+    <SubTexture name="tutorial2" x="679" y="252" width="162" height="187" frameX="-60" frameY="-47" frameWidth="274" frameHeight="249"/>
+    <SubTexture name="tutorial3" x="355" y="3" width="180" height="181" frameX="-48" frameY="-47" frameWidth="274" frameHeight="249"/>
+    <SubTexture name="tutorial4" x="539" y="3" width="176" height="181" frameX="-58" frameY="-47" frameWidth="274" frameHeight="249"/>
+    <SubTexture name="tutorial5" x="3" y="214" width="162" height="209" frameX="-53" frameY="-28" frameWidth="274" frameHeight="249"/>
+    <SubTexture name="tutorial6" x="3" y="3" width="170" height="207" frameX="-53" frameY="-28" frameWidth="274" frameHeight="249"/>
+    <SubTexture name="tutorial7" x="719" y="3" width="174" height="181" frameX="-60" frameY="-47" frameWidth="274" frameHeight="249"/>
+</TextureAtlas>
