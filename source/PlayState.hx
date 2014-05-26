@@ -1,5 +1,9 @@
 package;
 
+import com.putaolad.soccer.controller.ControllerManager;
+import com.putaolad.soccer.charater.Ball;
+import com.putaolad.soccer.charater.Player;
+import map.Level;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -12,12 +16,29 @@ import flixel.util.FlxMath;
  */
 class PlayState extends FlxState
 {
+    private var level:Level;
+    private var _controllerManager:ControllerManager;
+
+    public var player1:Player;
+    public var player2:Player;
+    public var ball:Ball;
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
 	override public function create():Void
 	{
 		super.create();
+
+        level = new Level("assets/tiled/map.tmx",this);
+        _controllerManager = new ControllerManager(this);
+
+        add(level.backgroundGroup);
+        add(level.characterGroup);
+        add(level.decorateGroup);
+        add(level.foregroundGroup);
+        add(level.collisionGroup);
+
+
 	}
 	
 	/**
@@ -35,5 +56,7 @@ class PlayState extends FlxState
 	override public function update():Void
 	{
 		super.update();
+        level.update();
+        _controllerManager.update();
 	}	
 }
