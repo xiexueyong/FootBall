@@ -36,20 +36,24 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
-		className.set ("assets/atlas.png", __ASSET__assets_atlas_png);
-		type.set ("assets/atlas.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("assets/atlas.xml", __ASSET__assets_atlas_xml);
-		type.set ("assets/atlas.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 		className.set ("assets/data/data-goes-here.txt", __ASSET__assets_data_data_goes_here_txt);
 		type.set ("assets/data/data-goes-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
+		className.set ("assets/getimageName/atlas.png", __ASSET__assets_getimagename_atlas_png);
+		type.set ("assets/getimageName/atlas.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/getimageName/atlas.xml", __ASSET__assets_getimagename_atlas_xml);
+		type.set ("assets/getimageName/atlas.xml", Reflect.field (AssetType, "text".toUpperCase ()));
+		className.set ("assets/images/atlas.png", __ASSET__assets_images_atlas_png);
+		type.set ("assets/images/atlas.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/images/atlas.xml", __ASSET__assets_images_atlas_xml);
+		type.set ("assets/images/atlas.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 		className.set ("assets/images/images-go-here.txt", __ASSET__assets_images_images_go_here_txt);
 		type.set ("assets/images/images-go-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
+		className.set ("assets/images/noxgames.png", __ASSET__assets_images_noxgames_png);
+		type.set ("assets/images/noxgames.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/images/noxgames.xml", __ASSET__assets_images_noxgames_xml);
+		type.set ("assets/images/noxgames.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
 		type.set ("assets/music/music-goes-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
-		className.set ("assets/noxgames.png", __ASSET__assets_noxgames_png);
-		type.set ("assets/noxgames.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("assets/noxgames.xml", __ASSET__assets_noxgames_xml);
-		type.set ("assets/noxgames.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 		className.set ("assets/sounds/sounds-go-here.txt", __ASSET__assets_sounds_sounds_go_here_txt);
 		type.set ("assets/sounds/sounds-go-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
 		className.set ("assets/tiled/12.png", __ASSET__assets_tiled_12_png);
@@ -124,13 +128,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#elseif html5
 		
-		addExternal("assets/atlas.png", "image", "assets/atlas.png");
-		addExternal("assets/atlas.xml", "text", "assets/atlas.xml");
 		addExternal("assets/data/data-goes-here.txt", "text", "assets/data/data-goes-here.txt");
+		addExternal("assets/getimageName/atlas.png", "image", "assets/getimageName/atlas.png");
+		addExternal("assets/getimageName/atlas.xml", "text", "assets/getimageName/atlas.xml");
+		addExternal("assets/images/atlas.png", "image", "assets/images/atlas.png");
+		addExternal("assets/images/atlas.xml", "text", "assets/images/atlas.xml");
 		addExternal("assets/images/images-go-here.txt", "text", "assets/images/images-go-here.txt");
+		addExternal("assets/images/noxgames.png", "image", "assets/images/noxgames.png");
+		addExternal("assets/images/noxgames.xml", "text", "assets/images/noxgames.xml");
 		addExternal("assets/music/music-goes-here.txt", "text", "assets/music/music-goes-here.txt");
-		addExternal("assets/noxgames.png", "image", "assets/noxgames.png");
-		addExternal("assets/noxgames.xml", "text", "assets/noxgames.xml");
 		addExternal("assets/sounds/sounds-go-here.txt", "text", "assets/sounds/sounds-go-here.txt");
 		addExternal("assets/tiled/12.png", "image", "assets/tiled/12.png");
 		addExternal("assets/tiled/coin.png", "image", "assets/tiled/coin.png");
@@ -174,26 +180,32 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		var loadManifest = false;
 		
-		className.set ("assets/atlas.png", __ASSET__assets_atlas_png);
-		type.set ("assets/atlas.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		
-		className.set ("assets/atlas.xml", __ASSET__assets_atlas_xml);
-		type.set ("assets/atlas.xml", Reflect.field (AssetType, "text".toUpperCase ()));
-		
 		className.set ("assets/data/data-goes-here.txt", __ASSET__assets_data_data_goes_here_txt);
 		type.set ("assets/data/data-goes-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
+		
+		className.set ("assets/getimageName/atlas.png", __ASSET__assets_getimagename_atlas_png);
+		type.set ("assets/getimageName/atlas.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		
+		className.set ("assets/getimageName/atlas.xml", __ASSET__assets_getimagename_atlas_xml);
+		type.set ("assets/getimageName/atlas.xml", Reflect.field (AssetType, "text".toUpperCase ()));
+		
+		className.set ("assets/images/atlas.png", __ASSET__assets_images_atlas_png);
+		type.set ("assets/images/atlas.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		
+		className.set ("assets/images/atlas.xml", __ASSET__assets_images_atlas_xml);
+		type.set ("assets/images/atlas.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 		
 		className.set ("assets/images/images-go-here.txt", __ASSET__assets_images_images_go_here_txt);
 		type.set ("assets/images/images-go-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
 		
+		className.set ("assets/images/noxgames.png", __ASSET__assets_images_noxgames_png);
+		type.set ("assets/images/noxgames.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		
+		className.set ("assets/images/noxgames.xml", __ASSET__assets_images_noxgames_xml);
+		type.set ("assets/images/noxgames.xml", Reflect.field (AssetType, "text".toUpperCase ()));
+		
 		className.set ("assets/music/music-goes-here.txt", __ASSET__assets_music_music_goes_here_txt);
 		type.set ("assets/music/music-goes-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
-		
-		className.set ("assets/noxgames.png", __ASSET__assets_noxgames_png);
-		type.set ("assets/noxgames.png", Reflect.field (AssetType, "image".toUpperCase ()));
-		
-		className.set ("assets/noxgames.xml", __ASSET__assets_noxgames_xml);
-		type.set ("assets/noxgames.xml", Reflect.field (AssetType, "text".toUpperCase ()));
 		
 		className.set ("assets/sounds/sounds-go-here.txt", __ASSET__assets_sounds_sounds_go_here_txt);
 		type.set ("assets/sounds/sounds-go-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
@@ -882,13 +894,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if pixi
 #elseif flash
 
-@:keep class __ASSET__assets_atlas_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__assets_atlas_xml extends flash.utils.ByteArray { }
 @:keep class __ASSET__assets_data_data_goes_here_txt extends flash.utils.ByteArray { }
+@:keep class __ASSET__assets_getimagename_atlas_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__assets_getimagename_atlas_xml extends flash.utils.ByteArray { }
+@:keep class __ASSET__assets_images_atlas_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__assets_images_atlas_xml extends flash.utils.ByteArray { }
 @:keep class __ASSET__assets_images_images_go_here_txt extends flash.utils.ByteArray { }
+@:keep class __ASSET__assets_images_noxgames_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep class __ASSET__assets_images_noxgames_xml extends flash.utils.ByteArray { }
 @:keep class __ASSET__assets_music_music_goes_here_txt extends flash.utils.ByteArray { }
-@:keep class __ASSET__assets_noxgames_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep class __ASSET__assets_noxgames_xml extends flash.utils.ByteArray { }
 @:keep class __ASSET__assets_sounds_sounds_go_here_txt extends flash.utils.ByteArray { }
 @:keep class __ASSET__assets_tiled_12_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep class __ASSET__assets_tiled_coin_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -972,16 +986,20 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
 #elseif (windows || mac || linux)
 
 
-@:bitmap("assets/atlas.png") class __ASSET__assets_atlas_png extends flash.display.BitmapData {}
-@:file("assets/atlas.xml") class __ASSET__assets_atlas_xml extends flash.utils.ByteArray {}
 @:file("assets/data/data-goes-here.txt") class __ASSET__assets_data_data_goes_here_txt extends flash.utils.ByteArray {}
+@:bitmap("assets/getimageName/atlas.png") class __ASSET__assets_getimagename_atlas_png extends flash.display.BitmapData {}
+@:file("assets/getimageName/atlas.xml") class __ASSET__assets_getimagename_atlas_xml extends flash.utils.ByteArray {}
+@:bitmap("assets/images/atlas.png") class __ASSET__assets_images_atlas_png extends flash.display.BitmapData {}
+@:file("assets/images/atlas.xml") class __ASSET__assets_images_atlas_xml extends flash.utils.ByteArray {}
 @:file("assets/images/images-go-here.txt") class __ASSET__assets_images_images_go_here_txt extends flash.utils.ByteArray {}
+@:bitmap("assets/images/noxgames.png") class __ASSET__assets_images_noxgames_png extends flash.display.BitmapData {}
+@:file("assets/images/noxgames.xml") class __ASSET__assets_images_noxgames_xml extends flash.utils.ByteArray {}
 @:file("assets/music/music-goes-here.txt") class __ASSET__assets_music_music_goes_here_txt extends flash.utils.ByteArray {}
-@:bitmap("assets/noxgames.png") class __ASSET__assets_noxgames_png extends flash.display.BitmapData {}
-@:file("assets/noxgames.xml") class __ASSET__assets_noxgames_xml extends flash.utils.ByteArray {}
 @:file("assets/sounds/sounds-go-here.txt") class __ASSET__assets_sounds_sounds_go_here_txt extends flash.utils.ByteArray {}
 @:bitmap("assets/tiled/12.png") class __ASSET__assets_tiled_12_png extends flash.display.BitmapData {}
 @:bitmap("assets/tiled/coin.png") class __ASSET__assets_tiled_coin_png extends flash.display.BitmapData {}

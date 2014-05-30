@@ -3,14 +3,14 @@
  <objectgroup name="collisions" width="40" height="24">
   <object type="collision" x="0" y="1" width="10" height="716"/>
   <object type="collision" x="1268" y="2" width="10" height="716"/>
-  <object type="collision" x="12" y="480" width="113" height="15"/>
+
   <object type="collision" x="1268" y="2" width="10" height="716"/>
-  <object type="collision" x="1152" y="482" width="113" height="15"/>
-  <object type="collision" x="15" y="654" width="1250" height="60"/>
+
+  <object type="collision" x="9" y="1" width="1257" height="14"/>
  </objectgroup>
  <objectgroup name="players" width="40" height="24">
-  <object type="player" x="165" y="541" width="35" height="145"/>
-  <object type="ai" x="1084" y="524" width="32" height="148"/>
+  <object type="playerleft" x="165" y="441" width="35" height="145"/>
+  <object type="playerright" x="1084" y="424" width="32" height="148"/>
   <object type="ball" x="539" y="590" width="57" height="62"/>
  </objectgroup>
 </map>

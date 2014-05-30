@@ -1,6 +1,6 @@
-package com.putaolad.soccer.controller;
-import com.putaolad.soccer.charater.Player;
-import com.putaolad.soccer.charater.Ball;
+package com.putaolab.soccer.controller;
+import com.putaolab.soccer.charater.Player;
+import com.putaolab.soccer.wiget.Ball;
 import flixel.FlxState;
 import flixel.FlxObject;
 import flixel.FlxG;
@@ -8,20 +8,20 @@ import flixel.util.FlxColor;
 import flixel.FlxSprite;
 class Controller{
     private var parentState:PlayState;
-    private var _player1:Player;
-    private var _player2:Player;
+    private var _playerLeft:Player;
+    private var _playerRight:Player;
+    private var player:Player;
     private var _ball:Ball;
     public function new(state:PlayState)
     {
         parentState = state;
-        _player1 = parentState.player1;
-        _player2 = parentState.player2;
+        _playerLeft = parentState.playerLeft;
+        _playerRight = parentState.playerRight;
         _ball = parentState.ball;
     }
 
     public function update():Void{
-
-
+        player.forecastDirection(_ball);
     }
 
 }

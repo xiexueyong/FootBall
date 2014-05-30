@@ -1,8 +1,11 @@
 package;
 
-import com.putaolad.soccer.controller.ControllerManager;
-import com.putaolad.soccer.charater.Ball;
-import com.putaolad.soccer.charater.Player;
+import component.PTFlxUIState;
+import flixel.util.FlxRect;
+import com.putaolab.soccer.controller.ControllerManager;
+import com.putaolab.soccer.controller.ControllerManager;
+import com.putaolab.soccer.wiget.Ball;
+import com.putaolab.soccer.charater.Player;
 import map.Level;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -14,13 +17,14 @@ import flixel.util.FlxMath;
 /**
  * A FlxState which can be used for the actual gameplay.
  */
-class PlayState extends FlxState
+class PlayState extends PTFlxUIState
 {
-    private var level:Level;
+    public static var level:Level;
+    private var _level:Level;
     private var _controllerManager:ControllerManager;
 
-    public var player1:Player;
-    public var player2:Player;
+    public var playerLeft:Player;
+    public var playerRight:Player;
     public var ball:Ball;
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -29,14 +33,19 @@ class PlayState extends FlxState
 	{
 		super.create();
 
-        level = new Level("assets/tiled/map.tmx",this);
+
+        _level = new Level("assets/tiled/map.tmx",this);
+        level = _level;
         _controllerManager = new ControllerManager(this);
 
-        add(level.backgroundGroup);
-        add(level.characterGroup);
-        add(level.decorateGroup);
-        add(level.foregroundGroup);
-        add(level.collisionGroup);
+        add(_level.backgroundGroup);
+        add(_level.comonBackgroundGroup);
+        add(_level.backDecorateGroup);
+        add(_level.characterGroup);
+        add(_level.decorateGroup);
+        add(_level.foregroundGroup);
+        add(_level.comonForegroundGroup);
+        add(_level.collisionGroup);
 
 
 	}
@@ -56,7 +65,10 @@ class PlayState extends FlxState
 	override public function update():Void
 	{
 		super.update();
-        level.update();
+        _level.update();
         _controllerManager.update();
+
+
+
 	}	
 }

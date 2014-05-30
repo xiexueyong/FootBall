@@ -1,8 +1,11 @@
 package map;
 
+import com.putaolab.football.ui.state.StateBG;
+import com.putaolab.soccer.charater.PlayerRight;
+import com.putaolab.soccer.charater.PlayerLeft;
 import flixel.FlxState;
-import com.putaolad.soccer.charater.Ball;
-import com.putaolad.soccer.charater.Player;
+import com.putaolab.soccer.wiget.Ball;
+import com.putaolab.soccer.charater.Player;
 import flixel.FlxBasic;
 import flixel.util.FlxColor;
 import flixel.FlxSprite;
@@ -32,12 +35,17 @@ class Level extends TiledMap
 	
 	public var backgroundGroup:FlxTypedGroup<FlxTilemapExt>;
 	public var foregroundGroup:FlxTypedGroup<FlxTilemapExt>;
+    public var comonBackgroundGroup:FlxTypedGroup<FlxBasic>;
+    public var comonForegroundGroup:FlxTypedGroup<FlxBasic>;
 	public var collisionGroup:FlxTypedGroup<FlxObject>;
+    public var backDecorateGroup:FlxTypedGroup<FlxBasic>;
 	public var characterGroup:FlxTypedGroup<FlxBasic>;
-    public var decorateGroup:FlxTypedGroup<FlxObject>;
+    public var decorateGroup:FlxTypedGroup<FlxBasic>;
 	
 	private var bounds:FlxRect;
     private var parentState:PlayState;
+
+    private var _terrain_deep:Float = Reg.TEERAIN_DEEP;
 
 //	public function new(level:Dynamic, animFile:Dynamic)
     public function new(level:Dynamic,parentState:PlayState)
@@ -46,14 +54,17 @@ class Level extends TiledMap
 		
 		// background and foreground groups
 		backgroundGroup = new FlxTypedGroup<FlxTilemapExt>();
+        comonBackgroundGroup = new FlxTypedGroup<FlxBasic>();
 		foregroundGroup = new FlxTypedGroup<FlxTilemapExt>();
 		// events and collision groups
+        backDecorateGroup = new FlxTypedGroup<FlxBasic>();
 		characterGroup = new FlxTypedGroup<FlxBasic>();
 		collisionGroup = new FlxTypedGroup<FlxObject>();
-        decorateGroup = new FlxTypedGroup<FlxObject>();
+        decorateGroup = new FlxTypedGroup<FlxBasic>();
+        comonForegroundGroup = new FlxTypedGroup<FlxBasic>();
 
 // The bound of the map for the camera
-		bounds = FlxRect.get(0, 0, fullWidth, fullHeight);
+		bounds = Reg.BOUNDS;
         this.parentState = parentState;
 		
 		var tileset:TiledTileSet;
@@ -126,6 +137,8 @@ class Level extends TiledMap
 		}
 		
 		loadObjects();
+        initializeBackground();
+        initializeCollisionLayer();
 	}
 	
 	public function loadObjects() {
@@ -135,49 +148,120 @@ class Level extends TiledMap
 			}
 		}
 	}
+    public function initializeGoal():Void{
+        var leftGoal:FlxSprite = new FlxSprite();
+        AssetsManager.getInstance().uploadTextureToSprite(leftGoal,"branka3");
+        leftGoal.x = 0;
+        leftGoal.y = Reg.BOUNDS.height - Reg.GOAL_HEIGHT;
+
+        var rightGoal:FlxSprite = new FlxSprite();
+        rightGoal.makeGraphic(100,100,FlxColor.RED);
+        AssetsManager.getInstance().uploadTextureToSprite(rightGoal,"branka3");
+        rightGoal.flipX = true;
+        rightGoal.x = FlxG.width - Reg.GOAL_WIDTH;
+        rightGoal.y = Reg.BOUNDS.height - Reg.GOAL_HEIGHT;
+
+        comonForegroundGroup.add(leftGoal);
+        comonForegroundGroup.add(rightGoal);
+    }
+    public function initializeBackground():Void{
+        comonBackgroundGroup.add(new StateBG());
+        //ground
+        var x:Float = 0;
+        var w:Float = 0;
+        while(x < FlxG.width){
+            var terrain:FlxSprite = new FlxSprite();
+            AssetsManager.getInstance().uploadTextureToSprite(terrain,"terrain");
+            terrain.y = Reg.BOUNDS.height;
+            terrain.x = x;
+            w = terrain.width;
+
+            x += w;
+            comonBackgroundGroup.add(terrain);
+        }
+        x = 0;
+        w = 0;
+
+        //grass
+        while(x < FlxG.width){
+            var grass:FlxSprite = new FlxSprite();
+            AssetsManager.getInstance().uploadTextureToSprite(grass,"grass");
+            grass.y = Reg.BOUNDS.height-10;
+            grass.x = x;
+            w = grass.width;
+            x += w;
+            comonBackgroundGroup.add(grass);
+        }
+
+        initializeGoal();
+    }
+    public function initializeCollisionLayer():Void{
+        //BOTTOM
+        var flloor:FlxObject = new FlxObject(0, Reg.BOUNDS.height,FlxG.width, 100);
+        flloor.solid = flloor.immovable = true;
+        collisionGroup.add(flloor);
+        //goal post collision
+        var goalPostWidth:Int = cast(Reg.GOAL_WIDTH,Int);
+        var goalPostHeight:Int= 10;
+        var leftPost:FlxObject = new FlxObject(0, Reg.BOUNDS.height-138-10,goalPostWidth, goalPostHeight);
+        leftPost.solid = leftPost.immovable = true;
+        collisionGroup.add(leftPost);
+        var rightPost:FlxObject = new FlxObject(Reg.BOUNDS.width-goalPostWidth, Reg.BOUNDS.height-138-10,goalPostWidth,goalPostHeight);
+        rightPost.solid = rightPost.immovable = true;
+        collisionGroup.add(rightPost);
+
+
+//        var leftPost:FlxSprite = new FlxSprite(0, Reg.BOUNDS.height-138-10);
+//        leftPost.makeGraphic(goalPostWidth, goalPostHeight,FlxColor.RED);
+//        leftPost.solid = leftPost.immovable = true;
+//        collisionGroup.add(leftPost);
+//        var rightPost:FlxSprite = new FlxSprite(Reg.BOUNDS.width-goalPostWidth, Reg.BOUNDS.height-138-10);
+//        rightPost.makeGraphic(goalPostWidth, goalPostHeight,FlxColor.RED);
+//        rightPost.solid = rightPost.immovable = true;
+//        collisionGroup.add(rightPost);
+
+
+
+    }
 	
 	private function loadObject(o:TiledObject, g:TiledObjectGroup) {
 		var x:Int = o.x;
 		var y:Int = o.y;
 		
 		switch(o.type.toLowerCase()) {
-			case "player":
-				var player:Player = new Player(x, y);
-//				player.setBoundsMap(this.getBounds());
+			case "playerright":
+				var player:Player = new PlayerRight(x, y,backDecorateGroup);
+                player.y = Reg.BOUNDS.height - 86;
+				player.setBoundsMap(this.getBounds());
 				player.controllable = true;
-                parentState.player2 = player;
-                parentState.player2.facing = FlxObject.LEFT;
+                parentState.playerRight = player;
 //				FlxG.camera.follow(player);
 				characterGroup.add(player);
-            case "ai":
-                var player:Player = new Player(x, y);
-//				player.setBoundsMap(this.getBounds());
+            case "playerleft":
+                var player:Player = new PlayerLeft(x, y,backDecorateGroup);
+                player.y = Reg.BOUNDS.height-86;
+				player.setBoundsMap(this.getBounds());
 				player.controllable = false;
-                parentState.player1 = player;
-                parentState.player1.facing = FlxObject.RIGHT;
+                parentState.playerLeft = player;
                 characterGroup.add(player);
 				
 			case "ball":
 				var ball:Ball = new Ball(x, y);
-//                ball.setBoundsMap(this.getBounds());
+                ball.x = (FlxG.width - ball.width)/2;
+                ball.y = Reg.BOUNDS.height - ball.height;
+                ball.setBoundsMap(this.getBounds());
                 parentState.ball = ball;
 				characterGroup.add(ball);
 				
 			case "collision":
 //				var coll:FlxObject = new FlxObject(x, y, o.width, o.height);
-//				#if !FLX_NO_DEBUG
-//				coll.debugBoundingBoxColor = 0xFFFF00FF;
-//				#end
 //				coll.immovable = true;
 //				collisionGroup.add(coll);
                 var s = new FlxSprite(x, y);
                 s.immovable = true;
                 s.makeGraphic(o.width, o.height,FlxColor.BLUE);
                 collisionGroup.add(s);
-            case "coin":
-                var tileset = g.map.getGidOwner(o.gid);
-                var coin = new FlxSprite(x, y, PATH_TILESETS + tileset.imageSource);
-                collisionGroup.add(coin);
+
 		}
 	}
 	
@@ -192,7 +276,15 @@ class Level extends TiledMap
 	
 	public function updateCollisions():Void {
 		FlxG.collide(characterGroup, collisionGroup);
-		FlxG.collide(characterGroup, characterGroup);
+
+        //球处于球员的面前才会碰撞检测，否则不碰撞检测。
+        if(parentState.playerLeft.x < parentState.ball.x){
+            FlxG.collide(parentState.playerLeft, parentState.ball);
+        }
+		if(parentState.playerRight.x > parentState.ball.x){
+            FlxG.collide(parentState.playerRight, parentState.ball);
+        }
+
 	}
 	
 	public function getBounds():FlxRect 

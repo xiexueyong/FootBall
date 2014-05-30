@@ -6,13 +6,16 @@ import flash.display.StageScaleMode;
 import flash.events.Event;
 import flash.Lib;
 import flixel.FlxGame;
+import flixel.FlxG;
 import flixel.FlxState;
+import getimage.ImageState;
+import flixel.util.FlxRect;
 
 class Main extends Sprite 
 {
 	var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
 	var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
-	var initialState:Class<FlxState> = PlayState; // The FlxState the game starts with.
+	var initialState:Class<FlxState> = MenuState; // The FlxState the game starts with.
 	var zoom:Float = -1; // If -1, zoom is automatically calculated to fit the window dimensions.
 	var framerate:Int = 60; // How many frames per second the game should run at.
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
@@ -28,8 +31,7 @@ class Main extends Sprite
 	public function new() 
 	{
 		super();
-		
-		if (stage != null) 
+		if (stage != null)
 		{
 			init();
 		}
@@ -45,7 +47,10 @@ class Main extends Sprite
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 		}
-		
+        Reg.BOUNDS = new FlxRect(0,0,FlxG.width,FlxG.height - Reg.TEERAIN_DEEP);
+
+        AssetsManager.getInstance().setSparrowData("assets/images/atlas.xml","assets/images/atlas.png");
+//        AssetsManager.getInstance.setSparrowData("assets/images/noxgames.xml","assets/images/noxgames.png");
 		setupGame();
 	}
 	
@@ -62,6 +67,8 @@ class Main extends Sprite
 			gameWidth = Math.ceil(stageWidth / zoom);
 			gameHeight = Math.ceil(stageHeight / zoom);
 		}
+        trace(gameWidth,gameHeight,"gameHeight");
+        trace(stageWidth,stageHeight,"stageHeight");
 
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 	}

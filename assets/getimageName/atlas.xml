@@ -25,107 +25,12 @@
     <SubTexture name="A" x="550" y="1296" width="28" height="28" frameX="-4" frameY="-4" frameWidth="36" frameHeight="36"/>
     <SubTexture name="A10_logo" x="3" y="375" width="156" height="48"/>
     <SubTexture name="B" x="935" y="1033" width="22" height="28" frameX="-7" frameY="-3" frameWidth="36" frameHeight="36"/>
-    <SubTexture name="Ball_Bounce/0000" x="65" y="1320" width="21" height="17" frameX="-20" frameY="-23" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0001" x="928" y="1530" width="23" height="17" frameX="-19" frameY="-22" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0002" x="958" y="1522" width="23" height="17" frameX="-20" frameY="-21" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0003" x="969" y="938" width="25" height="17" frameX="-18" frameY="-21" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0004" x="979" y="380" width="25" height="19" frameX="-19" frameY="-19" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0005" x="930" y="1276" width="27" height="21" frameX="-17" frameY="-18" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0006" x="770" y="1499" width="29" height="21" frameX="-16" frameY="-18" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0007" x="818" y="1478" width="29" height="23" frameX="-17" frameY="-16" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0008" x="894" y="1428" width="31" height="23" frameX="-15" frameY="-16" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0009" x="894" y="1401" width="31" height="23" frameX="-15" frameY="-16" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0010" x="704" y="327" width="33" height="25" frameX="-14" frameY="-14" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0011" x="704" y="298" width="33" height="25" frameX="-15" frameY="-14" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0012" x="279" y="1303" width="35" height="27" frameX="-13" frameY="-12" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0013" x="279" y="1272" width="35" height="27" frameX="-13" frameY="-12" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0014" x="960" y="1395" width="37" height="29" frameX="-12" frameY="-10" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0015" x="670" y="1468" width="37" height="29" frameX="-12" frameY="-10" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Ball_Bounce/0016" x="1020" y="3" width="1" height="1" frameX="0" frameY="0" frameWidth="63" frameHeight="63"/>
     <SubTexture name="C" x="933" y="1120" width="24" height="30" frameX="-6" frameY="-2" frameWidth="36" frameHeight="36"/>
     <SubTexture name="D" x="933" y="1186" width="24" height="28" frameX="-6" frameY="-3" frameWidth="36" frameHeight="36"/>
     <SubTexture name="E" x="67" y="1021" width="20" height="28" frameX="-8" frameY="-4" frameWidth="36" frameHeight="36"/>
     <SubTexture name="F" x="67" y="989" width="20" height="28" frameX="-8" frameY="-3" frameWidth="36" frameHeight="36"/>
     <SubTexture name="G" x="928" y="1496" width="26" height="30" frameX="-5" frameY="-2" frameWidth="36" frameHeight="36"/>
     <SubTexture name="H" x="701" y="1539" width="26" height="30" frameX="-5" frameY="-2" frameWidth="36" frameHeight="36"/>
-    <SubTexture name="Player_Cry/0000" x="462" y="1481" width="36" height="18" frameX="-45" frameY="-36" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0001" x="462" y="1503" width="36" height="16" frameX="-50" frameY="-37" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0002" x="536" y="1482" width="36" height="14" frameX="-53" frameY="-40" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0003" x="670" y="1501" width="34" height="14" frameX="-57" frameY="-41" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0004" x="551" y="544" width="32" height="16" frameX="-61" frameY="-40" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0005" x="502" y="1481" width="30" height="22" frameX="-64" frameY="-39" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0006" x="731" y="1541" width="26" height="24" frameX="-68" frameY="-41" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0007" x="933" y="1154" width="24" height="28" frameX="-71" frameY="-42" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0008" x="67" y="955" width="20" height="30" frameX="-74" frameY="-44" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0009" x="973" y="1591" width="16" height="34" frameX="-79" frameY="-46" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0010" x="780" y="1202" width="14" height="38" frameX="-82" frameY="-48" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0011" x="529" y="799" width="52" height="26" frameX="-45" frameY="-49" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0012" x="798" y="1337" width="48" height="32" frameX="-48" frameY="-46" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0013" x="732" y="1441" width="44" height="38" frameX="-51" frameY="-44" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0014" x="695" y="396" width="40" height="44" frameX="-55" frameY="-42" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0015" x="960" y="1462" width="36" height="30" frameX="-58" frameY="-39" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0016" x="536" y="1500" width="34" height="36" frameX="-61" frameY="-37" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0017" x="285" y="965" width="30" height="42" frameX="-65" frameY="-35" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0018" x="289" y="811" width="26" height="46" frameX="-69" frameY="-35" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Cry/0019" x="999" y="101" width="22" height="50" frameX="-73" frameY="-36" frameWidth="100" frameHeight="100"/>
-    <SubTexture name="Player_Hit/0000" x="985" y="1520" width="23" height="21" frameX="-20" frameY="-21" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0001" x="930" y="1218" width="27" height="27" frameX="-19" frameY="-17" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0002" x="704" y="261" width="33" height="33" frameX="-16" frameY="-14" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0003" x="274" y="1460" width="39" height="39" frameX="-13" frameY="-11" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0004" x="377" y="1367" width="43" height="41" frameX="-11" frameY="-10" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0005" x="690" y="1361" width="45" height="45" frameX="-10" frameY="-8" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0006" x="961" y="1178" width="45" height="45" frameX="-10" frameY="-8" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0007" x="961" y="1129" width="45" height="45" frameX="-10" frameY="-8" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0008" x="961" y="1080" width="45" height="45" frameX="-10" frameY="-8" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0009" x="635" y="1366" width="45" height="43" frameX="-10" frameY="-9" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0010" x="502" y="1507" width="29" height="29" frameX="-17" frameY="-16" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0011" x="546" y="1363" width="31" height="31" frameX="-15" frameY="-15" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0012" x="546" y="1328" width="31" height="31" frameX="-16" frameY="-15" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0013" x="281" y="1237" width="31" height="31" frameX="-15" frameY="-15" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0014" x="704" y="224" width="33" height="33" frameX="-15" frameY="-14" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0015" x="704" y="187" width="33" height="33" frameX="-15" frameY="-13" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Hit/0016" x="1020" y="3" width="1" height="1" frameX="0" frameY="0" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Kick/0000" x="875" y="1474" width="15" height="7" frameX="-40" frameY="-43" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Kick/0001" x="65" y="1341" width="21" height="9" frameX="-34" frameY="-41" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Kick/0002" x="670" y="1564" width="27" height="11" frameX="-28" frameY="-39" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Kick/0003" x="551" y="291" width="33" height="19" frameX="-22" frameY="-31" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Kick/0004" x="377" y="1412" width="43" height="27" frameX="-12" frameY="-23" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Kick/0005" x="421" y="1463" width="37" height="37" frameX="-6" frameY="-13" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Kick/0006" x="643" y="1532" width="23" height="33" frameX="-6" frameY="-14" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Kick/0007" x="856" y="1463" width="15" height="31" frameX="-7" frameY="-13" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Kick/0008" x="1001" y="539" width="7" height="15" frameX="-6" frameY="-19" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Player_Kick/0009" x="1020" y="3" width="1" height="1" frameX="0" frameY="0" frameWidth="63" frameHeight="63"/>
-    <SubTexture name="Smoke_Jump/0000" x="91" y="915" width="62" height="16" frameX="-22" frameY="-63" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0001" x="801" y="1027" width="64" height="16" frameX="-21" frameY="-62" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0002" x="666" y="888" width="66" height="16" frameX="-19" frameY="-62" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0003" x="737" y="872" width="66" height="18" frameX="-20" frameY="-60" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0004" x="739" y="604" width="68" height="18" frameX="-18" frameY="-60" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0005" x="739" y="582" width="68" height="18" frameX="-18" frameY="-60" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0006" x="739" y="558" width="68" height="20" frameX="-19" frameY="-58" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0007" x="741" y="228" width="70" height="20" frameX="-17" frameY="-58" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0008" x="233" y="373" width="70" height="22" frameX="-17" frameY="-56" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0009" x="233" y="347" width="70" height="22" frameX="-18" frameY="-56" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0010" x="883" y="939" width="74" height="22" frameX="-16" frameY="-56" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0011" x="889" y="911" width="76" height="24" frameX="-16" frameY="-54" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0012" x="432" y="826" width="80" height="24" frameX="-14" frameY="-54" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0013" x="319" y="761" width="82" height="26" frameX="-14" frameY="-52" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0014" x="320" y="647" width="84" height="26" frameX="-13" frameY="-52" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0015" x="3" y="717" width="88" height="26" frameX="-11" frameY="-52" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0016" x="909" y="509" width="92" height="26" frameX="-9" frameY="-52" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0017" x="811" y="485" width="94" height="28" frameX="-8" frameY="-50" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0018" x="912" y="477" width="96" height="28" frameX="-7" frameY="-50" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0019" x="811" y="424" width="100" height="28" frameX="-5" frameY="-50" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0020" x="435" y="398" width="102" height="30" frameX="-4" frameY="-48" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0021" x="813" y="320" width="102" height="28" frameX="-4" frameY="-48" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0022" x="435" y="368" width="104" height="26" frameX="-2" frameY="-48" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0023" x="813" y="352" width="102" height="24" frameX="-4" frameY="-47" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0024" x="919" y="404" width="102" height="18" frameX="-4" frameY="-48" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0025" x="919" y="404" width="102" height="18" frameX="-4" frameY="-48" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0026" x="813" y="402" width="102" height="18" frameX="-4" frameY="-48" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0027" x="813" y="402" width="102" height="18" frameX="-4" frameY="-48" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0028" x="813" y="380" width="102" height="18" frameX="-4" frameY="-48" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0029" x="813" y="380" width="102" height="18" frameX="-4" frameY="-48" frameWidth="106" frameHeight="106"/>
-    <SubTexture name="Smoke_Jump/0030" x="1020" y="3" width="1" height="1" frameX="0" frameY="0" frameWidth="106" frameHeight="106"/>
     <SubTexture name="achiev_bg1" x="424" y="1361" width="55" height="44"/>
     <SubTexture name="achiev_bg2" x="95" y="735" width="55" height="44"/>
     <SubTexture name="achiev_progress" x="540" y="564" width="43" height="44" frameX="-6" frameY="0" frameWidth="55" frameHeight="44"/>
@@ -143,22 +48,6 @@
     <SubTexture name="bg_mrak5" x="818" y="1463" width="34" height="11" frameX="0" frameY="-1" frameWidth="34" frameHeight="13"/>
     <SubTexture name="bg_sky" x="428" y="153" width="3" height="236"/>
     <SubTexture name="bg_tribuna_mid_empty" x="319" y="791" width="81" height="270"/>
-    <SubTexture name="bg_tribuna_people1" x="530" y="432" width="6" height="158" frameX="-1" frameY="-73" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people10" x="416" y="904" width="8" height="158" frameX="0" frameY="-73" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people11" x="517" y="742" width="8" height="160" frameX="0" frameY="-71" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people12" x="1001" y="558" width="6" height="160" frameX="-1" frameY="-71" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people13" x="404" y="840" width="8" height="160" frameX="0" frameY="-71" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people14" x="420" y="740" width="8" height="160" frameX="0" frameY="-71" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people15" x="408" y="647" width="8" height="160" frameX="0" frameY="-71" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people16" x="422" y="576" width="8" height="160" frameX="0" frameY="-71" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people2" x="1010" y="1040" width="8" height="160" frameX="0" frameY="-71" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people3" x="541" y="398" width="6" height="160" frameX="-1" frameY="-71" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people4" x="998" y="886" width="8" height="160" frameX="0" frameY="-71" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people5" x="423" y="412" width="8" height="160" frameX="0" frameY="-71" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people6" x="1011" y="847" width="8" height="160" frameX="0" frameY="-71" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people7" x="999" y="722" width="8" height="160" frameX="0" frameY="-71" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people8" x="1011" y="683" width="8" height="160" frameX="0" frameY="-71" frameWidth="8" frameHeight="270"/>
-    <SubTexture name="bg_tribuna_people9" x="1012" y="477" width="8" height="160" frameX="0" frameY="-71" frameWidth="8" frameHeight="270"/>
     <SubTexture name="body_algeria" x="950" y="1568" width="19" height="21"/>
     <SubTexture name="body_argentina" x="1001" y="1545" width="19" height="21"/>
     <SubTexture name="body_australia" x="978" y="1545" width="19" height="21"/>
@@ -477,11 +366,6 @@
     <SubTexture name="stats_progress2" x="307" y="201" width="116" height="10" frameX="0" frameY="-2" frameWidth="116" frameHeight="14"/>
     <SubTexture name="stats_progress3" x="307" y="187" width="116" height="10" frameX="0" frameY="-2" frameWidth="116" frameHeight="14"/>
     <SubTexture name="store_buy" x="587" y="341" width="104" height="52" frameX="0" frameY="-5" frameWidth="104" frameHeight="62"/>
-    <SubTexture name="store_discount1" x="807" y="889" width="78" height="28" frameX="0" frameY="-16" frameWidth="78" frameHeight="62"/>
-    <SubTexture name="store_discount2" x="583" y="902" width="78" height="28" frameX="0" frameY="-16" frameWidth="78" frameHeight="62"/>
-    <SubTexture name="store_discount3" x="584" y="870" width="78" height="28" frameX="0" frameY="-16" frameWidth="78" frameHeight="62"/>
-    <SubTexture name="store_discount4" x="584" y="838" width="78" height="28" frameX="0" frameY="-16" frameWidth="78" frameHeight="62"/>
-    <SubTexture name="store_discount5" x="585" y="806" width="78" height="28" frameX="0" frameY="-16" frameWidth="78" frameHeight="62"/>
     <SubTexture name="store_ico_antiall" x="157" y="849" width="62" height="62"/>
     <SubTexture name="store_ico_antibubblegum" x="91" y="849" width="62" height="62"/>
     <SubTexture name="store_ico_antifreeze" x="223" y="811" width="62" height="62"/>
