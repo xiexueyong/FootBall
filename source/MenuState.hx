@@ -55,56 +55,6 @@ class MenuState extends PTFlxUIState
         initButton();
     }
 
-    /*创建漂浮的云*/
-    private function cloudFly(add:Int=0):Void
-    {
-        var random = 1+Math.random()*4;
-        var cloud = AssetsManager.getInstance().getSprite(0,0,"bg_mrak"+Math.floor(random));
-        if(add==1){
-            cloud.x = FlxG.width+50;
-        }else{
-            cloud.x = Math.random()*FlxG.width;
-        }
-        cloud.y = Math.random()*FlxG.height*0.1;
-        cloud.ID = Math.round(random);
-        group.add(cloud);
-        _cloudarr.push(cloud);
-        if(Math.round(random) == 1){
-            cloud.velocity.x =Reg.cloudspeed1;
-        }
-        if(Math.round(random) == 2){
-            cloud.velocity.x =Reg.cloudspeed2;
-        }
-        if(Math.round(random) == 3){
-            cloud.velocity.x =Reg.cloudspeed3;
-        }
-        if(Math.round(random) == 4){
-            cloud.velocity.x =Reg.cloudspeed4;
-        }
-        if(Math.round(random) == 5){
-            cloud.velocity.x =Reg.cloudspeed5;
-        }
-    }
-
-
-    /*移动云彩和创建云彩*/
-    private function moveAndCreateCloud():Void{
-        if(_cloudarr == null){
-            _cloudarr = new Array<FlxSprite>();
-        }
-        var len = _cloudarr.length;
-        for(i in 0...len){
-            if(_cloudarr[i].x< -_cloudarr[i].width){
-                _cloudarr.splice(i,1);
-                cloudFly(1);
-            }
-        }
-        if(len < 5){
-            cloudFly(0);
-        }
-    }
-
-
     /*初始化按钮*/
     private function initButton():Void
     {
@@ -171,6 +121,5 @@ class MenuState extends PTFlxUIState
 	override public function update():Void
 	{
 		super.update();
-        moveAndCreateCloud();
-	}	
+	}
 }

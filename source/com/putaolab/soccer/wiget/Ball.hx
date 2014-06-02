@@ -20,7 +20,8 @@ class Ball extends BoundsSprite {
         elasticity = Reg.BALL_ELASTICITY;
         allowCollisions = FlxObject.ANY;
         solid = true;
-        AssetsManager.getInstance().uploadTextureToSprite(this,"ball_big");
+//        AssetsManager.getInstance().uploadTextureToSprite(this,"ball_big");
+        AssetsManager.getInstance().uploadTextureToSprite(this,"ball");
         collisionMap = new FlxRect(0,0,width,height);
 
     }
@@ -32,16 +33,8 @@ class Ball extends BoundsSprite {
         }
         this.velocity.y = -Math.sin(angle/180*Math.PI)*Reg.BALL_KICKEDVELOCITY;
         acceleration.y = Reg.BALL_GRAVITY;
-
-//        trace("direction:   ",direction);
-//        trace("velocity.x:   ",velocity.x);
-//        trace("velocity.y:   ",velocity.y);
-//        trace("angle:   ",angle);
-//        trace("Math.cos(angle):   ",Math.cos(angle/180*Math.PI));
-//        trace("Math.sin(angle):   ",Math.sin(angle/180*Math.PI));
-//        trace("..............................................  ",direction);
-
     }
+//    public function beKicked
     private function spining():Void{
 //        if(velocity.x > 0){
 //            angularVelocity = Reg.BALL_ANGULARVELOCITY;

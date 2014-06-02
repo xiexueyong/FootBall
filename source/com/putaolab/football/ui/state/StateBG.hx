@@ -19,6 +19,7 @@ class StateBG extends FlxSpriteGroup{
     private var _terrainY:Float;
     private var _titleY:Int= 80;
     private var _logo:Bool = false;
+    private var _cloudarr:Array<FlxSprite>;
 
     public function new(logo:Bool=false) {
         _logo = logo;
@@ -113,5 +114,60 @@ class StateBG extends FlxSpriteGroup{
             x+= w;
             add(grass);
         }
+    }
+
+    /*创建漂浮的云*/
+    private function cloudFly(add:Int=0):Void
+    {
+        var random = 1+Math.random()*4;
+        var cloud = AssetsManager.getInstance().getSprite(0,0,"bg_mrak"+Math.floor(random));
+        if(add==1){
+            cloud.x = FlxG.width+50;
+        }else{
+            cloud.x = Math.random()*FlxG.width;
+        }
+        cloud.y = Math.random()*FlxG.height*0.2;
+        cloud.ID = Math.round(random);
+        this.add(cloud);
+        _cloudarr.push(cloud);
+        if(Math.round(random) == 1){
+            cloud.velocity.x =Reg.cloudspeed1;
+        }
+        if(Math.round(random) == 2){
+            cloud.velocity.x =Reg.cloudspeed2;
+        }
+        if(Math.round(random) == 3){
+            cloud.velocity.x =Reg.cloudspeed3;
+        }
+        if(Math.round(random) == 4){
+            cloud.velocity.x =Reg.cloudspeed4;
+        }
+        if(Math.round(random) == 5){
+            cloud.velocity.x =Reg.cloudspeed5;
+        }
+    }
+
+
+    /*移动云彩和创建云彩*/
+    private function moveAndCreateCloud():Void{
+        if(_cloudarr == null){
+            _cloudarr = new Array<FlxSprite>();
+        }
+        var len = _cloudarr.length;
+        for(i in 0...len){
+            if(_cloudarr[i].x< -_cloudarr[i].width){
+                _cloudarr.splice(i,1);
+                cloudFly(1);
+            }
+        }
+        if(len < 5){
+            cloudFly(0);
+        }
+    }
+
+    override public function update():Void
+    {
+        super.update();
+        moveAndCreateCloud();
     }
 }

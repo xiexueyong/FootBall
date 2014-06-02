@@ -6,50 +6,46 @@ import flixel.FlxObject;
 import flixel.FlxG;
 import flixel.util.FlxColor;
 import flixel.FlxSprite;
-class PlayerRight extends Player{
+class AIPlayerLeft extends AIPlayer {
     public function new(X:Float = 0, Y:Float = 0,parent:FlxTypedGroup<FlxBasic>)
     {
+
         super(X, Y,parent);
-        facing = FlxObject.LEFT;
+        facing = FlxObject.RIGHT;
+
         //调整碰撞检测区域
+        flipX = true;
         width = 40;
         offset.x = 20;
-        AssetsManager.getInstance().uploadTextureToSprite(this,"head_carlos");
     }
 
 
     override public function kick(ball:Ball):Void{
-    if(ball.y > y){
-        var tx:Float = this.x - ball.x;
-        if(tx > 0 && tx < Reg.BALL_EFFECTIVEDISTANCE){
-            ball.beKicked("left",_kickAngle);
+        if(ball.y > y){
+            var tx:Float = this.x - ball.x;
+            if(tx < 0 && tx > -Reg.BALL_EFFECTIVEDISTANCE){
+                ball.beKicked("right",_kickAngle);
+            }
         }
-    }
-
-
     }
 //    override private function initializeBody():Void{
 //
 //    }
-
     override public function forecastDirection(ball:Ball):Void{
-//        if(ball.y <= y){
-//            return;
-//        }
         var tx:Float = this.x - ball.x;
-        if(ball.y > y && tx > 0 && tx < Reg.BALL_EFFECTIVEDISTANCE){
+        if(ball.y > y && tx < 0 && tx > -Reg.BALL_EFFECTIVEDISTANCE){
             var angle:Float = (1-Math.abs(tx/Reg.BALL_EFFECTIVEDISTANCE))*Reg.BALL_MAKANGLE;
             if(lob)
                 angle += Reg.BALL_ADDEDANGLE;
-            ball.showLeftDirectionTip(angle);
+            ball.showRightDirectionTip(angle);
             _kickAngle = Math.abs(angle);
         }else{
             _kickAngle = 0;
-            ball.removeLeftDirectionTip();
+            ball.removeRigthDirectionTip();
         }
     }
 
-   /* override public function update():Void{
+  /*  override public function update():Void{
         super.update();
     }*/
 

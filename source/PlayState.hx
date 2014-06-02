@@ -1,5 +1,6 @@
 package;
 
+import com.putaolab.soccer.charater.AIPlayer;
 import component.PTFlxUIState;
 import flixel.util.FlxRect;
 import com.putaolab.soccer.controller.ControllerManager;
@@ -23,8 +24,10 @@ class PlayState extends PTFlxUIState
     private var _level:Level;
     private var _controllerManager:ControllerManager;
 
-    public var playerLeft:Player;
+    public var playerLeft:AIPlayer;
     public var playerRight:Player;
+    public var goalLeft:FlxSprite;
+    public var goalRight:FlxSprite;
     public var ball:Ball;
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -37,6 +40,12 @@ class PlayState extends PTFlxUIState
         _level = new Level("assets/tiled/map.tmx",this);
         level = _level;
         _controllerManager = new ControllerManager(this);
+
+        playerLeft.stateMachine.opponent = playerRight;
+        playerLeft.stateMachine.leftGoal = goalLeft;
+        playerLeft.stateMachine.rightGoal = goalRight;
+        playerLeft.stateMachine.ball = ball;
+
 
         add(_level.backgroundGroup);
         add(_level.comonBackgroundGroup);

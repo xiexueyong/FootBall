@@ -1,5 +1,7 @@
 package map;
 
+import com.putaolab.soccer.charater.AIPlayer;
+import com.putaolab.soccer.charater.AIPlayerLeft;
 import com.putaolab.football.ui.state.StateBG;
 import com.putaolab.soccer.charater.PlayerRight;
 import com.putaolab.soccer.charater.PlayerLeft;
@@ -163,6 +165,9 @@ class Level extends TiledMap
 
         comonForegroundGroup.add(leftGoal);
         comonForegroundGroup.add(rightGoal);
+
+        parentState.goalLeft = leftGoal;
+        parentState.goalRight = rightGoal;
     }
     public function initializeBackground():Void{
         comonBackgroundGroup.add(new StateBG());
@@ -238,7 +243,7 @@ class Level extends TiledMap
 //				FlxG.camera.follow(player);
 				characterGroup.add(player);
             case "playerleft":
-                var player:Player = new PlayerLeft(x, y,backDecorateGroup);
+                var player:AIPlayer = new AIPlayerLeft(x, y,backDecorateGroup);
                 player.y = Reg.BOUNDS.height-86;
 				player.setBoundsMap(this.getBounds());
 				player.controllable = false;
@@ -254,13 +259,13 @@ class Level extends TiledMap
 				characterGroup.add(ball);
 				
 			case "collision":
-//				var coll:FlxObject = new FlxObject(x, y, o.width, o.height);
-//				coll.immovable = true;
-//				collisionGroup.add(coll);
-                var s = new FlxSprite(x, y);
-                s.immovable = true;
-                s.makeGraphic(o.width, o.height,FlxColor.BLUE);
-                collisionGroup.add(s);
+				var coll:FlxObject = new FlxObject(x, y, o.width, o.height);
+				coll.immovable = true;
+				collisionGroup.add(coll);
+//                var s = new FlxSprite(x, y);
+//                s.immovable = true;
+//                s.makeGraphic(o.width, o.height,FlxColor.BLUE);
+//                collisionGroup.add(s);
 
 		}
 	}
