@@ -67,34 +67,7 @@
       <file leaf-file-name="PlayState.hx" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/PlayState.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="21" selection-start="2398" selection-end="2398" vertical-scroll-proportion="-37.52" vertical-offset="1112" max-vertical-offset="3750">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerRight.hx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/PlayerRight.hx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="29" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1550">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AIPlayerLeftController.hx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/controller/AIPlayerLeftController.hx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="5" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1600">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ControllerManager.hx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/controller/ControllerManager.hx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="24" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="925">
+            <state line="46" column="80" selection-start="1379" selection-end="1379" vertical-scroll-proportion="-11.52" vertical-offset="862" max-vertical-offset="3750">
               <folding />
             </state>
           </provider>
@@ -103,52 +76,79 @@
       <file leaf-file-name="TwoPlayerState.hx" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/TwoPlayerState.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="252" column="21" selection-start="10375" selection-end="10375" vertical-scroll-proportion="-15.04" vertical-offset="5924" max-vertical-offset="6700">
+            <state line="6" column="29" selection-start="243" selection-end="243" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="6000">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OnePlayerState.hx" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="OnePlayerState.hx" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/OnePlayerState.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="236" column="65" selection-start="8847" selection-end="8847" vertical-scroll-proportion="0.42839035" vertical-offset="5562" max-vertical-offset="6925">
+            <state line="227" column="28" selection-start="8302" selection-end="8302" vertical-scroll-proportion="52.48" vertical-offset="6987" max-vertical-offset="7825">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="atlas.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/images/atlas.xml">
+      <file leaf-file-name="RankingState.hx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/RankingState.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="333" column="33" selection-start="40092" selection-end="40098" vertical-scroll-proportion="-8.52" vertical-offset="8112" max-vertical-offset="12750">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="4575" max-vertical-offset="5450">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Level.hx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/map/Level.hx">
+      <file leaf-file-name="Reg.hx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/Reg.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="242" column="21" selection-start="8484" selection-end="8484" vertical-scroll-proportion="0.0" vertical-offset="6004" max-vertical-offset="7975">
+            <state line="57" column="25" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.0" vertical-offset="1061" max-vertical-offset="2375">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.hx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/Player.hx">
+      <file leaf-file-name="MenuState.hx" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/MenuState.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="12" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0" vertical-offset="354" max-vertical-offset="3750">
+            <state line="54" column="5" selection-start="1620" selection-end="1620" vertical-scroll-proportion="0.4164619" vertical-offset="1011" max-vertical-offset="3275">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerLeft.hx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/PlayerLeft.hx">
+      <file leaf-file-name="ResultState.hx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/ResultState.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="33" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0" vertical-offset="661" max-vertical-offset="1475">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2000">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SelectTeamState.hx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/SelectTeamState.hx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="112" column="13" selection-start="3937" selection-end="3937" vertical-scroll-proportion="0.0" vertical-offset="2486" max-vertical-offset="4050">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StateBG.hx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/StateBG.hx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="95" column="12" selection-start="2669" selection-end="2669" vertical-scroll-proportion="0.0" vertical-offset="1411" max-vertical-offset="4400">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FinalsState.hx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/FinalsState.hx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="157" column="13" selection-start="6250" selection-end="6250" vertical-scroll-proportion="0.0" vertical-offset="3300" max-vertical-offset="6025">
               <folding />
             </state>
           </provider>
@@ -190,12 +190,10 @@
         <option value="$PROJECT_DIR$/source/com/putaolab/soccer/controller/AIPlayerLeftController.hx" />
         <option value="$PROJECT_DIR$/assets/tiled/map.tmx" />
         <option value="$PROJECT_DIR$/source/com/putaolab/soccer/charater/BoundsSprite.hx" />
-        <option value="$PROJECT_DIR$/source/Reg.hx" />
         <option value="$PROJECT_DIR$/source/fms/AttackState.hx" />
         <option value="$PROJECT_DIR$/source/fms/DefendState.hx" />
         <option value="$PROJECT_DIR$/source/fms/GlobalState.hx" />
         <option value="$PROJECT_DIR$/source/fms/StateMachine.hx" />
-        <option value="$PROJECT_DIR$/source/MenuState.hx" />
         <option value="$PROJECT_DIR$/source/Main.hx" />
         <option value="$PROJECT_DIR$/source/com/putaolab/soccer/wiget/FlyDirection.hx" />
         <option value="$PROJECT_DIR$/source/com/putaolab/soccer/wiget/LeftFlyDirection.hx" />
@@ -212,9 +210,11 @@
         <option value="$PROJECT_DIR$/source/com/putaolab/soccer/charater/AIPlayer.hx" />
         <option value="$PROJECT_DIR$/source/com/putaolab/soccer/charater/AIPlayerLeft.hx" />
         <option value="$PROJECT_DIR$/source/com/putaolab/soccer/charater/Player.hx" />
-        <option value="$PROJECT_DIR$/source/PlayState.hx" />
         <option value="$PROJECT_DIR$/source/com/putaolab/football/ui/state/OnePlayerState.hx" />
         <option value="$PROJECT_DIR$/source/com/putaolab/football/ui/state/TwoPlayerState.hx" />
+        <option value="$PROJECT_DIR$/source/PlayState.hx" />
+        <option value="$PROJECT_DIR$/source/Reg.hx" />
+        <option value="$PROJECT_DIR$/source/MenuState.hx" />
       </list>
     </option>
   </component>
@@ -326,242 +326,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="map" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="getimage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="putaolab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soccer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wiget" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="putaolab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soccer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="putaolab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="soccer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="charater" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="source" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="putaolab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tiled" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FootBall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -881,12 +645,12 @@
       <workItem from="1401414573531" duration="23241000" />
       <workItem from="1401675437065" duration="13816000" />
       <workItem from="1401756424845" duration="32479000" />
-      <workItem from="1401847316880" duration="16731000" />
+      <workItem from="1401847316880" duration="18190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194570000" />
+    <option name="totallyTimeSpent" value="196029000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
@@ -962,26 +726,11 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/Haxe/haxe/std/flash/display/Sprite.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525" />
-      </provider>
-    </entry>
-    <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/FlxGame.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="822" column="12" selection-start="19172" selection-end="19172" vertical-scroll-proportion="-38.28" vertical-offset="19593" max-vertical-offset="21275" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/wiget/Wiget.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="20" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1075">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/controller/PlayerRightController.hx">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="29" selection-start="384" selection-end="389" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1200">
@@ -1003,13 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/StateBG.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="27" selection-start="3164" selection-end="3164" vertical-scroll-proportion="0.0" vertical-offset="2625" max-vertical-offset="4475">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Tools/Haxe/haxe/lib/flixel-ui/1,0,2/flixel/addons/ui/FlxUIState.hx">
       <provider selected="true" editor-type-id="text-editor">
         <state line="154" column="20" selection-start="3828" selection-end="3828" vertical-scroll-proportion="0.0" vertical-offset="3551" max-vertical-offset="5100">
@@ -1022,11 +764,6 @@
         <state line="35" column="31" selection-start="1016" selection-end="1016" vertical-scroll-proportion="-20.6" vertical-offset="360" max-vertical-offset="2125">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/SelectTeamState.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3075" />
       </provider>
     </entry>
     <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/FlxSprite.hx">
@@ -1116,13 +853,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/Reg.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="34" selection-start="2200" selection-end="2200" vertical-scroll-proportion="0.0" vertical-offset="1353" max-vertical-offset="2250">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/Main.hx">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="38" selection-start="1143" selection-end="1143" vertical-scroll-proportion="0.0" vertical-offset="803" max-vertical-offset="2000">
@@ -1196,13 +926,6 @@
     <entry file="file://$PROJECT_DIR$/source/fms/StateMachine.hx">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="40" selection-start="921" selection-end="921" vertical-scroll-proportion="0.0" vertical-offset="683" max-vertical-offset="2475">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/MenuState.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="57" selection-start="3542" selection-end="3542" vertical-scroll-proportion="0.0" vertical-offset="2303" max-vertical-offset="3250">
           <folding />
         </state>
       </provider>
@@ -1284,13 +1007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/PlayState.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="21" selection-start="2398" selection-end="2398" vertical-scroll-proportion="-37.52" vertical-offset="1112" max-vertical-offset="3750">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/images/atlas.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="333" column="33" selection-start="40092" selection-end="40098" vertical-scroll-proportion="-8.52" vertical-offset="8112" max-vertical-offset="12750">
@@ -1298,16 +1014,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/TwoPlayerState.hx">
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/OnePlayerState.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="252" column="21" selection-start="10375" selection-end="10375" vertical-scroll-proportion="-15.04" vertical-offset="5924" max-vertical-offset="6700">
+        <state line="227" column="28" selection-start="8302" selection-end="8302" vertical-scroll-proportion="52.48" vertical-offset="6987" max-vertical-offset="7825">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/OnePlayerState.hx">
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/RankingState.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="65" selection-start="8847" selection-end="8847" vertical-scroll-proportion="0.42839035" vertical-offset="5562" max-vertical-offset="6925">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/ResultState.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2000">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/StateBG.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="12" selection-start="2669" selection-end="2669" vertical-scroll-proportion="0.0" vertical-offset="1411" max-vertical-offset="4400">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/TwoPlayerState.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="29" selection-start="243" selection-end="243" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="6000">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/PlayState.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="80" selection-start="1379" selection-end="1379" vertical-scroll-proportion="-11.52" vertical-offset="862" max-vertical-offset="3750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/FinalsState.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="13" selection-start="6250" selection-end="6250" vertical-scroll-proportion="0.0" vertical-offset="3300" max-vertical-offset="6025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/SelectTeamState.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="13" selection-start="3937" selection-end="3937" vertical-scroll-proportion="0.0" vertical-offset="2486" max-vertical-offset="4050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Reg.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="25" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.0" vertical-offset="1061" max-vertical-offset="2375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/MenuState.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="5" selection-start="1620" selection-end="1620" vertical-scroll-proportion="0.4164619" vertical-offset="1011" max-vertical-offset="3275">
           <folding />
         </state>
       </provider>

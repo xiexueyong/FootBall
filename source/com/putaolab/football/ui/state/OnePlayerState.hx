@@ -83,7 +83,9 @@ class OnePlayerState extends PTFlxUIState{
         group.add(playicon);
     }
 
-    /*根据小组id得到国家*/
+    /*
+    * 根据小组id得到国家
+    * */
     public function setCountry():Void
     {
         var countryarr = Model.getInstance().getCountryFromTeam(_index);
@@ -96,16 +98,16 @@ class OnePlayerState extends PTFlxUIState{
 
             var btnflagbg2 = new PTFlxUIButton();
             cursor.addWidget(btnflagbg2);
-            btnflagbg2.params= ["btnflagbg2",btnflagbg1,getFootballarFromCountry(countryarr[i])];
+            btnflagbg2.params= ["btnflagbg2",btnflagbg1,getFootballarFromCountry(countryarr[i]),countryarr[i]];
             btnflagbg2.loadGraphicsUpOverDown(countrbg2.getFlxFrameBitmapData());
             btnflagbg1.x = btnflagbg2.x = 50;
-            btnflagbg1.y = btnflagbg2.y = 140+i*btnflagbg1.height;
+            btnflagbg1.y = btnflagbg2.y = 50+i*btnflagbg1.height;
             add(btnflagbg2);
             add(btnflagbg1);
             btnflagbg1.visible = false;
             var country = AssetsManager.getInstance().getSprite(0,0,countryarr[i]);
-            country.x = 60;
-            country.y = 150+btnflagbg1.height*i;
+            country.x = 66;
+            country.y = 67+btnflagbg1.height*i;
 //            trace(countryarr[i]+"DDD"+country);
             add(country);
 
@@ -115,30 +117,34 @@ class OnePlayerState extends PTFlxUIState{
     }
 
     /*得到每个国家的队员名*/
-    private function getFootballarFromCountry(country:String):Array<String>
+    private function getFootballarFromCountry(country:String):Array<Dynamic>
     {
-        var footballerarr = ["head_balotelli"];
+        var footballerarr = Model.getInstance().getFootballarFromCountry(country);
         return footballerarr;
     }
 
     /*设置每个国家的队员*/
-    private function setFootBallerFormCountry(?arr:Array<String> ):Void
+    private function setFootBallerFormCountry(?arr:Array<Dynamic> ):Void
     {
         if(arr==null){
-            arr = ["head_alves","head_balotelli"];
+            arr = [{head:"head_alves",name:"head_balotelli"}];
         }
         var len = arr.length;
         for(i in 0...len){
-            var footballer = AssetsManager.getInstance().getSprite(0,0,arr[i]);
-            footballer.x = (FlxG.width-footballer.width-50)*0.5+footballer.width*i;
+            var footballer = AssetsManager.getInstance().getSprite(0,0,arr[i].head);
+            footballer.x = footballer.width*i;
             footballer.y = FlxG.height - (Reg.TEERAIN_DEEP+footballer.height);
 
 
-            setFootBallerBody(footballer.x+(footballer.width-28)*0.5,footballer.y+footballer.height-8);
+            setFootBallerBody(footballer.x+(footballer.width-30)*0.5,footballer.y+footballer.height-5);
             footballergroup.add(footballer);
+            footballergroup.x = (FlxG.width-footballergroup.width)*0.5;
         }
     }
 
+    /*
+    *设置队员的身体
+    * */
     private function setFootBallerBody(X:Float,Y:Float):Void
     {
         var body = AssetsManager.getInstance().getSprite(0,0,"body_algeria");
@@ -148,6 +154,9 @@ class OnePlayerState extends PTFlxUIState{
 //        setFootBallerHand(body.x,body.y);
     }
 
+    /*
+    *设置队员的手臂
+    * */
     private function setFootBallerHand(X:Float,Y:Float):Void
     {
         var hand = AssetsManager.getInstance().getSprite(0,0,"hand_algeria");
@@ -161,64 +170,91 @@ class OnePlayerState extends PTFlxUIState{
 
     }
 
+    private var _propertygroup:FlxSpriteGroup;
     /*设置球员属性面板*/
     private function initPropertyPanel():Void{
+        if(_propertygroup==null){
+            _propertygroup = new FlxSpriteGroup();
+            add(_propertygroup);
+        }
         var footballeronepanel = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_stage1");
-        add(footballeronepanel);
-        footballeronepanel.scale.y = 2.5;
-        footballeronepanel.scale.x = 2.5;
-        footballeronepanel.x = (FlxG.width-footballeronepanel.width)*0.5;
-        footballeronepanel.y = (FlxG.height-footballeronepanel.height)*0.5;
+        _propertygroup.add(footballeronepanel);
+        footballeronepanel.origin.x = footballeronepanel.origin.y = 0;
+        footballeronepanel.scale.y = 2.6;
+        footballeronepanel.scale.x = 2.3;
+//        footballeronepanel.x = (FlxG.width-footballeronepanel.width)*0.5;
+//        footballeronepanel.y = (FlxG.height-footballeronepanel.height)*0.2;
         var effectjump = AssetsManager.getInstance().getSprite(0,0,"effect_ico_jump");
         var effectspeed = AssetsManager.getInstance().getSprite(0,0,"effect_ico_speed");
         var kick = AssetsManager.getInstance().getSprite(0,0,"btn_iko_kick");
-        effectjump.x = (FlxG.width-240)*0.5;
-        effectjump.y = (FlxG.height-140)*0.5;
-        effectspeed.x = (FlxG.width-240)*0.5;
-        effectspeed.y = (FlxG.height-40)*0.5;
-        kick.x = (FlxG.width-240)*0.5;
-        kick.y = (FlxG.height+60)*0.5;
-        add(kick);
-        add(effectspeed);
-        add(effectjump);
+        effectjump.x = 10;
+        effectjump.y = 60;
+        effectspeed.x = 10;
+        effectspeed.y = 115;
+        kick.x = 10;
+        kick.y = 170;
+        kick.origin.x = kick.origin.y = 0;
+        kick.scale.x = kick.scale.y = 0.7;
+        _propertygroup.add(kick);
+        _propertygroup.add(effectspeed);
+        _propertygroup.add(effectjump);
+
 
         refresh1();
+        _propertygroup.x = (FlxG.width-footballeronepanel.width)*0.5;
+        _propertygroup.y = (FlxG.height-footballeronepanel.height)*0.2;
     }
     /*刷新球员属性*/
     private function refresh1():Void
     {
-        var statsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
-        var statsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
-        var statsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
-        var statsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
-        add(statsbg);
-        add(statsprogress3);
-        add(statsprogress);
-        statsbg.x = (FlxG.width-44)*0.5;
-        statsprogress3.x = statsprogress.x = (FlxG.width-40)*0.5;
-        statsbg.y =statsprogress3.y = statsprogress.y = (FlxG.height-100)*0.5;
+        var effectjumpstatsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
+        var effectjumpstatsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
+        var effectjumpstatsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
+        var effectjumpstatsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
+        effectjumpstatsbg.x = 105;
+        effectjumpstatsprogress3.x = effectjumpstatsprogress.x = 108;
+        effectjumpstatsbg.y =effectjumpstatsprogress3.y = effectjumpstatsprogress.y = 85;
+        _propertygroup.add(effectjumpstatsbg);
+        _propertygroup.add(effectjumpstatsprogress3);
+        _propertygroup.add(effectjumpstatsprogress);
 
-        var statsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
-        var statsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
-        var statsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
-        var statsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
-        add(statsbg);
-        add(statsprogress3);
-        add(statsprogress);
-        statsbg.x = (FlxG.width-44)*0.5;
-        statsprogress3.x = statsprogress.x = (FlxG.width-40)*0.5;
-        statsbg.y =statsprogress3.y = statsprogress.y = (FlxG.height)*0.5;
+        var effectspeedstatsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
+        var effectspeedstatsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
+        var effectspeedstatsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
+        var effectspeedstatsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
+        effectspeedstatsbg.x = 105;
+        effectspeedstatsprogress3.x = effectspeedstatsprogress.x = 108;
+        effectspeedstatsbg.y =effectspeedstatsprogress3.y = effectspeedstatsprogress.y = 140;
+        _propertygroup.add(effectspeedstatsbg);
+        _propertygroup.add(effectspeedstatsprogress3);
+        _propertygroup.add(effectspeedstatsprogress);
 
-        var statsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
-        var statsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
-        var statsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
-        var statsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
-        add(statsbg);
-        add(statsprogress3);
-        add(statsprogress);
-        statsbg.x = (FlxG.width-44)*0.5;
-        statsprogress3.x = statsprogress.x = (FlxG.width-40)*0.5;
-        statsbg.y =statsprogress3.y = statsprogress.y = (FlxG.height+100)*0.5;
+        var kickstatsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
+        var kickstatsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
+        var kickstatsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
+        var kickstatsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
+        kickstatsbg.x = 105;
+        kickstatsprogress3.x = kickstatsprogress.x = 108;
+        kickstatsbg.y =kickstatsprogress3.y = kickstatsprogress.y = 195;
+        _propertygroup.add(kickstatsbg);
+        _propertygroup.add(kickstatsprogress3);
+        _propertygroup.add(kickstatsprogress);
+//        initBuyBtn(effectjumpstatsprogress);
+//        initBuyBtn(effectspeedstatsprogress);
+//        initBuyBtn(kickstatsprogress);
+    }
+
+    private function initBuyBtn(sp:FlxSprite):Void
+    {
+        var buy = AssetsManager.getInstance().getSprite(0,0,"btn_iko_buy");
+        var buybtn = new PTFlxUIButton();
+        buybtn.loadGraphicsUpOverDown(buy.getFlxFrameBitmapData());
+        trace(buybtn);
+//        buybtn.x = sp.x + sp.width + 10;
+//        buybtn.y = sp.y -10;
+        buybtn.x = 100;
+        buybtn.y = 200;
+        _propertygroup.add(buybtn);
     }
 
 
@@ -231,7 +267,7 @@ class OnePlayerState extends PTFlxUIState{
                         case "groups":
                             FlxG.switchState(new SelectTeamState());
                         case "play":
-                            FlxG.switchState(new PlayState("drogba","mexico","blochin","brazil"));
+                            FlxG.switchState(new RankingState(_index,params[3]));
                         case "btnflagbg2":
                             if(_selectedcountry!=null){
                                 _selectedcountry.visible = false;

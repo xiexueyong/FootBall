@@ -44,7 +44,7 @@ class PlayState extends PTFlxUIState
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
-    public function new(leftName:String,leftCountry:String,rightName:String,rightCountry:String):Void{
+    public function new(?leftName:String,?leftCountry:String,?rightName:String,?rightCountry:String):Void{
         super();
         this.leftName = leftName;
         this.rightName = rightName;

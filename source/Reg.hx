@@ -82,4 +82,9 @@ class Reg
     public static var cloudspeed3=-20;
     public static var cloudspeed4=-30;
     public static var cloudspeed5=-30;
+    //排位赛进行到那一阶段
+    public static var sixtween:Int = 16;
+    public static var eight:Int = 8;
+    public static var four:Int = 4;
+    public static var two:Int = 2;
 }

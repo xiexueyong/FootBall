@@ -29,7 +29,6 @@ class StateBG extends FlxSpriteGroup{
     public function init():Void
     {
         var bgsky = AssetsManager.getInstance().getSprite(0,0,"bg_sky");
-        trace(FlxG.width,bgsky.width,"FlxG.width,bgsky.width");
         bgsky.origin.x = 0;
         bgsky.origin.y = 0;
         bgsky.scale.x = FlxG.width/bgsky.width;
@@ -60,7 +59,6 @@ class StateBG extends FlxSpriteGroup{
             bg.origin.y = bg.height;
             bg.y = Reg.BOUNDS.height - bg.height;
             bg.x = x;
-            bg.scale.y = 1.5;
             w = bg.width;
             x+= w;
             add(bg);
@@ -72,7 +70,6 @@ class StateBG extends FlxSpriteGroup{
             {
                 var tribunapeople = AssetsManager.getInstance().getSprite(0,0,"bg_tribuna_people"+j);
                 tribunapeople.origin.y = tribunapeople.height;
-                tribunapeople.scale.y = 1.5;
                 tribunapeople.y = bg.y;
                 tribunapeople.x = peoplex;
                 peoplew = tribunapeople.width;
@@ -109,7 +106,7 @@ class StateBG extends FlxSpriteGroup{
         while(x<FlxG.width){
             var grass = AssetsManager.getInstance().getSprite(0,0,"grass");
             grass.x = x;
-            grass.y =Reg.BOUNDS.height-10;
+            grass.y =Reg.BOUNDS.height-20;
             w= grass.width;
             x+= w;
             add(grass);
@@ -119,25 +116,25 @@ class StateBG extends FlxSpriteGroup{
     /*创建漂浮的云*/
     private function cloudFly(add:Int=0):Void
     {
-        var random = 1+Math.random()*4;
-        var cloud = AssetsManager.getInstance().getSprite(0,0,"bg_mrak"+Math.floor(random));
-        if(add==1){
-            cloud.x = FlxG.width+50;
-        }else{
-            cloud.x = Math.random()*FlxG.width;
-        }
-        cloud.y = Math.random()*FlxG.height*0.2;
-        cloud.ID = Math.round(random);
-        this.add(cloud);
-        _cloudarr.push(cloud);
-        if(Math.round(random) == 1){
-            cloud.velocity.x =Reg.cloudspeed1;
-        }
-        if(Math.round(random) == 2){
-            cloud.velocity.x =Reg.cloudspeed2;
-        }
-        if(Math.round(random) == 3){
-            cloud.velocity.x =Reg.cloudspeed3;
+            var random = 1+Math.random()*4;
+            var cloud = AssetsManager.getInstance().getSprite(0,0,"bg_mrak"+Math.floor(random));
+            if(add==1){
+                cloud.x = FlxG.width+50;
+            }else{
+                cloud.x = Math.random()*FlxG.width;
+            }
+            cloud.y = Math.random()*FlxG.height*0.2;
+            cloud.ID = Math.round(random);
+            this.add(cloud);
+            _cloudarr.push(cloud);
+            if(Math.round(random) == 1){
+                cloud.velocity.x =Reg.cloudspeed1;
+            }
+            if(Math.round(random) == 2){
+                cloud.velocity.x =Reg.cloudspeed2;
+            }
+            if(Math.round(random) == 3){
+                cloud.velocity.x =Reg.cloudspeed3;
         }
         if(Math.round(random) == 4){
             cloud.velocity.x =Reg.cloudspeed4;

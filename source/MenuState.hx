@@ -24,14 +24,13 @@ class MenuState extends PTFlxUIState
     private var _twoplayer:FlxUIButton ;
     private var _sound:FlxUIButton;
     private var _shop:FlxUIButton;
-    private var _cloudarr:Array<FlxSprite>;
     private var group:FlxSpriteGroup;
 
-	/**
+/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
-	override public function create():Void
-	{
+    override public function create():Void
+    {
         Reg.BOUNDS = new FlxRect(126,0,FlxG.width-252,FlxG.height - Reg.TEERAIN_DEEP);
         _makeCursor = true;
         group = new FlxSpriteGroup();
@@ -46,7 +45,7 @@ class MenuState extends PTFlxUIState
 //        var sp = AssetsManager.getInstance().getAnimation(200,200,"giroud","bg_tribuna_people",15);
 //        sp.animation.play("giroud");
 //        add(sp);
-	}
+    }
 
 
     public function init():Void
@@ -55,10 +54,12 @@ class MenuState extends PTFlxUIState
         initButton();
     }
 
-    /*初始化按钮*/
+
+
+/*初始化按钮*/
     private function initButton():Void
     {
-        _oneplayer = new PTFlxUIButton(400,230,null);
+        _oneplayer = new PTFlxUIButton(0,0,null);
         cursor.addWidget(_oneplayer);
         _oneplayer.params = ["oneplayer"];
         var oneplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
@@ -72,16 +73,16 @@ class MenuState extends PTFlxUIState
         group.add(playicon);
 
 
-        _twoplayer = new PTFlxUIButton(400,300,null);
+        _twoplayer = new PTFlxUIButton(0,0,null);
         cursor.addWidget(_twoplayer);
         _twoplayer.params = ["twoplayer"];
         var twoplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
         var mainplayer = AssetsManager.getInstance().getSprite(0,0,"btn_iko_multiplayer");
         _twoplayer.loadGraphicsUpOverDown(twoplayer.getFlxFrameBitmapData());
         _twoplayer.x = (FlxG.width-_twoplayer.width)*0.5;
-        _twoplayer.y = (FlxG.height-50)*0.5;
+        _twoplayer.y = (FlxG.height-0)*0.5;
         mainplayer.x = (FlxG.width-_twoplayer.width)*0.5;
-        mainplayer.y = (FlxG.height-50)*0.5;
+        mainplayer.y = (FlxG.height-0)*0.5;
         _twoplayer.scale.x = 0.8;
         _twoplayer.scale.y = 0.8;
         group.add(_twoplayer);
@@ -106,7 +107,7 @@ class MenuState extends PTFlxUIState
     }
 
 
-	/**
+/**
 	 * Function that is called when this state is destroyed - you might want to
 	 * consider setting all objects this state uses to null to help garbage collection.
 	 */
@@ -115,11 +116,11 @@ class MenuState extends PTFlxUIState
         super.destroy();
     }
 
-    /**
+/**
 	 * Function that is called once every frame.
 	 */
-	override public function update():Void
-	{
-		super.update();
-	}
+    override public function update():Void
+    {
+        super.update();
+    }
 }

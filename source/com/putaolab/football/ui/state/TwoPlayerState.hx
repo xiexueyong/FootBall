@@ -46,8 +46,9 @@ class TwoPlayerState extends PTFlxUIState{
         add(_footballerotwepanel);
         initButton();
         initFootballer();
-        initPropertyPanel();
-//        _footballeronepanel.scale.y=_footballerotwepanel.scale.y = 2.5;
+        allPropertyPanel();
+//        _footballeronepanel.
+// scale.y=_footballerotwepanel.scale.y = 2.5;
 //        _footballeronepanel.scale.x=_footballerotwepanel.scale.x = 2.5;
 //        _footballeronepanel.x = 200;
 //        _footballeronepanel.y = 100;
@@ -128,116 +129,87 @@ class TwoPlayerState extends PTFlxUIState{
 
     }
 
-    /*初始化属性面板*/
-    private function initPropertyPanel():Void
-    {
-        var footballeronepanel = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_stage1");
-        add(footballeronepanel);
-        var footballertwepanel = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_stage1");
-        add(footballertwepanel);
-        footballeronepanel.scale.y=footballertwepanel.scale.y = 2.5;
-        footballeronepanel.scale.x=footballertwepanel.scale.x = 2.5;
-        footballeronepanel.x = 400;
-        footballeronepanel.y = 300;
-        footballertwepanel.x = 800;
-        footballertwepanel.y = 300;
 
+    private var _propertygroup1:FlxSpriteGroup;
+    private var _propertygroup2:FlxSpriteGroup;
+    private function allPropertyPanel():Void
+    {
+        initPropertyPanel(_propertygroup1,150,80);
+        initPropertyPanel(_propertygroup2,650,80);
+    }
+
+
+    /*设置球员属性面板*/
+    private function initPropertyPanel(_propertygroup:FlxSpriteGroup,X:Float=0,Y:Float=0):Void{
+        if(_propertygroup==null){
+            _propertygroup = new FlxSpriteGroup();
+            add(_propertygroup);
+        }
+        var footballeronepanel = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_stage1");
+        _propertygroup.add(footballeronepanel);
+        footballeronepanel.origin.x = footballeronepanel.origin.y = 0;
+        footballeronepanel.scale.y = 2.6;
+        footballeronepanel.scale.x = 2.3;
+//        footballeronepanel.x = (FlxG.width-footballeronepanel.width)*0.5;
+//        footballeronepanel.y = (FlxG.height-footballeronepanel.height)*0.2;
         var effectjump = AssetsManager.getInstance().getSprite(0,0,"effect_ico_jump");
         var effectspeed = AssetsManager.getInstance().getSprite(0,0,"effect_ico_speed");
         var kick = AssetsManager.getInstance().getSprite(0,0,"btn_iko_kick");
-        effectjump.x = 320;
-        effectjump.y = 250;
-        effectspeed.x = 320;
-        effectspeed.y = 300;
-        kick.x = 320;
-        kick.y = 350;
-        add(kick);
-        add(effectspeed);
-        add(effectjump);
+        effectjump.x = 10;
+        effectjump.y = 60;
+        effectspeed.x = 10;
+        effectspeed.y = 115;
+        kick.x = 10;
+        kick.y = 170;
+        kick.origin.x = kick.origin.y = 0;
+        kick.scale.x = kick.scale.y = 0.7;
+        _propertygroup.add(kick);
+        _propertygroup.add(effectspeed);
+        _propertygroup.add(effectjump);
 
-        var effectjumptwe = AssetsManager.getInstance().getSprite(0,0,"effect_ico_jump");
-        var effectspeedtwe = AssetsManager.getInstance().getSprite(0,0,"effect_ico_speed");
-        var kicktwe = AssetsManager.getInstance().getSprite(0,0,"btn_iko_kick");
-        effectjumptwe.x = 720;
-        effectjumptwe.y = 250;
-        effectspeedtwe.x = 720;
-        effectspeedtwe.y = 300;
-        kicktwe.x = 720;
-        kicktwe.y = 350;
-        add(kicktwe);
-        add(effectspeedtwe);
-        add(effectjumptwe);
-        refresh1();
-        refresh2();
-    }
 
-    /*刷新球员属性*/
-    private function refresh1():Void
-    {
-        var statsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
-        var statsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
-        var statsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
-        var statsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
-        add(statsbg);
-        add(statsprogress3);
-        add(statsprogress);
-        statsbg.x = 380;
-        statsprogress3.x = statsprogress.x = 382;
-        statsbg.y =statsprogress3.y = statsprogress.y = 280;
-        var statsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
-        var statsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
-        var statsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
-        var statsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
-        add(statsbg);
-        add(statsprogress3);
-        add(statsprogress);
-        statsbg.x = 380;
-        statsprogress3.x = statsprogress.x = 382;
-        statsbg.y =statsprogress3.y = statsprogress.y = 330;
-        var statsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
-        var statsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
-        var statsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
-        var statsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
-        add(statsbg);
-        add(statsprogress3);
-        add(statsprogress);
-        statsbg.x = 380;
-        statsprogress3.x = statsprogress.x = 382;
-        statsbg.y =statsprogress3.y = statsprogress.y = 380;
+        refresh(_propertygroup);
+        _propertygroup.x = X;
+        _propertygroup.y = Y;
     }
     /*刷新球员属性*/
-    private function refresh2():Void
+    private function refresh(_propertygroup:FlxSpriteGroup):Void
     {
-        var statsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
-        var statsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
-        var statsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
-        var statsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
-        add(statsbg);
-        add(statsprogress3);
-        add(statsprogress);
-        statsbg.x = 780;
-        statsprogress3.x = statsprogress.x = 782;
-        statsbg.y =statsprogress3.y = statsprogress.y = 280;
-        var statsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
-        var statsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
-        var statsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
-        var statsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
-        add(statsbg);
-        add(statsprogress3);
-        add(statsprogress);
-        statsbg.x = 780;
-        statsprogress3.x = statsprogress.x = 782;
-        statsbg.y =statsprogress3.y = statsprogress.y = 330;
-        var statsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
-        var statsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
-        var statsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
-        var statsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
-        add(statsbg);
-        add(statsprogress3);
-        add(statsprogress);
-        statsbg.x = 780;
-        statsprogress3.x = statsprogress.x = 782;
-        statsbg.y =statsprogress3.y = statsprogress.y = 380;
+        var effectjumpstatsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
+        var effectjumpstatsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
+        var effectjumpstatsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
+        var effectjumpstatsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
+        effectjumpstatsbg.x = 105;
+        effectjumpstatsprogress3.x = effectjumpstatsprogress.x = 108;
+        effectjumpstatsbg.y =effectjumpstatsprogress3.y = effectjumpstatsprogress.y = 85;
+        _propertygroup.add(effectjumpstatsbg);
+        _propertygroup.add(effectjumpstatsprogress3);
+        _propertygroup.add(effectjumpstatsprogress);
+
+        var effectspeedstatsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
+        var effectspeedstatsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
+        var effectspeedstatsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
+        var effectspeedstatsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
+        effectspeedstatsbg.x = 105;
+        effectspeedstatsprogress3.x = effectspeedstatsprogress.x = 108;
+        effectspeedstatsbg.y =effectspeedstatsprogress3.y = effectspeedstatsprogress.y = 140;
+        _propertygroup.add(effectspeedstatsbg);
+        _propertygroup.add(effectspeedstatsprogress3);
+        _propertygroup.add(effectspeedstatsprogress);
+
+        var kickstatsbg = AssetsManager.getInstance().getSprite(0,0,"stats_bg");
+        var kickstatsprogress = AssetsManager.getInstance().getSprite(0,0,"stats_progress");
+        var kickstatsprogress2 = AssetsManager.getInstance().getSprite(0,0,"stats_progress2");
+        var kickstatsprogress3 = AssetsManager.getInstance().getSprite(0,0,"stats_progress3");
+        kickstatsbg.x = 105;
+        kickstatsprogress3.x = kickstatsprogress.x = 108;
+        kickstatsbg.y =kickstatsprogress3.y = kickstatsprogress.y = 195;
+        _propertygroup.add(kickstatsbg);
+        _propertygroup.add(kickstatsprogress3);
+        _propertygroup.add(kickstatsprogress);
+//        initBuyBtn(effectjumpstatsprogress);
+//        initBuyBtn(effectspeedstatsprogress);
+//        initBuyBtn(kickstatsprogress);
     }
 
 
@@ -249,7 +221,7 @@ class TwoPlayerState extends PTFlxUIState{
                         case "back":
                             FlxG.switchState(new MenuState());
                         case "play":
-                            FlxG.switchState(new PlayState("drogba","mexico","blochin","brazil"));
+                            FlxG.switchState(new PlayState());
                     }
             }
         }
