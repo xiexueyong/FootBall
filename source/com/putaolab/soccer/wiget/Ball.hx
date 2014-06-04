@@ -29,6 +29,7 @@ class Ball extends BoundsSprite {
         if(direction == "left"){
             this.velocity.x = -Math.cos(angle/180*Math.PI)*Reg.BALL_KICKEDVELOCITY;
         }else if(direction == "right"){
+//        trace("right....................");
             this.velocity.x = Math.cos(angle/180*Math.PI)*Reg.BALL_KICKEDVELOCITY;
         }
         this.velocity.y = -Math.sin(angle/180*Math.PI)*Reg.BALL_KICKEDVELOCITY;
@@ -103,14 +104,7 @@ class Ball extends BoundsSprite {
         spining();
         super.update();
 
-        if(y > Reg.BOUNDS.height-Reg.GOAL_HEIGHT){
 
-            if(x<10 || x > FlxG.width -55){
-                x = (FlxG.width - width)/2;
-                velocity.x = 0;
-            }
-
-        }
     }
 
 }

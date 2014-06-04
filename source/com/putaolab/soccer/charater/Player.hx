@@ -27,12 +27,14 @@ class Player extends BoundsSprite {
     private var cry:FlxSprite;
     private var jumpEffect:FlxSprite;
     private var hited:FlxSprite;
-
-
-    public function new(X:Float = 0, Y:Float = 0,parent:FlxTypedGroup<FlxBasic>)
+    private var _name:String;
+    private var _country:String;
+    public function new(X:Float = 0, Y:Float = 0,parent:FlxTypedGroup<FlxBasic>,name:String="carlos",country:String="brazil")
     {
         super(X, Y);
         _parent = parent;
+        _name = name;
+        _country = country;
 
         acceleration.y = Reg.PLAYER_GRAVITY;
         drag.x = Reg.PLAYER_DRAG;
@@ -42,7 +44,8 @@ class Player extends BoundsSprite {
         allowCollisions = FlxObject.ANY;
         initializeBody();
 
-        collisionMap = new FlxRect(0,0,width,height);
+        collisionMap = new FlxRect(20,0,60,120);
+//        collisionMap = new FlxRect(0,0,20,20);
     }
 
     public function jump():Void{
@@ -54,19 +57,21 @@ class Player extends BoundsSprite {
     }
     private function initializeBody():Void{
         //head
-        AssetsManager.getInstance().uploadTextureToSprite(this,"head_blanco");
+        AssetsManager.getInstance().uploadTextureToSprite(this,"head_"+_name);
+        trace("head______________",_name);
+        trace(width,height);
         //body
 
         if(leftHand == null){
-            leftHand = new LeftHand();
+            leftHand = new LeftHand(0,0,_country);
             _parent.add(leftHand);
         }
         if(rightHand == null){
-            rightHand= new RightHand();
+            rightHand= new RightHand(0,0,_country);
             _parent.add(rightHand);
         }
         if(body == null){
-            body = new Body();
+            body = new Body(0,0,_country);
             _parent.add(body);
         }
 
@@ -124,7 +129,7 @@ class Player extends BoundsSprite {
 
         return returny;
     }
-    public function kick(ball:Ball):Void{
+    public function kick(ball:Ball,?angle:Float):Void{
 //        ball.beKicked(false);
     }
     public function forecastDirection(ball:Ball):Void{

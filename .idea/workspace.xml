@@ -64,10 +64,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PlayerLeftController.hx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/controller/PlayerLeftController.hx">
+      <file leaf-file-name="PlayState.hx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/PlayState.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="11" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0" vertical-offset="52" max-vertical-offset="1275">
+            <state line="82" column="21" selection-start="2398" selection-end="2398" vertical-scroll-proportion="-37.52" vertical-offset="1112" max-vertical-offset="3750">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerRight.hx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/PlayerRight.hx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="29" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1550">
               <folding />
             </state>
           </provider>
@@ -76,7 +85,7 @@
       <file leaf-file-name="AIPlayerLeftController.hx" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/controller/AIPlayerLeftController.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="44" selection-start="610" selection-end="610" vertical-scroll-proportion="0.0" vertical-offset="211" max-vertical-offset="1550">
+            <state line="14" column="5" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1600">
               <folding />
             </state>
           </provider>
@@ -85,70 +94,61 @@
       <file leaf-file-name="ControllerManager.hx" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/controller/ControllerManager.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="66" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+            <state line="6" column="24" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="925">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StateMachine.hx" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source/fms/StateMachine.hx">
+      <file leaf-file-name="TwoPlayerState.hx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/TwoPlayerState.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="30" selection-start="692" selection-end="692" vertical-scroll-proportion="1.183432" vertical-offset="0" max-vertical-offset="1375">
+            <state line="252" column="21" selection-start="10375" selection-end="10375" vertical-scroll-proportion="-15.04" vertical-offset="5924" max-vertical-offset="6700">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AttackState.hx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/fms/AttackState.hx">
+      <file leaf-file-name="OnePlayerState.hx" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/OnePlayerState.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="205" max-vertical-offset="1100">
+            <state line="236" column="65" selection-start="8847" selection-end="8847" vertical-scroll-proportion="0.42839035" vertical-offset="5562" max-vertical-offset="6925">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefendState.hx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/fms/DefendState.hx">
+      <file leaf-file-name="atlas.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/images/atlas.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="775">
+            <state line="333" column="33" selection-start="40092" selection-end="40098" vertical-scroll-proportion="-8.52" vertical-offset="8112" max-vertical-offset="12750">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AIPlayer.hx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/AIPlayer.hx">
+      <file leaf-file-name="Level.hx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/map/Level.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+            <state line="242" column="21" selection-start="8484" selection-end="8484" vertical-scroll-proportion="0.0" vertical-offset="6004" max-vertical-offset="7975">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseState.hx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/fms/BaseState.hx">
+      <file leaf-file-name="Player.hx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/Player.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="800">
+            <state line="25" column="12" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0" vertical-offset="354" max-vertical-offset="3750">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AIPlayerLeft.hx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/AIPlayerLeft.hx">
+      <file leaf-file-name="PlayerLeft.hx" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/PlayerLeft.hx">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="22" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0" vertical-offset="575" max-vertical-offset="1475">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.hx" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/controller/Controller.hx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="20" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+            <state line="13" column="33" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0" vertical-offset="661" max-vertical-offset="1475">
               <folding />
             </state>
           </provider>
@@ -164,15 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/FootBall.iml" />
-        <option value="$PROJECT_DIR$/Project.xml" />
-        <option value="D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/FlxObject.hx" />
-        <option value="$PROJECT_DIR$/source/com/putaolad/soccer/Ball.hx" />
-        <option value="$PROJECT_DIR$/source/com/putaolad/soccer/controller/Player1Controller.hx" />
-        <option value="$PROJECT_DIR$/source/com/putaolad/soccer/controller/Player2Controller.hx" />
-        <option value="$PROJECT_DIR$/source/com/putaolad/soccer/Player.hx" />
-        <option value="$PROJECT_DIR$/source/com/putaolad/soccer/controller/ControllerManager.hx" />
         <option value="$PROJECT_DIR$/source/com/putaolad/soccer/controller/Controller.hx" />
         <option value="$PROJECT_DIR$/source/com/putaolad/soccer/charater/Ball.hx" />
         <option value="D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/FlxSprite.hx" />
@@ -190,36 +181,49 @@
         <option value="$PROJECT_DIR$/source/AssetsManager.hx" />
         <option value="$PROJECT_DIR$/source/com/putaolad/soccer/charater/Player.hx" />
         <option value="$PROJECT_DIR$/source/com/putaolad/soccer/charater/PlayerLeft.hx" />
-        <option value="$PROJECT_DIR$/assets/tiled/map.tmx" />
         <option value="$PROJECT_DIR$/source/com/putaolad/soccer/wiget/Ball.hx" />
-        <option value="$PROJECT_DIR$/source/Main.hx" />
         <option value="$PROJECT_DIR$/source/com/putaolad/soccer/charater/PlayerRight.hx" />
-        <option value="$PROJECT_DIR$/source/Reg.hx" />
-        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/charater/PlayerRight.hx" />
-        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/wiget/Ball.hx" />
-        <option value="$PROJECT_DIR$/source/MenuState.hx" />
         <option value="$PROJECT_DIR$/source/com/putaolab/football/ui/state/StateBG.hx" />
-        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/charater/AIPlayerLeft.hx" />
-        <option value="$PROJECT_DIR$/source/PlayState.hx" />
         <option value="$PROJECT_DIR$/source/FMS/BaseState.hx" />
         <option value="$PROJECT_DIR$/source/FMS/StateMachine.hx" />
-        <option value="$PROJECT_DIR$/source/map/Level.hx" />
-        <option value="$PROJECT_DIR$/source/fms/DefendState.hx" />
         <option value="$PROJECT_DIR$/source/fms/BaseState.hx" />
-        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/charater/AIPlayer.hx" />
-        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/controller/ControllerManager.hx" />
         <option value="$PROJECT_DIR$/source/com/putaolab/soccer/controller/AIPlayerLeftController.hx" />
-        <option value="$PROJECT_DIR$/source/fms/StateMachine.hx" />
+        <option value="$PROJECT_DIR$/assets/tiled/map.tmx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/charater/BoundsSprite.hx" />
+        <option value="$PROJECT_DIR$/source/Reg.hx" />
         <option value="$PROJECT_DIR$/source/fms/AttackState.hx" />
+        <option value="$PROJECT_DIR$/source/fms/DefendState.hx" />
+        <option value="$PROJECT_DIR$/source/fms/GlobalState.hx" />
+        <option value="$PROJECT_DIR$/source/fms/StateMachine.hx" />
+        <option value="$PROJECT_DIR$/source/MenuState.hx" />
+        <option value="$PROJECT_DIR$/source/Main.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/wiget/FlyDirection.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/wiget/LeftFlyDirection.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/wiget/RightFlyDirection.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/wiget/Ball.hx" />
+        <option value="$PROJECT_DIR$/Project.xml" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/controller/ControllerManager.hx" />
+        <option value="$PROJECT_DIR$/source/map/Level.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/wiget/LeftHand.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/wiget/Body.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/wiget/RightHand.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/charater/PlayerLeft.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/charater/PlayerRight.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/charater/AIPlayer.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/charater/AIPlayerLeft.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/soccer/charater/Player.hx" />
+        <option value="$PROJECT_DIR$/source/PlayState.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/football/ui/state/OnePlayerState.hx" />
+        <option value="$PROJECT_DIR$/source/com/putaolab/football/ui/state/TwoPlayerState.hx" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="342" />
-    <option name="y" value="216" />
-    <option name="width" value="886" />
-    <option name="height" value="769" />
+    <option name="x" value="-8" />
+    <option name="y" value="32" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -249,8 +253,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -261,6 +263,46 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="External Libraries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Haxe 3.1.3 &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="std" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Haxe 3.1.3 &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="std" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="haxe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -319,7 +361,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="getimage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="fms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="source" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="component" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -342,6 +420,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="soccer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wiget" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -415,8 +497,78 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FootBall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -427,7 +579,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="File.Encoding" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/Tools/Haxe/haxe/lib/openfl-native" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -438,14 +590,19 @@
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="FullScreen" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\FootBall\source\com\putaolab\soccer\controller" />
+      <recent name="E:\FootBall\assets\images" />
       <recent name="E:\FootBall\source\fms" />
+      <recent name="E:\FootBall\source\com\putaolab\soccer\controller" />
       <recent name="E:\FootBall\source\com\putaolab\soccer\charater" />
       <recent name="E:\FootBall\source\FMS" />
-      <recent name="E:\FootBall\source\com\putaolab\football\ui\state" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\FootBall\source\component" />
@@ -723,14 +880,16 @@
       <workItem from="1401328388465" duration="29426000" />
       <workItem from="1401414573531" duration="23241000" />
       <workItem from="1401675437065" duration="13816000" />
+      <workItem from="1401756424845" duration="32479000" />
+      <workItem from="1401847316880" duration="16731000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145360000" />
+    <option name="totallyTimeSpent" value="194570000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="342" y="216" width="886" height="769" extended-state="0" />
+    <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -738,10 +897,10 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19522777" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08982684" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.030351438" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -753,7 +912,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41062802" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1656017" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -806,147 +965,14 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/Haxe/haxe/std/Std.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="7" selection-start="1346" selection-end="1346" vertical-scroll-proportion="0.0" vertical-offset="981" max-vertical-offset="3125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/system/layer/Region.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="6" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1950">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/util/FlxPoint.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="15" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0" vertical-offset="856" max-vertical-offset="9150">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Haxe/haxe/std/Math.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="20" selection-start="4126" selection-end="4126" vertical-scroll-proportion="0.0" vertical-offset="2752" max-vertical-offset="8550">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/util/loaders/TexturePackerData.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="6" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/component/PTTexturePackerData.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="45" selection-start="1433" selection-end="1433" vertical-scroll-proportion="0.0" vertical-offset="905" max-vertical-offset="2175">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/util/FlxRect.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="15" selection-start="786" selection-end="786" vertical-scroll-proportion="0.0" vertical-offset="477" max-vertical-offset="6700">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/AssetsManager.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="39" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0" vertical-offset="1055" max-vertical-offset="1950">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/FlxObject.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="6" selection-start="694" selection-end="694" vertical-scroll-proportion="0.0" vertical-offset="1656" max-vertical-offset="26950">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/tiled/map.tmx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="760" selection-end="760" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="550" />
-      </provider>
-    </entry>
-    <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/tweens/FlxTween.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="7" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.0" vertical-offset="1256" max-vertical-offset="13900">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="36" selection-start="791" selection-end="791" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="2200">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/FlxCamera.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="62" selection-start="2492" selection-end="2492" vertical-scroll-proportion="0.0" vertical-offset="1431" max-vertical-offset="30350">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/util/FlxSave.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="20" selection-start="1503" selection-end="1503" vertical-scroll-proportion="0.0" vertical-offset="1427" max-vertical-offset="5575" />
-      </provider>
-    </entry>
     <entry file="file://D:/Haxe/haxe/std/flash/display/Sprite.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/Main.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="24" selection-start="2061" selection-end="2061" vertical-scroll-proportion="0.0" vertical-offset="925" max-vertical-offset="1900">
-          <folding />
-        </state>
+        <state line="2" column="13" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525" />
       </provider>
     </entry>
     <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/FlxGame.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="822" column="12" selection-start="19172" selection-end="19172" vertical-scroll-proportion="-38.28" vertical-offset="19593" max-vertical-offset="21275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/Reg.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="55" selection-start="597" selection-end="597" vertical-scroll-proportion="0.0" vertical-offset="116" max-vertical-offset="2250">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/BoundsSprite.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="88" selection-start="1511" selection-end="1511" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1700">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/wiget/FlyDirection.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="28" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="550">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/wiget/LeftFlyDirection.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="771">
-          <folding />
-        </state>
+        <state line="822" column="12" selection-start="19172" selection-end="19172" vertical-scroll-proportion="-38.28" vertical-offset="19593" max-vertical-offset="21275" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/wiget/Wiget.hx">
@@ -963,13 +989,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/atlas.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="354" column="33" selection-start="42513" selection-end="42524" vertical-scroll-proportion="0.0" vertical-offset="8377" max-vertical-offset="12750">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/group/FlxTypedGroup.hx">
       <provider selected="true" editor-type-id="text-editor">
         <state line="119" column="7" selection-start="2958" selection-end="2958" vertical-scroll-proportion="0.0" vertical-offset="2910" max-vertical-offset="18750">
@@ -980,13 +999,6 @@
     <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/FlxG.hx">
       <provider selected="true" editor-type-id="text-editor">
         <state line="372" column="109" selection-start="14423" selection-end="14437" vertical-scroll-proportion="0.0" vertical-offset="9048" max-vertical-offset="14975">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/wiget/Ball.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="5" selection-start="1438" selection-end="1438" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="3050">
           <folding />
         </state>
       </provider>
@@ -1012,46 +1024,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/PlayerRight.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="6" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1575">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/OnePlayerState.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6925">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/SelectTeamState.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3075">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/PlayState.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="15" selection-start="723" selection-end="723" vertical-scroll-proportion="0.0" vertical-offset="352" max-vertical-offset="2200">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/map/Level.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="251" column="16" selection-start="8947" selection-end="8947" vertical-scroll-proportion="-16.6" vertical-offset="5860" max-vertical-offset="7700">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/MenuState.hx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="857" selection-end="857" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="3250">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3075" />
       </provider>
     </entry>
     <entry file="file://D:/Tools/Haxe/haxe/lib/flixel/3,3,3/flixel/FlxSprite.hx">
@@ -1075,37 +1050,138 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/Player.hx">
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/controller/PlayerLeftController.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="859" selection-end="859" vertical-scroll-proportion="0.0" vertical-offset="2580" max-vertical-offset="3625">
+        <state line="10" column="11" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0" vertical-offset="52" max-vertical-offset="1275">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/PlayerLeft.hx">
+    <entry file="file://D:/Haxe/haxe/std/Math.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="9" selection-start="765" selection-end="765" vertical-scroll-proportion="0.0" vertical-offset="479" max-vertical-offset="1475">
+        <state line="136" column="20" selection-start="4472" selection-end="4472" vertical-scroll-proportion="0.0" vertical-offset="3101" max-vertical-offset="8550">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/AIPlayerLeft.hx">
+    <entry file="file://$PROJECT_DIR$/source/getimage/ImageState.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="22" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1475">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1925">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/AIPlayer.hx">
+    <entry file="file://$PROJECT_DIR$/source/fms/BaseState.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+        <state line="21" column="0" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="800">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/controller/ControllerManager.hx">
+    <entry file="file://$PROJECT_DIR$/assets/tiled/map.tmx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="66" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+        <state line="16" column="0" selection-start="764" selection-end="764" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="550" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/BoundsSprite.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="31" selection-start="924" selection-end="924" vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/atlas.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/fms/AttackState.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="707" selection-end="707" vertical-scroll-proportion="0.0" vertical-offset="103" max-vertical-offset="1000">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/fms/DefendState.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="594" selection-end="594" vertical-scroll-proportion="0.0" vertical-offset="50" max-vertical-offset="950">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/fms/GlobalState.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="5" selection-start="186" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="141" max-vertical-offset="1025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Reg.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="34" selection-start="2200" selection-end="2200" vertical-scroll-proportion="0.0" vertical-offset="1353" max-vertical-offset="2250">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/Main.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="38" selection-start="1143" selection-end="1143" vertical-scroll-proportion="0.0" vertical-offset="803" max-vertical-offset="2000">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/wiget/Head.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="897">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/wiget/FlyDirection.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="550">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/wiget/LeftFlyDirection.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="474" selection-end="474" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="700">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/wiget/RightFlyDirection.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="28" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/AssetsManager.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2025">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/wiget/Ball.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="38" selection-start="3146" selection-end="3146" vertical-scroll-proportion="0.0" vertical-offset="2003" max-vertical-offset="2900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="28" selection-start="1386" selection-end="1386" vertical-scroll-proportion="0.0" vertical-offset="475" max-vertical-offset="2275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Haxe/haxe/std/haxe/Timer.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="6" selection-start="1639" selection-end="1639" vertical-scroll-proportion="-22.0" vertical-offset="375" max-vertical-offset="4925">
           <folding />
         </state>
       </provider>
@@ -1117,44 +1193,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/controller/PlayerLeftController.hx">
+    <entry file="file://$PROJECT_DIR$/source/fms/StateMachine.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="11" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0" vertical-offset="52" max-vertical-offset="1275">
+        <state line="32" column="40" selection-start="921" selection-end="921" vertical-scroll-proportion="0.0" vertical-offset="683" max-vertical-offset="2475">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/MenuState.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="57" selection-start="3542" selection-end="3542" vertical-scroll-proportion="0.0" vertical-offset="2303" max-vertical-offset="3250">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/wiget/LeftHand.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/wiget/RightHand.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="11" selection-start="273" selection-end="301" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/wiget/Body.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/AIPlayer.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="31" selection-start="362" selection-end="362" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/AIPlayerLeft.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="59" selection-start="785" selection-end="785" vertical-scroll-proportion="0.0" vertical-offset="125" max-vertical-offset="1600">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/map/Level.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="242" column="21" selection-start="8484" selection-end="8484" vertical-scroll-proportion="0.0" vertical-offset="6004" max-vertical-offset="7975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/PlayerLeft.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="33" selection-start="476" selection-end="476" vertical-scroll-proportion="0.0" vertical-offset="661" max-vertical-offset="1475">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/controller/AIPlayerLeftController.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="44" selection-start="610" selection-end="610" vertical-scroll-proportion="0.0" vertical-offset="211" max-vertical-offset="1550">
+        <state line="14" column="5" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1600">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/fms/BaseState.hx">
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/controller/ControllerManager.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="800">
+        <state line="6" column="24" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="925">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/fms/AttackState.hx">
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/PlayerRight.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0" vertical-offset="25" max-vertical-offset="1100">
+        <state line="8" column="29" selection-start="264" selection-end="264" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1550">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/fms/DefendState.hx">
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/soccer/charater/Player.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="775">
+        <state line="25" column="12" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0" vertical-offset="354" max-vertical-offset="3750">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/fms/StateMachine.hx">
+    <entry file="file://$PROJECT_DIR$/source/PlayState.hx">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="30" selection-start="692" selection-end="692" vertical-scroll-proportion="1.183432" vertical-offset="0" max-vertical-offset="1375">
+        <state line="82" column="21" selection-start="2398" selection-end="2398" vertical-scroll-proportion="-37.52" vertical-offset="1112" max-vertical-offset="3750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/atlas.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="333" column="33" selection-start="40092" selection-end="40098" vertical-scroll-proportion="-8.52" vertical-offset="8112" max-vertical-offset="12750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/TwoPlayerState.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="252" column="21" selection-start="10375" selection-end="10375" vertical-scroll-proportion="-15.04" vertical-offset="5924" max-vertical-offset="6700">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/com/putaolab/football/ui/state/OnePlayerState.hx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="236" column="65" selection-start="8847" selection-end="8847" vertical-scroll-proportion="0.42839035" vertical-offset="5562" max-vertical-offset="6925">
           <folding />
         </state>
       </provider>
@@ -1188,7 +1341,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>flixel-addons</last-edited>
+          <last-edited>openfl</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1224,7 +1377,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>flixel-ui</last-edited>
+          <last-edited>openfl-native</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -10,7 +10,7 @@ class RightFlyDirection extends FlyDirection {
     public function new(X:Float = 0, Y:Float = 0)
     {
         super(X, Y);
-        offsetOnParent = new FlxPoint(22,-43);
+        offsetOnParent = new FlxPoint(15,-76);
 //        origin.x = 0;
     }
 

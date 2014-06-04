@@ -38,9 +38,9 @@ class Reg
 	public static var saves:Array<FlxSave> = [];
 
     //球的重力加速度
-    public static var BALL_GRAVITY:Int = 1000;
+    public static var BALL_GRAVITY:Int = 1600;
     //球的阻力
-    public static var BALL_DRAG:Int = 100;
+    public static var BALL_DRAG:Int = 50;
     //球的弹性
     public static var BALL_ELASTICITY:Float = 0.6;//0.6
     //球的飞行总速度
@@ -52,10 +52,10 @@ class Reg
     //按住后退键，球的飞行角度增加量
     public static var BALL_ADDEDANGLE:Int = 25;
     //踢球的有效范围
-    public static var BALL_EFFECTIVEDISTANCE:Int = 100;
+    public static var BALL_EFFECTIVEDISTANCE:Int = 80;
 
 //球员的重力加速度
-    public static var PLAYER_GRAVITY:Int = 2000;//2000
+    public static var PLAYER_GRAVITY:Int = 2200;//2000
 //球员的阻力
     public static var PLAYER_DRAG:Int = 1500;
 //球员的质量
@@ -70,8 +70,8 @@ class Reg
 
     //地面的深度
     public static var  TEERAIN_DEEP:Float = 120;
-    public static var  GOAL_HEIGHT:Float = 138;
-    public static var  GOAL_WIDTH:Float = 40;
+    public static var  GOAL_HEIGHT:Float = 204;
+    public static var  GOAL_WIDTH:Float = 76;
     public static var BOUNDS:FlxRect = null;
 
 

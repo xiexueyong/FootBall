@@ -32,7 +32,7 @@ class MenuState extends PTFlxUIState
 	 */
 	override public function create():Void
 	{
-        Reg.BOUNDS = new FlxRect(0,0,FlxG.width,FlxG.height - Reg.TEERAIN_DEEP);
+        Reg.BOUNDS = new FlxRect(126,0,FlxG.width-252,FlxG.height - Reg.TEERAIN_DEEP);
         _makeCursor = true;
         group = new FlxSpriteGroup();
         add(group);

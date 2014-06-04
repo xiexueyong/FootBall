@@ -7,20 +7,20 @@ import flixel.FlxG;
 import flixel.util.FlxColor;
 import flixel.FlxSprite;
 class PlayerLeft extends Player {
-    public function new(X:Float = 0, Y:Float = 0,parent:FlxTypedGroup<FlxBasic>)
+    public function new(X:Float = 0, Y:Float = 0,parent:FlxTypedGroup<FlxBasic>,name:String="carlos",country:String="brazil")
     {
 
-        super(X, Y,parent);
+        super(X, Y,parent,name,country);
         facing = FlxObject.RIGHT;
 
         //调整碰撞检测区域
         flipX = true;
-        width = 40;
-        offset.x = 20;
+        width = 60;
+        offset.x = 30;
     }
 
 
-    override public function kick(ball:Ball):Void{
+    override public function kick(ball:Ball,?angle:Float):Void{
         if(ball.y > y){
             var tx:Float = this.x - ball.x;
             if(tx < 0 && tx > -Reg.BALL_EFFECTIVEDISTANCE){

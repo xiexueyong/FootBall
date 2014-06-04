@@ -33,11 +33,13 @@ class BoundsSprite extends FlxSprite {
         {
             x = maxBounds.x - collisionMap.x;
             acceleration.x = 0;
+            velocity.x = 300;
         }
         else if ((x + collisionMap.x + collisionMap.width) > (maxBounds.x + maxBounds.width))
         {
             x = (maxBounds.x + maxBounds.width) - collisionMap.width - collisionMap.x;
             acceleration.x = 0;
+            velocity.x = -300;
         }
 
         if (y + collisionMap.y < maxBounds.y)

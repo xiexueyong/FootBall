@@ -9,7 +9,7 @@ class FlyDirection extends Wiget {
     public function new(X:Float = 0, Y:Float = 0){
         super(X,Y);
         AssetsManager.getInstance().uploadTextureToSprite(this,"ball_aim");
-        origin.y = 63;
+        origin.y = height;
 
     }
 

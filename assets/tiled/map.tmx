@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="40" height="24" tilewidth="32" tileheight="30">
  <objectgroup name="collisions" width="40" height="24">
-  <object type="collision" x="0" y="1" width="10" height="716"/>
-  <object type="collision" x="1268" y="2" width="10" height="716"/>
+  <object type="collision1" x="0" y="1" width="10" height="716"/>
+  <object type="collision1" x="1268" y="2" width="10" height="716"/>
 
-  <object type="collision" x="1268" y="2" width="10" height="716"/>
+  <object type="collision1" x="1268" y="2" width="10" height="716"/>
 
-  <object type="collision" x="9" y="1" width="1257" height="14"/>
+  <object type="collision1" x="9" y="1" width="1257" height="14"/>
  </objectgroup>
  <objectgroup name="players" width="40" height="24">
   <object type="playerleft" x="165" y="441" width="35" height="145"/>

@@ -7,10 +7,10 @@ import flixel.util.FlxColor;
 import flixel.FlxSprite;
 class Body extends Wiget {
 
-    public function new(X:Float = 0, Y:Float = 0):Void{
+    public function new(X:Float = 0, Y:Float = 0,country:String):Void{
         super(X,Y);
-        offsetOnParent = new FlxPoint(10,68);
-        AssetsManager.getInstance().uploadTextureToSprite(this,"body_france");
+        offsetOnParent = new FlxPoint(17,96);
+        AssetsManager.getInstance().uploadTextureToSprite(this,"body_"+country);
 
     }
 

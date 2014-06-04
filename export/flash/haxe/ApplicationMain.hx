@@ -24,7 +24,7 @@ class ApplicationMain {
 		
 		
 		
-		//nme.Lib.setPackage("HaxeFlixel", "FootBall", "com.example.myapp", "0.0.1");
+		//nme.Lib.setPackage("HaxeFlixel", "FootBall", "com.putaolab.ptbirds", "0.0.1");
 		
 		loaderInfo = flash.Lib.current.loaderInfo;
 		

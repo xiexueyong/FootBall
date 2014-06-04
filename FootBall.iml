@@ -16,6 +16,8 @@
     <orderEntry type="library" name="flixel" level="project" />
     <orderEntry type="library" name="flixel-addons" level="project" />
     <orderEntry type="library" name="flixel-ui" level="project" />
+    <orderEntry type="library" name="openfl" level="project" />
+    <orderEntry type="library" name="openfl-native" level="project" />
   </component>
 </module>
 

@@ -1,5 +1,9 @@
 package;
 
+import String;
+import com.putaolab.soccer.charater.AIPlayerLeft;
+import com.putaolab.soccer.charater.PlayerRight;
+import haxe.Timer;
 import com.putaolab.soccer.charater.AIPlayer;
 import component.PTFlxUIState;
 import flixel.util.FlxRect;
@@ -21,6 +25,8 @@ import flixel.util.FlxMath;
 class PlayState extends PTFlxUIState
 {
     public static var level:Level;
+    public static var start:Bool = true;
+
     private var _level:Level;
     private var _controllerManager:ControllerManager;
 
@@ -29,9 +35,22 @@ class PlayState extends PTFlxUIState
     public var goalLeft:FlxSprite;
     public var goalRight:FlxSprite;
     public var ball:Ball;
+    //leftName  rightName
+    private var leftName:String;
+    private var rightName:String;
+    private var leftCountry:String;
+    private var rightCountry:String;
+
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
+    public function new(leftName:String,leftCountry:String,rightName:String,rightCountry:String):Void{
+        super();
+        this.leftName = leftName;
+        this.rightName = rightName;
+        this.leftCountry = leftCountry;
+        this.rightCountry = rightCountry;
+    }
 	override public function create():Void
 	{
 		super.create();
@@ -39,7 +58,9 @@ class PlayState extends PTFlxUIState
 
         _level = new Level("assets/tiled/map.tmx",this);
         level = _level;
+        startMatch(leftName,leftCountry,rightName,rightCountry);
         _controllerManager = new ControllerManager(this);
+
 
         playerLeft.stateMachine.opponent = playerRight;
         playerLeft.stateMachine.leftGoal = goalLeft;
@@ -58,6 +79,46 @@ class PlayState extends PTFlxUIState
 
 
 	}
+    //开始比赛
+    private function startMatch(leftName:String,leftCountry:String,rightName:String,rightCountry:String):Void{
+				playerRight = new PlayerRight(FlxG.width-350, 0,_level.backDecorateGroup,rightName,rightCountry);
+                playerRight.y = Reg.BOUNDS.height - 286;
+                playerRight.setBoundsMap(_level.getBounds());
+                playerRight.controllable = true;
+                _level.characterGroup.add(playerRight);
+
+
+                playerLeft = new AIPlayerLeft(270, 0,_level.backDecorateGroup,leftName,leftCountry);
+                playerLeft.y = Reg.BOUNDS.height-286;
+                playerLeft.setBoundsMap(_level.getBounds());
+                playerLeft.controllable = false;
+                _level.characterGroup.add(playerLeft);
+
+    }
+    //是否进球
+    public inline function hitTarget():Void{
+        if(ball.y > Reg.BOUNDS.height-Reg.GOAL_HEIGHT){
+            if(ball.x<156 || ball.x > 1085){
+                //ball.x = (FlxG.width - ball.width)/2;
+                PlayState.start = false;
+                Timer.delay(serve ,2000);
+//                serve();
+                ball.velocity.x = 0;
+            }
+        }
+    }
+    //准备发球
+    private inline function waitToRestart():Void{
+
+    }
+    //发球
+    private function serve():Void{
+        //playerleft playerright ball
+        PlayState.start = true;
+        playerLeft.x = 270;
+        playerRight.x = FlxG.width - 350;
+        ball.x = 420;
+    }
 	
 	/**
 	 * Function that is called when this state is destroyed - you might want to 
@@ -76,8 +137,9 @@ class PlayState extends PTFlxUIState
 		super.update();
         _level.update();
         _controllerManager.update();
-
-
+        if(PlayState.start == true){
+            hitTarget();
+        }
 
 	}	
 }

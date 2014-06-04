@@ -153,15 +153,26 @@ class Level extends TiledMap
     public function initializeGoal():Void{
         var leftGoal:FlxSprite = new FlxSprite();
         AssetsManager.getInstance().uploadTextureToSprite(leftGoal,"branka3");
-        leftGoal.x = 0;
+        leftGoal.x = 195 - leftGoal.width;
         leftGoal.y = Reg.BOUNDS.height - Reg.GOAL_HEIGHT;
 
         var rightGoal:FlxSprite = new FlxSprite();
         rightGoal.makeGraphic(100,100,FlxColor.RED);
         AssetsManager.getInstance().uploadTextureToSprite(rightGoal,"branka3");
         rightGoal.flipX = true;
-        rightGoal.x = FlxG.width - Reg.GOAL_WIDTH;
+        rightGoal.x = FlxG.width - 195;
         rightGoal.y = Reg.BOUNDS.height - Reg.GOAL_HEIGHT;
+//
+//trace("left_____________");
+//        trace(leftGoal.x);
+//        trace(leftGoal.y);
+//        trace(leftGoal.width);
+//        trace(leftGoal.height);
+//        trace("right_____________");
+//        trace(rightGoal.x);
+//        trace(rightGoal.y);
+//        trace(rightGoal.width);
+//        trace(rightGoal.height);
 
         comonForegroundGroup.add(leftGoal);
         comonForegroundGroup.add(rightGoal);
@@ -191,7 +202,7 @@ class Level extends TiledMap
         while(x < FlxG.width){
             var grass:FlxSprite = new FlxSprite();
             AssetsManager.getInstance().uploadTextureToSprite(grass,"grass");
-            grass.y = Reg.BOUNDS.height-10;
+            grass.y = Reg.BOUNDS.height-20;
             grass.x = x;
             w = grass.width;
             x += w;
@@ -208,19 +219,19 @@ class Level extends TiledMap
         //goal post collision
         var goalPostWidth:Int = cast(Reg.GOAL_WIDTH,Int);
         var goalPostHeight:Int= 10;
-        var leftPost:FlxObject = new FlxObject(0, Reg.BOUNDS.height-138-10,goalPostWidth, goalPostHeight);
+        var leftPost:FlxObject = new FlxObject(117, Reg.BOUNDS.height-Reg.GOAL_HEIGHT,goalPostWidth, goalPostHeight);
         leftPost.solid = leftPost.immovable = true;
         collisionGroup.add(leftPost);
-        var rightPost:FlxObject = new FlxObject(Reg.BOUNDS.width-goalPostWidth, Reg.BOUNDS.height-138-10,goalPostWidth,goalPostHeight);
+        var rightPost:FlxObject = new FlxObject(1087, Reg.BOUNDS.height-Reg.GOAL_HEIGHT,goalPostWidth,goalPostHeight);
         rightPost.solid = rightPost.immovable = true;
         collisionGroup.add(rightPost);
 
 
-//        var leftPost:FlxSprite = new FlxSprite(0, Reg.BOUNDS.height-138-10);
+//        var leftPost:FlxSprite = new FlxSprite(117, Reg.BOUNDS.height-Reg.GOAL_HEIGHT);
 //        leftPost.makeGraphic(goalPostWidth, goalPostHeight,FlxColor.RED);
 //        leftPost.solid = leftPost.immovable = true;
 //        collisionGroup.add(leftPost);
-//        var rightPost:FlxSprite = new FlxSprite(Reg.BOUNDS.width-goalPostWidth, Reg.BOUNDS.height-138-10);
+//        var rightPost:FlxSprite = new FlxSprite(1087, Reg.BOUNDS.height-Reg.GOAL_HEIGHT);
 //        rightPost.makeGraphic(goalPostWidth, goalPostHeight,FlxColor.RED);
 //        rightPost.solid = rightPost.immovable = true;
 //        collisionGroup.add(rightPost);
@@ -234,21 +245,20 @@ class Level extends TiledMap
 		var y:Int = o.y;
 		
 		switch(o.type.toLowerCase()) {
-			case "playerright":
-				var player:Player = new PlayerRight(x, y,backDecorateGroup);
-                player.y = Reg.BOUNDS.height - 86;
-				player.setBoundsMap(this.getBounds());
-				player.controllable = true;
-                parentState.playerRight = player;
-//				FlxG.camera.follow(player);
-				characterGroup.add(player);
-            case "playerleft":
-                var player:AIPlayer = new AIPlayerLeft(x, y,backDecorateGroup);
-                player.y = Reg.BOUNDS.height-86;
-				player.setBoundsMap(this.getBounds());
-				player.controllable = false;
-                parentState.playerLeft = player;
-                characterGroup.add(player);
+//			case "playerright":
+//				var player:Player = new PlayerRight(x, y,backDecorateGroup);
+//                player.y = Reg.BOUNDS.height - 286;
+//				player.setBoundsMap(this.getBounds());
+//				player.controllable = true;
+//                parentState.playerRight = player;
+//				characterGroup.add(player);
+//            case "playerleft":
+//                var player:AIPlayer = new AIPlayerLeft(x, y,backDecorateGroup);
+//                player.y = Reg.BOUNDS.height-286;
+//				player.setBoundsMap(this.getBounds());
+//				player.controllable = false;
+//                parentState.playerLeft = player;
+//                characterGroup.add(player);
 				
 			case "ball":
 				var ball:Ball = new Ball(x, y);
@@ -260,6 +270,7 @@ class Level extends TiledMap
 				
 			case "collision":
 				var coll:FlxObject = new FlxObject(x, y, o.width, o.height);
+                coll.elasticity = 1;
 				coll.immovable = true;
 				collisionGroup.add(coll);
 //                var s = new FlxSprite(x, y);

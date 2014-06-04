@@ -231,7 +231,7 @@ class OnePlayerState extends PTFlxUIState{
                         case "groups":
                             FlxG.switchState(new SelectTeamState());
                         case "play":
-                            FlxG.switchState(new PlayState());
+                            FlxG.switchState(new PlayState("drogba","mexico","blochin","brazil"));
                         case "btnflagbg2":
                             if(_selectedcountry!=null){
                                 _selectedcountry.visible = false;

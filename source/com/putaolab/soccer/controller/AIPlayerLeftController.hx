@@ -1,4 +1,5 @@
 package com.putaolab.soccer.controller;
+import fms.GlobalState;
 import fms.AttackState;
 import fms.StateMachine;
 import com.putaolab.soccer.charater.AIPlayerLeft;
@@ -16,6 +17,7 @@ class AIPlayerLeftController extends Controller{
         player = state.playerLeft;
         stateMachine =  cast(player,AIPlayerLeft).stateMachine;
         stateMachine.setCurrentSate(new AttackState());
+        stateMachine.setGlobalSate(new GlobalState());
 //        cast(player,AIPlayerLeft);
     }
 

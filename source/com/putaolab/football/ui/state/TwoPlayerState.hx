@@ -249,7 +249,7 @@ class TwoPlayerState extends PTFlxUIState{
                         case "back":
                             FlxG.switchState(new MenuState());
                         case "play":
-                            FlxG.switchState(new PlayState());
+                            FlxG.switchState(new PlayState("drogba","mexico","blochin","brazil"));
                     }
             }
         }

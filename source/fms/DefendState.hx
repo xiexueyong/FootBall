@@ -1,23 +1,30 @@
 package fms;
 
+import Math;
 class DefendState extends BaseState{
 
 
-    public function new()
+  /*  public function new()
     {
 
 
-    }
+    }*/
 
-    public function enter():Void{
-        trace("进入进攻状态");
+    override public function enter():Void{
+//        trace("防守");
     }
-    public function excute():Void{
+    override public function excute(stateMachine:StateMachine):Void{
+        if(stateMachine.opponent.x > stateMachine.owner.x && stateMachine.opponent.x - stateMachine.ball.x > stateMachine.ball.x -  stateMachine.owner.x){
+            stateMachine.owner.runToLeft();
+        }else{
+            stateMachine.owner.stop();
+        }
 
 
+
     }
-    public function exit():Void{
-        trace("退出进攻状态");
+    override public function exit():Void{
+//        trace("退出防守。。。");
 
     }
 

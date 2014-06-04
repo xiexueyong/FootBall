@@ -1,6 +1,7 @@
 -main ApplicationMain 
 -lib flixel
 -lib openfl
+-lib openfl
 -lib flixel-addons
 -lib flixel-ui
 -cp source
