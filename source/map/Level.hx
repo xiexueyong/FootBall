@@ -260,14 +260,15 @@ class Level extends TiledMap
 //                parentState.playerLeft = player;
 //                characterGroup.add(player);
 				
-			case "ball":
-				var ball:Ball = new Ball(x, y);
-                ball.x = (FlxG.width - ball.width)/2;
-                ball.y = Reg.BOUNDS.height - ball.height;
-                ball.setBoundsMap(this.getBounds());
-                parentState.ball = ball;
-				characterGroup.add(ball);
-				
+//			case "ball":
+//                var ball:Ball = new Ball(x, y);
+//                ball.x = (FlxG.width - ball.width)/2;
+//                ball.y = Reg.BOUNDS.height - ball.height;
+//                ball.velocity.y = 1500;
+//                ball.setBoundsMap(this.getBounds());
+//                parentState.ball = ball;
+//                characterGroup.add(ball);
+//
 			case "collision":
 				var coll:FlxObject = new FlxObject(x, y, o.width, o.height);
                 coll.elasticity = 1;
