@@ -3,6 +3,7 @@ package com.putaolab.football.ui.model;
 
 import flixel.util.FlxSave;
 import flixel.FlxG;
+import flixel.util.FlxSave;
 /**
  * User: gaoyun
  * Date: 14-5-28
@@ -22,9 +23,21 @@ class Model {
     private var _countryscorearr:Array<Dynamic>;
     //存放小组数据
     public var teamarr:Array<Array<String>>;
+    //存储对战记录
+    private var _competition:Array<Dynamic>;
 
     public static var gameSave:FlxSave;
 
+    public static function SaveScore(?score:Int):Void
+    {
+        if(gameSave == null){
+            gameSave = new FlxSave();
+        }
+        gameSave.bind("score");
+        gameSave.bind("name");
+        gameSave.data.score = "3";
+        gameSave.data.name = "gaoyun";
+    }
 
     public static function getInstance():Model
     {
@@ -34,23 +47,18 @@ class Model {
         return _model;
     }
 
-    public static function SaveScore(score:Int):Void
+    public function getScore():Void
     {
-        if(gameSave == null){
-            gameSave = new FlxSave();
-        }
-        gameSave.bind("score");
+        trace(gameSave.data.score);
+        trace(gameSave.data.name);
     }
 
     public function new() {
-//        var teamobj = new teamObj();
-//        teamobj.name = "";
-//        teamobj.country = "";
-//        _shareobj = new SharedObject();
         new AssistModel(this);
         teamarr = new Array<Array<String>>();
         teamData();
-
+        SaveScore();
+        getScore();
     }
 
     /*
@@ -75,11 +83,6 @@ class Model {
         teamarr.push(H);
     }
 
-    private function countryFootballer():Void
-    {
-
-    }
-
     public function getTeamData():Array<Array<String>>{
         return teamarr;
     }
@@ -92,23 +95,24 @@ class Model {
         return teamarr[index];
     }
 
-
-    public function saveTeamInformation():Void
-    {
-//        FlxG.save();
-//        _shareobj.setProperty("ss","ddddddddddddffffffffff");
-    }
-
-    public function getTeamformation():Void
-    {
-
-    }
-
     /*
     *    得到小组赛国家得分情况、以及比分情况
     */
     public function getTeamCountryScore():Array<Dynamic>
     {
+        if(_countryscorearr!=null && _countryscorearr.length!=0){
+            var len = _countryscorearr.length;
+            for(i in 0...len){
+                for(j in 0...len-1){
+                    var temp;
+                    if(_countryscorearr[i].accumulativescore>_countryscorearr[j].accumulativescore){
+                        temp = _countryscorearr[i];
+                        _countryscorearr[i] = _countryscorearr[j];
+                        _countryscorearr[j] = temp;
+                    }
+                }
+            }
+        }
         return _countryscorearr;
     }
 
@@ -133,7 +137,7 @@ class Model {
     /*
     *球员头像
     * */
-    public function initCountryBaller(head:String="head_default",name:String="name"):Void
+    public function initCountryBaller(head:String="head_default",name:String="name",chinaname="chinaname"):Void
     {
         if(_countryballer==null){
             _countryballer = new Array<Dynamic>();
@@ -141,6 +145,7 @@ class Model {
         var countryBaller = new CountryBaller();
         countryBaller.head = head;
         countryBaller.name = name;
+        countryBaller.chinaname = chinaname;
         _countryballer.push(countryBaller);
     }
     public function getCountryBallers():Array<Dynamic>{
@@ -203,7 +208,6 @@ class Model {
         return _competition;
     }
 
-    private var _competition:Array<Dynamic>;
 }
 //国家得分情况
 class Countryscore{
@@ -224,6 +228,8 @@ class CountryBaller{
     public var name:String;
     //头像名字
     public var head:String;
+    //球员中文名字
+    public var chinaname:String;
 }
 //设置国家里面的球员
 class Country{
@@ -232,7 +238,6 @@ class Country{
     public var body:String;
     public var hand:String;
     public var countryname:String;
-//    public var countryname:String;
 }
 //对战记录
 class Competition

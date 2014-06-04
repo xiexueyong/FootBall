@@ -30,6 +30,11 @@ class CompetitionModel {
         return _commodel;
     }
 
+
+    public function getFinalsData():Void
+    {
+    }
+
     /*
     *随机十六强国家，目前存在国家重复问题
     * */
@@ -57,6 +62,51 @@ class CompetitionModel {
         var countryindex = Math.ceil(Math.random()*3);
 
         return countrys[countryindex];
+    }
+
+    /*
+    *设置八强数据
+    * */
+    public function setTopEight():Void
+    {
+
+    }
+    public function getTopEight():Void
+    {
+
+    }
+    /*
+    *设置四强数据
+    * */
+    public function   setpFour():Void
+    {
+
+    }
+    public function getTopFour():Void
+    {
+
+    }
+    /*
+    *设置第一名、第二名数据
+    * */
+    public function setToptwo():Void
+    {
+
+    }
+    public function getToptwo():Void
+    {
+
+    }
+    /*
+    *设置第3名、第4名数据
+    * */
+    public function setTopthree():Void
+    {
+
+    }
+    public function getTopthree():Void
+    {
+
     }
 
 }

@@ -24,6 +24,8 @@ class OnePlayerState extends PTFlxUIState{
     private var _index:Int;
     //当前选中的国家
     private var _selectedcountry:FlxSprite;
+    //当前选中的国家名字
+    private var _selectedcountryname:String;
 
     public function new(index:Int=0):Void
     {
@@ -105,13 +107,16 @@ class OnePlayerState extends PTFlxUIState{
             add(btnflagbg2);
             add(btnflagbg1);
             btnflagbg1.visible = false;
+            if(i==0){//默认选中第一个
+                _selectedcountry = btnflagbg1;
+                _selectedcountry.visible = true;
+                _selectedcountryname = countryarr[i];
+                setFootBallerFormCountry(getFootballarFromCountry(countryarr[i]));
+            }
             var country = AssetsManager.getInstance().getSprite(0,0,countryarr[i]);
             country.x = 66;
             country.y = 67+btnflagbg1.height*i;
-//            trace(countryarr[i]+"DDD"+country);
             add(country);
-
-            setFootBallerFormCountry();
             initPropertyPanel();
         }
     }
@@ -267,7 +272,7 @@ class OnePlayerState extends PTFlxUIState{
                         case "groups":
                             FlxG.switchState(new SelectTeamState());
                         case "play":
-                            FlxG.switchState(new RankingState(_index,params[3]));
+                            FlxG.switchState(new RankingState(_index,_selectedcountryname));
                         case "btnflagbg2":
                             if(_selectedcountry!=null){
                                 _selectedcountry.visible = false;
@@ -277,6 +282,7 @@ class OnePlayerState extends PTFlxUIState{
                             footballergroup.clear();
                             setFootBallerFormCountry(params[2]);
                             refresh1();
+                            _selectedcountryname = params[3];
                     }
                 case "over_button":
                     switch(cast(params[0], String)) {
