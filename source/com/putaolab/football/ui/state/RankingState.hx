@@ -17,6 +17,8 @@ class RankingState extends PTFlxUIState{
 
     //对战记录y坐标起始位置
     private var competitionitemY:Float;
+    //对战次数
+    private var _competitionCount:Int;
     private var _toplayerone:PTFlxUIButton;
     private var _play:PTFlxUIButton;
     private var _index:Int;
@@ -30,6 +32,7 @@ class RankingState extends PTFlxUIState{
         //得到缓存里面的信息
         _selectedcountry = selectedcountry;
         _index = index;
+//        _competitionCount = Model.getInstance().getCompetition().length;
     }
 
     override public function create():Void
@@ -42,7 +45,9 @@ class RankingState extends PTFlxUIState{
         init();
     }
 
-    /**/
+    /*
+    *初始化
+    * */
     private function init():Void{
         add(new StateBG());
         initButton();
@@ -92,10 +97,6 @@ class RankingState extends PTFlxUIState{
             for(i in 0...len){
                 Model.getInstance().setTeamCountryScore(arr[i],"0","0",i+"");
             }
-//            Model.getInstance().setTeamCountryScore("flag_argentina","0","0","0");
-//            Model.getInstance().setTeamCountryScore("flag_australia","0","0","0");
-//            Model.getInstance().setTeamCountryScore("flag_brazil","0","0","0");
-//            Model.getInstance().setTeamCountryScore("flag_chile","0","0","0");
         }
     }
 
@@ -169,8 +170,11 @@ class RankingState extends PTFlxUIState{
             competitionItem(0,competitionitemY +30);
             competitionItem(0,competitionitemY + 100);
         }
-        if(Model.getInstance().getCompetition()!=null && Model.getInstance().getCompetition().length == 3){
-            competitionItem(0,0);
+        if(Model.getInstance().getCompetition()!=null && _competitionCount == 3){
+            var comparr = Model.getInstance().getCompetition();
+            for(i in 0...3){
+//                competitionItem(0,competitionitemY +30+i*70,comparr.mycountry,comparr.competitioncountry,comparr.myscore,comparr.competitionscore);
+            }
         }
     }
     private function competitionItem(X,Y,mycountry:String="flag_default",competitioncountry:String="flag_default",myscore:Int=0,competitionscore:Int=0):Void
@@ -205,6 +209,7 @@ class RankingState extends PTFlxUIState{
                             FlxG.switchState(new OnePlayerState());
                         case "play":
                             FlxG.switchState(new FinalsState(_selectedcountry));
+
                     }
                 case "over_button":
                     switch(cast(params[0], String)) {

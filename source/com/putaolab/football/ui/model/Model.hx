@@ -1,6 +1,7 @@
 package com.putaolab.football.ui.model;
 
 
+import com.putaolab.football.ui.model.ModelReg;
 import flixel.util.FlxSave;
 import flixel.FlxG;
 import flixel.util.FlxSave;
@@ -189,7 +190,7 @@ class Model {
     public function setCompetition(mycountry:String,competitioncountry:String,myscore:Int,competitionscore:Int):Void
     {
         if(_competition == null){
-            _competition = new Array<Dynamic>();
+            _competition = new Array<Competition>();
         }
         var competition = new Competition();
         competition.mycountry = mycountry;
@@ -198,6 +199,8 @@ class Model {
         competition.competitionscore = competitionscore;
 
         _competition.push(competition);
+        //将数据缓存起来
+        ModelReg.saveCompetition(_competition);
     }
 
     /*
@@ -205,6 +208,9 @@ class Model {
     * */
     public function getCompetition():Array<Dynamic>
     {
+//        if(_competition == null){
+//            _competition = ModelReg.getCompetition();
+//        }
         return _competition;
     }
 

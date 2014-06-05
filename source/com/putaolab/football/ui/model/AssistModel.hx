@@ -20,7 +20,7 @@ class AssistModel {
     {
         //A组
         //flag_brazil
-        _model.initCountryBaller("head_neymar","Yeman",);
+        _model.initCountryBaller("head_neymar","Yeman");
         _model.initCountryBaller("head_hulk","Hurd");
         _model.initCountryBaller("head_carlos","Bobby Carl");
         _model.initCountryBaller("head_zico","Z Boy");
