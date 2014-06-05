@@ -24,9 +24,10 @@ class RankingState extends PTFlxUIState{
     //当前选中的国家
     private var _selectedcountry:String;
 
-    public function new(index:Int=0,selectedcountry:Dynamic):Void
+    public function new(index:Int=0,?selectedcountry:Dynamic):Void
     {
         super();
+        //得到缓存里面的信息
         _selectedcountry = selectedcountry;
         _index = index;
     }
@@ -89,7 +90,7 @@ class RankingState extends PTFlxUIState{
             var arr = Model.getInstance().getCountryFromTeam(_index);
             var len = arr.length;
             for(i in 0...len){
-                Model.getInstance().setTeamCountryScore(arr[i],"0","0","0");
+                Model.getInstance().setTeamCountryScore(arr[i],"0","0",i+"");
             }
 //            Model.getInstance().setTeamCountryScore("flag_argentina","0","0","0");
 //            Model.getInstance().setTeamCountryScore("flag_australia","0","0","0");
@@ -108,7 +109,12 @@ class RankingState extends PTFlxUIState{
         for(i in 0...4){
 //            trace(_countryscorearr[i].country,_countryscorearr[i].score,_countryscorearr[i].losescore,_countryscorearr[i].accumulativescore);
             var itemgroup = new FlxSpriteGroup();
-            var sp = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_group1");
+            var sp;
+            if(_countryscorearr[i].country == _selectedcountry){
+                sp = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_group2");
+            }else{
+                sp = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_group1");
+            }
             var bgbtn:PTFlxUIButton = new PTFlxUIButton();
             cursor.addWidget(bgbtn);
             bgbtn.loadGraphicsUpOverDown(sp.getFlxFrameBitmapData());
