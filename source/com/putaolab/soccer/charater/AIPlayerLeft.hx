@@ -42,6 +42,8 @@ class AIPlayerLeft extends AIPlayer {
             var angle:Float = (1-Math.abs(tx/Reg.BALL_EFFECTIVEDISTANCE))*Reg.BALL_MAKANGLE;
             if(lob)
                 angle += Reg.BALL_ADDEDANGLE;
+            else if(push)
+                angle = 0;
             ball.showRightDirectionTip(angle);
             _kickAngle = Math.abs(angle);
         }else{

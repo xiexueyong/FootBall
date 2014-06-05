@@ -42,6 +42,7 @@ class StateMachine{
 
     }
     public function update():Void{
+//    return;
         if( Math.abs(owner.x - ball.x) > Math.abs(opponent.x - ball.x)+60 && opponent.x - owner.x < 800){
             if(_currenName != "defend"){
                 changeState(_defendState,"defend");
@@ -85,7 +86,7 @@ class StateMachine{
             angle = radius*180/Math.PI;
 //            trace(".......头顶.........",angle);
         }
-        return  angle;
+        return  angle-3;
     }
 
 

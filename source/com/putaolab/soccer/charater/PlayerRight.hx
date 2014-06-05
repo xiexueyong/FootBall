@@ -13,6 +13,7 @@ class PlayerRight extends Player{
         facing = FlxObject.LEFT;
         //调整碰撞检测区域
         width = 60;
+//        height = 60;
         offset.x = 30;
     }
 
@@ -35,11 +36,13 @@ class PlayerRight extends Player{
 //        if(ball.y <= y){
 //            return;
 //        }
-        var tx:Float = this.x - ball.x;
+        var tx:Float = this.x - ball.x - ball.width;
         if(ball.y > y && tx > 0 && tx < Reg.BALL_EFFECTIVEDISTANCE){
             var angle:Float = (1-Math.abs(tx/Reg.BALL_EFFECTIVEDISTANCE))*Reg.BALL_MAKANGLE;
             if(lob)
                 angle += Reg.BALL_ADDEDANGLE;
+            else if(push)
+                angle = 0;
             ball.showLeftDirectionTip(angle);
             _kickAngle = Math.abs(angle);
         }else{

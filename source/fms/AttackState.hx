@@ -12,10 +12,9 @@ class AttackState extends BaseState{
 
    override public function enter():Void{
 
-//        trace("进攻");
+        trace("进攻");
     }
     override public function excute(stateMachine:StateMachine):Void{
-//    trace("state update^        ");
         super.excute(stateMachine);
         var dx:Float = stateMachine.ball.x-stateMachine.owner.x;
 
@@ -27,7 +26,7 @@ class AttackState extends BaseState{
     }
 
     override public function exit():Void{
-//        trace("退出进攻");
+        trace("——退出进攻");
 
     }
 
