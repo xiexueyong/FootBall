@@ -52,7 +52,7 @@ class FinalsState extends PTFlxUIState{
         cursor.addWidget(_toranking);
         _toranking.params = ["groups"];
         var oneplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
-        var icon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_player");
+        var icon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_groupstats");
         _toranking.loadGraphicsUpOverDown(oneplayer.getFlxFrameBitmapData());
         _toranking.x = 50;
         _toranking.y = FlxG.height - _toranking.height-10;
@@ -145,7 +145,7 @@ class FinalsState extends PTFlxUIState{
                 case "click_button":
                     switch(cast(params[0], String)) {
                         case "groups":
-                            FlxG.switchState(new OnePlayerState());
+                            FlxG.switchState(new RankingState());
                         case "play":
                             FlxG.switchState(new PlayState());
                     }
@@ -203,17 +203,17 @@ class FinalsState extends PTFlxUIState{
     }
     private function initeight():Void
     {
-        var sixtweenpos:Array<FlxPoint> = [new FlxPoint(240,90),new FlxPoint(240,385),new FlxPoint(890,90),new FlxPoint(890,385)];
+        var eightpos:Array<FlxPoint> = [new FlxPoint(240,90),new FlxPoint(240,385),new FlxPoint(890,90),new FlxPoint(890,385)];
         if(_eightarr==null || _eightarr.length==0){
             var i:Int = 0;
             while(i<8){
-                getVersusCountry(sixtweenpos[Std.int(i/2)].x,sixtweenpos[Std.int(i/2)].y);
+                getVersusCountry(eightpos[Std.int(i/2)].x,eightpos[Std.int(i/2)].y);
                 i = i+2;
             }
         }else{
             var i:Int = 0;
             while(i<_eightarr.length){
-                getVersusCountry(sixtweenpos[Std.int(i/2)].x,sixtweenpos[Std.int(i/2)].y,_eightarr[i].country,_eightarr[i+1].country);
+                getVersusCountry(eightpos[Std.int(i/2)].x,eightpos[Std.int(i/2)].y,_eightarr[i].country,_eightarr[i+1].country);
                 i = i+2;
             }
         }
@@ -221,10 +221,10 @@ class FinalsState extends PTFlxUIState{
     }
     private function initfour():Void
     {
-        var sixtweenpos:Array<FlxPoint> = [new FlxPoint(280,240),new FlxPoint(860,240)];
+        var fourpos:Array<FlxPoint> = [new FlxPoint(280,240),new FlxPoint(860,240)];
         var i:Int = 0;
         while(i<4){
-            getVersusCountry(sixtweenpos[Std.int(i/2)].x,sixtweenpos[Std.int(i/2)].y);
+            getVersusCountry(fourpos[Std.int(i/2)].x,fourpos[Std.int(i/2)].y);
             i = i+2;
         }
     }

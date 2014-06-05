@@ -56,7 +56,7 @@ class MenuState extends PTFlxUIState
 
 
 
-/*初始化按钮*/
+    /*初始化按钮*/
     private function initButton():Void
     {
         _oneplayer = new PTFlxUIButton(0,0,null);
@@ -107,7 +107,7 @@ class MenuState extends PTFlxUIState
     }
 
 
-/**
+    /**
 	 * Function that is called when this state is destroyed - you might want to
 	 * consider setting all objects this state uses to null to help garbage collection.
 	 */
