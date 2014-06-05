@@ -44,15 +44,15 @@ class Reg
     //球的弹性
     public static var BALL_ELASTICITY:Float = 0.6;//0.6
     //球的飞行总速度
-    public static var BALL_KICKEDVELOCITY:Int = 1000;
+    public static var BALL_KICKEDVELOCITY:Int = 1250;
     //球自旋速度
     public static var BALL_ANGULARVELOCITY:Int = 360;
     //正常情况下，球的最大飞行角度，角度与距离球的距离有关
-    public static var BALL_MAKANGLE:Int = 30;
+    public static var BALL_MAKANGLE:Int = 35;
     //按住后退键，球的飞行角度增加量
-    public static var BALL_ADDEDANGLE:Int = 25;
+    public static var BALL_ADDEDANGLE:Int = 30;
     //踢球的有效范围
-    public static var BALL_EFFECTIVEDISTANCE:Int = 80;
+    public static var BALL_EFFECTIVEDISTANCE:Int = 100;
 
 //球员的重力加速度
     public static var PLAYER_GRAVITY:Int = 2200;//2000

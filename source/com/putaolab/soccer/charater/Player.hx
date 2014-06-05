@@ -17,7 +17,10 @@ class Player extends BoundsSprite {
     public var controllable:Bool;
     //吊球
     public var lob(get,set):Bool;
-    public var _lob:Bool = false;
+    private var _lob:Bool = false;
+    //平推球
+    public var push(get,set):Bool;
+    private var _push:Bool = false;
     private var _kickAngle:Float;
     //body
     private var body:Body;
@@ -99,6 +102,12 @@ class Player extends BoundsSprite {
     }
     public function set_lob(value:Bool):Bool{
         return _lob = value;
+    }
+    public function get_push():Bool{
+        return _push;
+    }
+    public function set_push(value:Bool):Bool{
+        return _push = value;
     }
     override private function set_x(NewX:Float):Float{
         var returnx:Float = super.set_x(NewX);

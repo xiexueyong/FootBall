@@ -27,7 +27,7 @@ import flixel.util.FlxMath;
 class PlayState extends PTFlxUIState
 {
     public static var level:Level;
-    public static var MATCH_SECOND:Int = 5;
+    public static var MATCH_SECOND:Int = 900;
     public static var start:Bool = false;
 
     private var _level:Level;
@@ -109,14 +109,14 @@ class PlayState extends PTFlxUIState
     //开始比赛
     private function startMatch(leftName:String,leftCountry:String,rightName:String,rightCountry:String):Void{
 				playerRight = new PlayerRight(FlxG.width-350, 0,_level.backDecorateGroup,rightName,rightCountry);
-                playerRight.y = Reg.BOUNDS.height - 120;
+                playerRight.y = Reg.BOUNDS.height - playerRight.height;
                 playerRight.setBoundsMap(_level.getBounds());
                 playerRight.controllable = true;
                 _level.characterGroup.add(playerRight);
 
 
                 playerLeft = new AIPlayerLeft(270, 0,_level.backDecorateGroup,leftName,leftCountry);
-                playerLeft.y = Reg.BOUNDS.height-120;
+                playerLeft.y = Reg.BOUNDS.height-playerLeft.height;
                 playerLeft.setBoundsMap(_level.getBounds());
                 playerLeft.controllable = false;
                 _level.characterGroup.add(playerLeft);

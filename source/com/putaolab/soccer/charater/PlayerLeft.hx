@@ -16,6 +16,7 @@ class PlayerLeft extends Player {
         //调整碰撞检测区域
         flipX = true;
         width = 60;
+//        height = 60;
         offset.x = 30;
     }
 
@@ -37,6 +38,8 @@ class PlayerLeft extends Player {
             var angle:Float = (1-Math.abs(tx/Reg.BALL_EFFECTIVEDISTANCE))*Reg.BALL_MAKANGLE;
             if(lob)
                 angle += Reg.BALL_ADDEDANGLE;
+            else if(push)
+                angle = 0;
             ball.showRightDirectionTip(angle);
             _kickAngle = Math.abs(angle);
         }else{

@@ -25,6 +25,7 @@ class PlayerRightController extends Controller{
         }
         if(FlxG.keys.anyPressed(["LEFT"])){
             player.runToLeft();
+            player.push = true;
         }
 
         //released
@@ -34,6 +35,7 @@ class PlayerRightController extends Controller{
         }
         if(FlxG.keys.anyJustReleased(["LEFT"])){
             player.stop();
+            player.push = false;
 
         }
         super.update();

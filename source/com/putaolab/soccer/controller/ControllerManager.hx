@@ -18,9 +18,10 @@ class ControllerManager{
     }
 
     public function update():Void{
-        if(PlayState.start == true){
+
             _playerLeftController.update();
             _playerRightController.update();
+        if(PlayState.start == true){
             _aiPlayerLeftController.update();
         }
     }

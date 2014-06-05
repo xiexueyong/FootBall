@@ -294,11 +294,17 @@ class Level extends TiledMap
 	public function updateCollisions():Void {
 		FlxG.collide(characterGroup, collisionGroup);
 
-        //球处于球员的面前才会碰撞检测，否则不碰撞检测。
-        if(parentState.playerLeft.x < parentState.ball.x){
+    //左,球员后退时，如果球在地上，则不碰撞，方便player退到球的后方踢球。与右边的球员对应。
+        if(parentState.playerLeft.x > parentState.ball.x && parentState.ball.y > Reg.BOUNDS.height - parentState.ball.height*1.5){
+
+        }else{
             FlxG.collide(parentState.playerLeft, parentState.ball);
         }
-		if(parentState.playerRight.x > parentState.ball.x){
+
+    //右
+        if(parentState.playerRight.x < parentState.ball.x && parentState.ball.y > Reg.BOUNDS.height - parentState.ball.height*1.5){
+
+        }else{
             FlxG.collide(parentState.playerRight, parentState.ball);
         }
 
