@@ -16,13 +16,11 @@ class AttackState extends BaseState{
     }
     override public function excute(stateMachine:StateMachine):Void{
         super.excute(stateMachine);
-        var dx:Float = stateMachine.ball.x-stateMachine.owner.x;
-
-        if(dx < Reg.BALL_EFFECTIVEDISTANCE ){
-            stateMachine.owner.kick(stateMachine.ball,stateMachine.getBestKickAngle());
-        }else if(dx > Reg.BALL_EFFECTIVEDISTANCE ){
+        //进入攻击范围
+        if(stateMachine.ball.x-stateMachine.owner.x > Reg.BALL_EFFECTIVEDISTANCE ){
             stateMachine.owner.runToRight();
         }
+
     }
 
     override public function exit():Void{

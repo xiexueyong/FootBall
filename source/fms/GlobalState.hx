@@ -15,14 +15,17 @@ class GlobalState extends BaseState{
     }
     override public function excute(stateMachine:StateMachine):Void{
         //头球
-        if(stateMachine.ball.y < stateMachine.owner.y && Math.abs(stateMachine.owner.x - stateMachine.ball.x)<100){
+        if(stateMachine.ball.y < stateMachine.owner.y && Math.abs(stateMachine.ball.x - stateMachine.owner.x)<200){
             stateMachine.owner.jump();
         }
-        if(stateMachine.owner.y - stateMachine.ball.y >= 0 && stateMachine.ball.velocity.x < 0 && stateMachine.ball.x > stateMachine.owner.x){
-            stateMachine.owner.runToLeft();
+        //踢球
+        var dx:Float = stateMachine.ball.x - stateMachine.owner.x;
+        if(dx < Reg.BALL_EFFECTIVEDISTANCE && dx > 0 ){
+            stateMachine.owner.kick(stateMachine.ball,stateMachine.getBestKickAngle());
         }
-        var dx:Float = stateMachine.ball.x-stateMachine.owner.x;
-        if(dx < 0){
+
+        //回到球的后面
+        if(stateMachine.owner.x >= stateMachine.ball.x){
             stateMachine.owner.runToLeft();
         }
     }

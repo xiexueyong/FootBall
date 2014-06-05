@@ -61,12 +61,12 @@ class Reg
 //球员的质量
     public static var PLAYER_MASS:Int = 3;
 //球员的弹性
-    public static var  PLAYER_ELASTICITY:Float = 0;//0.6
+    public static var  PLAYER_ELASTICITY:Float =0;//0.6
     //球员跑动的最大速度
     public static var  PLAYER_MAXVELOCITY:Float = 300;
     //球员跑动加速度
     public static var  PLAYER_RUN_ACCELERATION:Float = 1000;
-    public static var  PLAYER_JUMP_VELOCITY:Float = 500;
+    public static var  PLAYER_JUMP_VELOCITY:Float = 520;
 
     //地面的深度
     public static var  TEERAIN_DEEP:Float = 120;

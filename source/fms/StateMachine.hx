@@ -1,11 +1,14 @@
 package fms;
 
+import flixel.FlxG;
+import flixel.util.FlxTimer;
 import Math;
 import flixel.FlxSprite;
 import com.putaolab.soccer.wiget.Ball;
 import com.putaolab.soccer.charater.AIPlayer;
 import com.putaolab.soccer.charater.Player;
 class StateMachine{
+    private static var SWITCH_INTERVAL:Float = 0.2;
     public var owner:AIPlayer;
     //环境成员
     public var opponent:Player;
@@ -22,9 +25,73 @@ class StateMachine{
     private var _defendState:BaseState = new DefendState();
     private var _attackState:BaseState = new AttackState();
 
+    private var _timer:FlxTimer;
+    private var forceAttackTimer:FlxTimer;
+    private var _forceAttack:Bool = false;
+    /////////////////
+
+
+    private inline function startGame():Void{
+        forceAttackTimer = new FlxTimer(0.2,function(timer:FlxTimer){
+            if(_forceAttack){
+                _forceAttack = false;
+                return;
+            }else if(Math.random()<0.5){
+                _forceAttack = true;
+            }
+
+            trace("_forceAttack----",_forceAttack);
+        },0);
+    }
+    private function selectState(t:FlxTimer):Void{
+        //--------------------防守---------------------------------
+        //球在对方，且距离对方较近
+        if( Math.abs(owner.x - ball.x) > Math.abs(opponent.x - ball.x)-50 && ball.x > 675){
+            if(_currenName != "defend"){
+                changeState(_defendState,"defend");
+            }
+        }else
+        //球在天空，且快速飞向owner
+        if(ball.y<owner.y-30 && ball.velocity.x < -200){
+            if(_currenName != "defend"){
+                changeState(_defendState,"defend");
+            }
+        }
+
+
+
+
+        //--------------------进攻---------------------------------
+        //球在对手的身后，进攻
+        if(_forceAttack){
+            if(_currenName != "attack"){
+                changeState(_attackState,"attack");
+            }
+        }else
+        if(ball.x > opponent.x){
+            if(_currenName != "attack"){
+                changeState(_attackState,"attack");
+            }
+        }else
+        //球过半场，进攻
+        if(ball.x < 788 && ball.y > Reg.BOUNDS.height- owner.height){
+            if(_currenName != "attack"){
+                changeState(_attackState,"attack");
+            }
+        }else
+        //两球员距离小于350，则进攻
+        if(Math.abs(owner.x - opponent.x) < 400){
+            if(_currenName != "attack"){
+                changeState(_attackState,"attack");
+            }
+        }
+    }
+
     public function new(owner:AIPlayer)
     {
         this.owner = owner;
+//        startGame();
+
     }
     public function setCurrentSate(state:BaseState):Void{
         _currentState = state;
@@ -41,24 +108,13 @@ class StateMachine{
         this._currentState.enter();
 
     }
+
     public function update():Void{
-//    return;
-        if( Math.abs(owner.x - ball.x) > Math.abs(opponent.x - ball.x)+60 && opponent.x - owner.x < 800){
-            if(_currenName != "defend"){
-                changeState(_defendState,"defend");
-            }
-        }else {
-            if(_currenName != "attack"){
-                changeState(_attackState,"attack");
-            }
-        }
-
-
+        selectState(null);
         if(_currentState != null)
             _currentState.excute(this);
         if(_globalState != null)
             _globalState.excute(this);
-
     }
     //返回度数
     public function getBestKickAngle():Float{
@@ -86,7 +142,7 @@ class StateMachine{
             angle = radius*180/Math.PI;
 //            trace(".......头顶.........",angle);
         }
-        return  angle-3;
+        return  angle;
     }
 
 
