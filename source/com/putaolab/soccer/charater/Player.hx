@@ -124,9 +124,9 @@ class Player extends BoundsSprite {
         }
         return returnx;
     }
-    public function cry():Void{
-    
-    }
+//    public function cry():Void{
+//
+//    }
     override private function set_y(NewY:Float):Float{
         var returny:Float = super.set_y(NewY);
         if(body != null){

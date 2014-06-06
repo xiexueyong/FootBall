@@ -9,6 +9,8 @@ package com.putaolab.football.ui.model;
 class CompetitionModel {
     private static var _commodel:CompetitionModel;
 
+    private var  _competitiondata:Array<Dynamic>;
+
     private var _sixteenarr:Array<Dynamic>;
     private var _eightarr:Array<Dynamic>;
     private var _fourarr:Array<Dynamic>;
@@ -16,10 +18,16 @@ class CompetitionModel {
     private var _competitionstage:Int;
 
     public function new() {
+        _competitiondata = new Array<Dynamic>();
         _sixteenarr = new Array<Dynamic>();
         _eightarr = new Array<Dynamic>();
         _fourarr = new Array<Dynamic>();
         _twoarr = new Array<Dynamic>();
+
+        _competitiondata.push(_sixteenarr);
+        _competitiondata.push(_eightarr);
+        _competitiondata.push(_fourarr);
+        _competitiondata.push(_twoarr);
     }
 
     public static function getInstance():CompetitionModel

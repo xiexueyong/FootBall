@@ -163,8 +163,8 @@ class MatchResultPopState extends FlxUISubState
                                 }if(_scores[1]==_scores[0]){
                                     accumulativescore = 1;
                                 }
+                                Model.getInstance().setCompetition(_rightFlag,_leftFlag,Std.string(_scores[1]),Std.string(_scores[0]));
                                 Model.getInstance().setTeamCountryScore(_rightFlag,Std.string(_scores[1]),Std.string(_scores[0]),Std.string(accumulativescore));
-                                Model.getInstance().setCompetition(_rightFlag,_leftFlag,_scores[1],_scores[0]);
                                 FlxG.switchState(new RankingState());
                             }
                     }

@@ -140,6 +140,22 @@ class FinalsState extends PTFlxUIState{
     }
 
 
+    private var _matchcountry:String;
+    /*
+    *根据国家名字得到可以用的球员
+    * */
+    public function getBallerFromCountry(countryname:String):String{
+        var ballerarr = Model.getInstance().getFootballarFromCountry(countryname);
+        var len = ballerarr.length;
+        for(i in 0...len){
+            if(ballerarr[i].isclock == 0){
+                return ballerarr[i].head;
+            }
+        };
+        trace("return null");
+        return null;
+    }
+
     public override function getEvent(id:String, target:Dynamic, data:Dynamic, ?params:Array<Dynamic>):Void {
         if (params != null) {
             switch(id) {
@@ -149,7 +165,8 @@ class FinalsState extends PTFlxUIState{
                             FlxG.switchState(new RankingState());
                         case "play":
                             Model.resultprestate = 1;
-                            FlxG.switchState(new PlayState());
+                            _matchcountry = _sixteenarr[1];
+                            FlxG.switchState(new PlayState(getBallerFromCountry(_matchcountry),_matchcountry.split("_")[1],getBallerFromCountry(_selectedcountry),_selectedcountry.split("_")[1]));
                     }
                 case "over_button":
                     switch(cast(params[0], String)) {

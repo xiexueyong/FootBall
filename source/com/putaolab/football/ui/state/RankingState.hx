@@ -120,7 +120,7 @@ class RankingState extends PTFlxUIState{
             var arr = Model.getInstance().getCountryFromTeam(_index);
             var len = arr.length;
             for(i in 0...len){
-                Model.getInstance().setTeamCountryScore(arr[i],"0","0",i+"");
+                Model.getInstance().setTeamCountryScore(arr[i],"0","0","0");
             }
         }
     }
@@ -191,29 +191,34 @@ class RankingState extends PTFlxUIState{
     * */
     private function competitionRecords():Void
     {
-//        if(Model.getInstance().getCompetition() == null){
-//            competitionItem(0,competitionitemY +30);
-//            competitionItem(0,competitionitemY + 100);
-//        }
+        if(Model.getInstance().getCompetition() == null){
+            competitionItem(0,competitionitemY +30);
+            competitionItem(0,competitionitemY + 100);
+        }
         if(Model.getInstance().getCompetition() != null &&  _competitionCount<3){
             var comparr = Model.getInstance().getCompetition();
             trace(comparr[0].mycountry,comparr[0].competitioncountry,comparr[0].myscore,comparr[0].competitionscore);
-            competitionItem(0,competitionitemY +30,comparr[0].mycountry,comparr[0].competitioncountry,comparr[0].myscore,comparr[0].competitionscore);
-            competitionItem(0,competitionitemY +100);
+            for(i in 0..._competitionCount){
+                competitionItem(0,competitionitemY +30+i*70,comparr[i].mycountry,comparr[i].competitioncountry,comparr[i].myscore,comparr[i].competitionscore);
+            }
+            if(_competitionCount == 1){
+                competitionItem(0,competitionitemY +100);
+            }
         }
-//        if(Model.getInstance().getCompetition()!=null && _competitionCount == 3){
-//            _play.visible = false;
-//            playicon.visible = false;
-//            _finals.visible = true;
-//            finalicon.visible = true;
-//            var comparr = Model.getInstance().getCompetition();
-//            for(i in 0...3){
-//                competitionItem(0,competitionitemY +30+i*70,comparr[i].mycountry,comparr[i].competitioncountry,comparr[i].myscore,comparr[i].competitionscore);
-//            }
-//        }
+        if(Model.getInstance().getCompetition()!=null && _competitionCount == 3){
+            _play.visible = false;
+            playicon.visible = false;
+            _finals.visible = true;
+            finalicon.visible = true;
+            var comparr = Model.getInstance().getCompetition();
+            for(i in 0...3){
+                competitionItem(0,competitionitemY +30+i*70,comparr[i].mycountry,comparr[i].competitioncountry,comparr[i].myscore,comparr[i].competitionscore);
+            }
+        }
     }
-    private function competitionItem(X,Y,mycountry:String="flag_default",competitioncountry:String="flag_default",myscore:Int=0,competitionscore:Int=0):Void
+    private function competitionItem(X,Y,mycountry:String="flag_default",competitioncountry:String="flag_default",myscore:String="0",competitionscore:String="0"):Void
     {
+        var numdist = 13;
         var itemgroup = new FlxSpriteGroup();
         var sp = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_group1");
 //        sp.x= (FlxG.width-sp.width*1.45)*0.5;
@@ -228,6 +233,27 @@ class RankingState extends PTFlxUIState{
         competitioncountry.origin.x = competitioncountry.origin.y = 0;
         competitioncountry.scale.x = competitioncountry.scale.y = 0.6;
         itemgroup.add(competitioncountry);
+
+        var colon = AssetsManager.getInstance().getSprite(sp.x+sp.width*0.5,sp.y + numdist,"colonb");
+        itemgroup.add(colon);
+        if(myscore.charAt(1)!=""){
+            var score1 = AssetsManager.getInstance().getSprite(colon.x -58,colon.y,myscore.charAt(0)+"b");
+            itemgroup.add(score1);
+            var score2 = AssetsManager.getInstance().getSprite(colon.x -40,colon.y,myscore.charAt(1)+"b");
+            itemgroup.add(score2);
+        }else{
+            var score = AssetsManager.getInstance().getSprite(colon.x -40,colon.y,myscore+"b");
+            itemgroup.add(score);
+        }
+        if(competitionscore.charAt(1)!=""){
+            var losescore1 = AssetsManager.getInstance().getSprite(colon.x +20,colon.y,competitionscore.charAt(0)+"b");
+            itemgroup.add(losescore1);
+            var losescore2 = AssetsManager.getInstance().getSprite(colon.x +38,colon.y,competitionscore.charAt(1)+"b");
+            itemgroup.add(losescore2);
+        }else{
+            var losescore = AssetsManager.getInstance().getSprite(colon.x +20,colon.y,competitionscore+"b");
+            itemgroup.add(losescore);
+        }
 
         add(itemgroup);
         itemgroup.x = (FlxG.width-sp.width)*0.5;

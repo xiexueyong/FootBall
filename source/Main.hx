@@ -1,5 +1,6 @@
 package;
 
+import com.putaolab.football.ui.model.ModelReg;
 import flash.display.Sprite;
 import flash.display.StageAlign;
 import flash.display.StageScaleMode;
@@ -39,6 +40,7 @@ class Main extends Sprite
 		{
 			addEventListener(Event.ADDED_TO_STAGE, init);
 		}
+
 	}
 	
 	private function init(?E:Event):Void 
@@ -56,6 +58,7 @@ class Main extends Sprite
 	
 	private function setupGame():Void
 	{
+//        ModelReg.clearData();
 		var stageWidth:Int = Lib.current.stage.stageWidth;
 		var stageHeight:Int = Lib.current.stage.stageHeight;
 

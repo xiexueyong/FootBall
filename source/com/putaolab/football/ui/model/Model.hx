@@ -30,6 +30,8 @@ class Model {
     //一场比赛之后回到哪个界面 0小组排行 1晋级赛
     public static var resultprestate:Int = 0;
 
+    private var _mycountry:String;
+    private var _competitioncountry:String;
 
     public static function getInstance():Model
     {
@@ -84,17 +86,21 @@ class Model {
     */
     public function getTeamCountryScore():Array<Dynamic>
     {
-
-//        trace("_countryscorearr.length : "+_countryscorearr.length);
+//        if(ModelReg.getRanking()!= null && ModelReg.getRanking()!= 0){
+//
+//        }
+        _countryscorearr = ModelReg.getRanking();
         return _countryscorearr;
     }
 
+    private var _scorearr:Array<String>;
     /*
     *   设置小组里面国家得分情况
     */
     public function setTeamCountryScore(country:String,score:String,losescore:String,accumulativescore:String):Void
     {
-        if(_countryscorearr == null)
+//        if(_countryscorearr == null || ModelReg.getRanking())
+        if(ModelReg.getRanking() ==null || ModelReg.getRanking().length==0)
         {
             _countryscorearr = new Array<Dynamic>();
         }
@@ -104,10 +110,48 @@ class Model {
         if(_countryscorearr.length ==4){
             var len = _countryscorearr.length;
             for(i in 0...len){
+                if(_countryscorearr[i].country == _competitioncountry){
+                    var loseaccumulativescore = "";
+                    if(score>losescore){
+                        loseaccumulativescore = 0+"";
+                    }if(score<losescore){
+                        loseaccumulativescore = 3+"";
+                    }if(score==losescore){
+                        loseaccumulativescore = 1+"";
+                    }
+                    _countryscorearr[i].score = Std.string(Std.parseInt(_countryscorearr[i].score)+Std.parseInt(losescore));
+                    _countryscorearr[i].losescore = Std.string(Std.parseInt(_countryscorearr[i].losescore)+Std.parseInt(score));
+                    _countryscorearr[i].accumulativescore = Std.string(Std.parseInt(_countryscorearr[i].accumulativescore)+Std.parseInt(loseaccumulativescore));
+                }
                 if(_countryscorearr[i].country == country){
-                    _countryscorearr[i].score = score;
-                    _countryscorearr[i].losescore = losescore;
-                    _countryscorearr[i].accumulativescore = accumulativescore;
+                    _countryscorearr[i].score = Std.string(Std.parseInt(_countryscorearr[i].score)+Std.parseInt(score));
+                    _countryscorearr[i].losescore = Std.string(Std.parseInt(_countryscorearr[i].losescore)+Std.parseInt(losescore));
+                    _countryscorearr[i].accumulativescore = Std.string(Std.parseInt(_countryscorearr[i].accumulativescore)+Std.parseInt(accumulativescore));
+                }
+                if(_countryscorearr[i].country != _mycountry && _countryscorearr[i].country != _competitioncountry){
+                    var randomscore = "";
+                    var randomlosescore = "";
+                    if(_scorearr !=null){
+                        randomscore = _scorearr[1];
+                        randomlosescore = _scorearr[0];
+                    }
+                    if(_scorearr ==null){
+                        _scorearr = new Array<String>();
+                        _scorearr[0] = Std.string(Math.random()*8);
+                        _scorearr[1] = Std.string(Math.random()*8);
+                        randomscore = _scorearr[0];
+                        randomlosescore = _scorearr[1];
+                    }
+                    _countryscorearr[i].score = Std.string(Std.parseInt(_countryscorearr[i].score)+Std.parseInt(randomscore));
+                    _countryscorearr[i].losescore = Std.string(Std.parseInt(_countryscorearr[i].losescore)+Std.parseInt(randomlosescore));
+                    if(randomscore>randomlosescore){
+                        accumulativescore = 3+"";
+                    }if(randomscore<randomlosescore){
+                        accumulativescore = 0+"";
+                    }if(randomscore==randomlosescore){
+                        accumulativescore = 1+"";
+                    }
+                    _countryscorearr[i].accumulativescore = Std.string(Std.parseInt(_countryscorearr[i].accumulativescore)+Std.parseInt(accumulativescore));
                 }
             }
         }
@@ -132,6 +176,7 @@ class Model {
                 }
             }
         }
+        _scorearr = null;
         ModelReg.saveRanking(_countryscorearr);
     }
     /*
@@ -187,14 +232,21 @@ class Model {
         return null;
     }
 
+
     /*
     * 设置小组对战记录
     * */
-    public function setCompetition(mycountry:String,competitioncountry:String,myscore:Int,competitionscore:Int):Void
+    public function setCompetition(mycountry:String,competitioncountry:String,myscore:String,competitionscore:String):Void
     {
-        if(_competition == null){
+        _mycountry = mycountry;
+        _competitioncountry = competitioncountry;
+//        if(_competition == null){
+        if(ModelReg.getCompetition() == null || ModelReg.getCompetition().length ==0){
             _competition = new Array<Competition>();
+        }else{
+            _competition = ModelReg.getCompetition();
         }
+        trace(_competition);
         var competition = new Competition();
         competition.mycountry = mycountry;
         competition.competitioncountry = competitioncountry;
@@ -256,6 +308,6 @@ class Competition
     public function new(){}
     public var mycountry:String;
     public var competitioncountry:String;
-    public var myscore:Int;
-    public var competitionscore:Int;
+    public var myscore:String;
+    public var competitionscore:String;
 }
