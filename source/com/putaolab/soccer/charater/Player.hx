@@ -60,7 +60,7 @@ class Player extends BoundsSprite {
     }
     private function initializeBody():Void{
         //head
-        AssetsManager.getInstance().uploadTextureToSprite(this,"head_"+_name);
+        AssetsManager.getInstance().uploadTextureToSprite(this,_name);
         trace("head______________",_name);
         trace(width,height);
         //body

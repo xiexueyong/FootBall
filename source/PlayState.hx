@@ -27,7 +27,7 @@ import flixel.util.FlxMath;
 class PlayState extends PTFlxUIState
 {
     public static var level:Level;
-    public static var MATCH_SECOND:Int = 900;
+    public static var MATCH_SECOND:Int = 5;
     public static var start:Bool = false;
 
     private var _level:Level;

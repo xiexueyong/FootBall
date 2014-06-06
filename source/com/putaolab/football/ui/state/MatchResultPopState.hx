@@ -1,4 +1,5 @@
 package com.putaolab.football.ui.state;
+import com.putaolab.football.ui.model.Model;
 import component.PTFlxUIButton;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -12,20 +13,29 @@ class MatchResultPopState extends FlxUISubState
     private var _play:PTFlxUIButton;
     private var _leftCountry:String;
     private var _rightCountry:String;
+
+    private var _leftFlag:String;
+    private var _rightFlag:String;
     private var _scores:Array<Int>;
 
     public function new(leftCountry:String,rightCountry:String,scores:Array<Int>){
         super();
         _leftCountry = leftCountry;
         _rightCountry = rightCountry;
+
+        _leftFlag = "flag_"+leftCountry;
+        _rightFlag = "flag_"+rightCountry;
         _scores = scores;
     }
 	public override function create():Void
-	{		
+	{
+//        _makeCursor = true;
+//        super.create();
+//        cursor.setDefaultKeys(FlxUICursor.KEYS_DEFAULT_ARROWS | FlxUICursor.KEYS_DEFAULT_TAB);
 		super.create();
         initButton();
         trace(_leftCountry,_rightCountry,Std.string(_scores[0]),Std.string(_scores[1]));
-        getVersusCountry(_leftCountry,_rightCountry,Std.string(11),Std.string(55));
+        getVersusCountry(_leftFlag,_rightFlag,Std.string(_scores[0]),Std.string(_scores[1]));
 	}
 
     /*
@@ -141,7 +151,22 @@ class MatchResultPopState extends FlxUISubState
                         case "restart":
 //                            FlxG.switchState(new TwoPlayerState());
                         case "play":
-//                            FlxG.switchState(new OnePlayerState());
+                            if(Model.resultprestate == 1){
+//                                Model.getInstance().set
+                                FlxG.switchState(new FinalsState());
+                            }else{
+                                var accumulativescore:Int = 0;
+                                if(_scores[1]>_scores[0]){
+                                    accumulativescore = 3;
+                                }if(_scores[1]<_scores[0]){
+                                    accumulativescore = 0;
+                                }if(_scores[1]==_scores[0]){
+                                    accumulativescore = 1;
+                                }
+                                Model.getInstance().setTeamCountryScore(_rightFlag,Std.string(_scores[1]),Std.string(_scores[0]),Std.string(accumulativescore));
+                                Model.getInstance().setCompetition(_rightFlag,_leftFlag,_scores[1],_scores[0]);
+                                FlxG.switchState(new RankingState());
+                            }
                     }
             }
         }
