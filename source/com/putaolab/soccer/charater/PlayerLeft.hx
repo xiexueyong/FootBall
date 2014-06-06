@@ -25,7 +25,7 @@ class PlayerLeft extends Player {
 
 
     override public function kick(ball:Ball,?angle:Float):Void{
-        if(ball.y > y){
+        if(!rest && ball.y > y-10){
             var tx:Float = this.x - ball.x;
             if(tx < 0 && tx > -Reg.BALL_EFFECTIVEDISTANCE){
                 ball.beKicked("right",_kickAngle);

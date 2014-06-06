@@ -32,7 +32,7 @@ class AIPlayerLeft extends AIPlayer {
     }
     override public function kick(ball:Ball,?angle:Float):Void{
 //    trace(angle);
-        if(!rest && ball.y > y){
+        if(!rest && ball.y > y-10){
             var tx:Float = this.x - ball.x;
             if(tx < 0 && tx > -Reg.BALL_EFFECTIVEDISTANCE){
                 if(angle != null){
@@ -42,16 +42,16 @@ class AIPlayerLeft extends AIPlayer {
                 }
             }
         }
-
+        if(!rest)
+            showEffect(_kickEffect,this.x+54,this.y+51);
         super.kick(ball,angle);
-        showEffect(_kickEffect,this.x+54,this.y+51);
+
     }
 //    override private function initializeBody():Void{
 //
 //    }
     override public function cry():Void{
         if(_cryEffect == null){
-            trace("left.......cry................");
             _cryEffect = new CryEffect();
             _cryEffect.offsetOnParent = new FlxPoint(-32,-22);
         }
@@ -61,7 +61,8 @@ class AIPlayerLeft extends AIPlayer {
     override public function forecastDirection(ball:Ball):Void{
         var tx:Float = this.x - ball.x;
         if(ball.y > y && tx < 0 && tx > -Reg.BALL_EFFECTIVEDISTANCE){
-            var angle:Float = (1-Math.abs(tx/Reg.BALL_EFFECTIVEDISTANCE))*Reg.BALL_MAKANGLE;
+           // var angle:Float = (1-Math.abs(tx/Reg.BALL_EFFECTIVEDISTANCE))*Reg.BALL_MAKANGLE;
+            var angle:Float = stateMachine.getBestKickAngle();
             if(lob)
                 angle += Reg.BALL_ADDEDANGLE;
             else if(push)

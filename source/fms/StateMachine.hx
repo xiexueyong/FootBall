@@ -142,6 +142,15 @@ class StateMachine{
             angle = radius*180/Math.PI;
 //            trace(".......头顶.........",angle);
         }
+
+        if(ball.x > owner.x && ball.x < opponent.x && opponent.x - ball.x < 250 && opponent.x - ball.x > 110){
+            //球在2球员之间，球往天上踢,2球员距离很近
+            angle = 40;
+        }else
+        if(ball.x > owner.x && ball.x < opponent.x && rightGoal.x - opponent.x > 240){
+            //球在2球员之间，球往天上踢,2球员距离很近
+            angle = 60;
+        }
         return  angle;
     }
 

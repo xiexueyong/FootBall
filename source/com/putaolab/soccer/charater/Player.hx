@@ -1,4 +1,5 @@
 package com.putaolab.soccer.charater;
+import haxe.Timer;
 import Array;
 import com.putaolab.soccer.wiget.Wiget;
 import com.putaolab.soccer.wiget.SpecialEffect;
@@ -20,16 +21,20 @@ class Player extends BoundsSprite {
     private var _backDecorateGroup:FlxTypedGroup<FlxBasic>;
     private var _frontDecorateGroup:FlxTypedGroup<FlxBasic>;
 
+
+
     public var controllable:Bool;
+    public var rest:Bool = false;
 
     //吊球
     public var lob(get,set):Bool;
     private var _lob:Bool = false;
     //平推球
     public var push(get,set):Bool;
+    public var happy:Bool = false;
     private var _push:Bool = false;
     private var _kickAngle:Float;
-    private var _wigets:Array<Wiget> = [];
+//    private var _wigets:Array<Wiget> = [];
     //body
     private var body:Body;
     private var rightHand:RightHand;
@@ -62,19 +67,16 @@ class Player extends BoundsSprite {
         initializeEffect();
 
         collisionMap = new FlxRect(20,0,60,120);
-        cry();
     }
 
     public function jump():Void{
-        if(velocity.y != 0)
-            return;
-
-        velocity.y = -Reg.PLAYER_JUMP_VELOCITY;
-        showEffect(_smokeJumpEffect,this.x-47,this.y);
+        //35.2是一个莫名其妙的数字，有时处于静止状态时，velocity.y的值居然是35.2
+        if((velocity.y == 0|| velocity.y == 35.2) && y > Reg.BOUNDS.height - height-30){
+//        if((velocity.y == 0|| velocity.y == 35.2)){
+            velocity.y = -Reg.PLAYER_JUMP_VELOCITY;
+            showEffect(_smokeJumpEffect,this.x-47,this.y);
+        }
     }
-//    public function showEffect(effect:):Void{
-//
-//    }
     private function initializeEffect():Void{
         _kickEffect = new SpecialEffect("kick","Player_Kick/00",60);
         _hitEffect = new SpecialEffect("hit","Player_Hit/00",60);
@@ -94,17 +96,17 @@ class Player extends BoundsSprite {
         if(leftHand == null){
             leftHand = new LeftHand(0,0,_country);
             _backDecorateGroup.add(leftHand);
-            _wigets.push(leftHand);
+//            _wigets.push(leftHand);
         }
         if(rightHand == null){
             rightHand= new RightHand(0,0,_country);
             _backDecorateGroup.add(rightHand);
-            _wigets.push(rightHand);
+//            _wigets.push(rightHand);
         }
         if(body == null){
             body = new Body(0,0,_country);
             _backDecorateGroup.add(body);
-            _wigets.push(rightHand);
+//            _wigets.push(rightHand);
         }
 
 //        AssetsManager.getInstance().uploadTextureToSprite(body,"body_france");
@@ -188,6 +190,10 @@ class Player extends BoundsSprite {
         return returny;
     }
     public function kick(ball:Ball,?angle:Float):Void{
+        if(!rest){
+            rest = true;
+            Timer.delay(function(){rest = false;},AIPlayer.REST_MILLIONSECOND);
+        }
 //        ball.beKicked(false);
 //        showEffect(_kickEffect,this.x,this.y);
     }
@@ -197,6 +203,11 @@ class Player extends BoundsSprite {
 
     override public function update():Void{
         super.update();
+        if(happy){
+            jump();
+        }
+
+
     }
 
 

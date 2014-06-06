@@ -1,4 +1,5 @@
 package com.putaolab.soccer.controller;
+import com.putaolab.soccer.controller.PlayerRightGamePadController;
 import com.putaolab.soccer.controller.PlayerRightController;
 import flixel.FlxState;
 import flixel.FlxObject;
@@ -9,19 +10,23 @@ class ControllerManager{
     private var _playerLeftController:PlayerLeftController;
     private var _aiPlayerLeftController:AIPlayerLeftController;
     private var _playerRightController:PlayerRightController;
+    private var _playerRightGamePadController:PlayerRightGamePadController;
     public function new(state:PlayState)
     {
-        _playerLeftController = new PlayerLeftController(state);
+//        _playerLeftController = new PlayerLeftController(state);
         _playerRightController = new PlayerRightController(state);
+        _playerRightGamePadController = new PlayerRightGamePadController(state);
         _aiPlayerLeftController = new AIPlayerLeftController(state);
 
     }
 
     public function update():Void{
 
-            _playerLeftController.update();
+//            _playerLeftController.update();
+
+        if(PlayState.start){
             _playerRightController.update();
-        if(PlayState.start == true){
+            _playerRightGamePadController.update();
             _aiPlayerLeftController.update();
         }
     }

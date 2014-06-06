@@ -38,7 +38,7 @@ class Reg
 	public static var saves:Array<FlxSave> = [];
 
     //球的重力加速度
-    public static var BALL_GRAVITY:Int = 1600;
+    public static var BALL_GRAVITY:Int = 1800;
     //球的阻力
     public static var BALL_DRAG:Int = 50;
     //球的弹性
@@ -50,7 +50,7 @@ class Reg
     //正常情况下，球的最大飞行角度，角度与距离球的距离有关
     public static var BALL_MAKANGLE:Int = 35;
     //按住后退键，球的飞行角度增加量
-    public static var BALL_ADDEDANGLE:Int = 30;
+    public static var BALL_ADDEDANGLE:Int = 40;
     //踢球的有效范围
     public static var BALL_EFFECTIVEDISTANCE:Int = 100;
 

@@ -11,7 +11,7 @@ class DefendState extends BaseState{
     }*/
 
     override public function enter():Void{
-        trace("防守");
+//        trace("防守");
     }
     override public function excute(stateMachine:StateMachine):Void{
 //        if(stateMachine.opponent.x > stateMachine.owner.x && stateMachine.opponent.x - stateMachine.ball.x > stateMachine.ball.x -  stateMachine.owner.x){
@@ -41,7 +41,7 @@ class DefendState extends BaseState{
 
     }
     override public function exit():Void{
-        trace("————退出防守");
+//        trace("————退出防守");
 
     }
 

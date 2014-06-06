@@ -22,15 +22,18 @@ class PlayerRight extends Player{
 
 
     override public function kick(ball:Ball,?angle:Float):Void{
-        super.kick(ball,angle);
-        if(ball.y > y){
+
+        if(!rest && ball.y > y-10){
             var tx:Float = this.x - ball.x;
             if(tx > 0 && tx < Reg.BALL_EFFECTIVEDISTANCE){
                 ball.beKicked("left",_kickAngle);
             }
         }
+        if(!rest)
+            showEffect(_kickEffect,this.x - 60,this.y+55);
+        super.kick(ball,angle);
 
-        showEffect(_kickEffect,this.x - 60,this.y+55);
+
     }
 //    override private function initializeBody():Void{
 //

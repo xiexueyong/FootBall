@@ -27,7 +27,7 @@ import flixel.util.FlxMath;
 class PlayState extends PTFlxUIState
 {
     public static var level:Level;
-    public static var MATCH_SECOND:Int = 5;
+    public static var MATCH_SECOND:Int = 900;
     public static var start:Bool = false;
 
     private var _level:Level;
@@ -116,7 +116,6 @@ class PlayState extends PTFlxUIState
                 playerRight.controllable = true;
                 _level.characterGroup.add(playerRight);
 
-
                 playerLeft = new AIPlayerLeft(270, 0,_level.backDecorateGroup,_level.decorateGroup,leftName,leftCountry);
                 playerLeft.y = Reg.BOUNDS.height-playerLeft.height;
                 playerLeft.setBoundsMap(_level.getBounds());
@@ -130,28 +129,64 @@ class PlayState extends PTFlxUIState
                 ball.setBoundsMap(_level.getBounds());
                 _level.characterGroup.add(ball);
 
+                //国旗
+                var leftFlag:FlxSprite = new FlxSprite();
+                leftFlag.x = 449;
+                leftFlag.y = 628;
+                AssetsManager.getInstance().uploadTextureToSprite(leftFlag,"flag_"+leftCountry);
+                var rightFlag:FlxSprite = new FlxSprite();
+                rightFlag.x = 689;
+                rightFlag.y = 628;
+                AssetsManager.getInstance().uploadTextureToSprite(rightFlag,"flag_"+rightCountry);
+                _level.decorateGroup.add(leftFlag);
+                _level.decorateGroup.add(rightFlag);
+
+
                 Timer.delay(startGame,1000);
+    }
+    private inline function leftLost():Void{
+        PlayState.start = false;
+        playerRight.happy = true;
+        playerRight.velocity.x = 0;
+        playerLeft.velocity.x = 0;
+        playerRight.velocity.y = 0;
+        playerLeft.velocity.y = 0;
+        playerRight.acceleration.x = 0;
+        playerLeft.acceleration.x = 0;
+        playerLeft.cry();
+        scores[1] += 1;
+        _scoreBar.text = scores[0]+":"+scores[1];
+        Timer.delay(
+            function(){
+                serve(420);
+            },1500);
+    }
+
+    private inline function rightLost():Void{
+        PlayState.start = false;
+        playerRight.cry();
+        playerLeft.happy = true;
+        playerRight.velocity.x = 0;
+        playerLeft.velocity.x = 0;
+        playerRight.velocity.y = 0;
+        playerLeft.velocity.y = 0;
+        playerRight.acceleration.x = 0;
+        playerLeft.acceleration.x = 0;
+        scores[0] += 1;
+        _scoreBar.text = scores[0]+":"+scores[1];
+        Timer.delay(
+            function(){
+                serve(860);
+            },1500);
     }
     //是否进球
     public inline function hitTarget():Void{
         if(ball.y > Reg.BOUNDS.height-Reg.GOAL_HEIGHT){
             //1代表左赢  2代表右赢
             if(ball.x<156){
-                PlayState.start = false;
-                scores[1] += 1;
-                _scoreBar.text = scores[0]+":"+scores[1];
-                Timer.delay(
-                    function(){
-                        serve(420);
-                    },1500);
+                leftLost();
             }else if(ball.x > 1085){
-                PlayState.start = false;
-                scores[0] += 1;
-                _scoreBar.text = scores[0]+":"+scores[1];
-                Timer.delay(
-                    function(){
-                        serve(860);
-                    },1500);
+                rightLost();
             }
 
         }
@@ -167,7 +202,6 @@ class PlayState extends PTFlxUIState
     private function onTimer(timer:FlxTimer):Void{
         _timeBar.text = Std.string(matchTimer.elapsedLoops);
         if(matchTimer.elapsedLoops >= PlayState.MATCH_SECOND){
-        trace("_______MatchResultPopState___________");
             openSubState(new MatchResultPopState(leftCountry,rightCountry,scores));
         }
 
@@ -175,16 +209,22 @@ class PlayState extends PTFlxUIState
     //发球
     private function serve(ball_x:Float):Void{
         //playerleft playerright ball
+        playerLeft.stopCry();
+        playerRight.stopCry();
+        playerLeft.happy = false;
+        playerRight.happy = false;
 
         playerLeft.x = 270;
         playerRight.x = FlxG.width - 350;
         ball.velocity.x = ball.velocity.y = 0;
         ball.x = ball_x;
+        ball.y = Reg.BOUNDS.height - 100;
+        ball.acceleration.y = 0;
         Timer.delay(
             function(){
+                ball.acceleration.y = Reg.BALL_GRAVITY;
                 PlayState.start = true;
-            },1000);
-
+            },700);
     }
 	
 	/**

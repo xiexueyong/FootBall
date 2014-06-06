@@ -8,8 +8,8 @@ import flixel.group.FlxTypedGroup;
 
 class AIPlayer extends Player {
     public var stateMachine:StateMachine;
-    public var rest:Bool = false;
-    public static var REST_MILLIONSECOND:Int = 350;
+
+    public static var REST_MILLIONSECOND:Int = 400;
 
     public function new(X:Float = 0, Y:Float = 0,backDecorateGroup:FlxTypedGroup<FlxBasic>,frontDecorateGroup:FlxTypedGroup<FlxBasic>,name:String="carlos",country:String="brazil")
     {
@@ -20,14 +20,11 @@ class AIPlayer extends Player {
     override public function update():Void{
         super.update();
     }
-    override public function kick(ball:Ball,?angle:Float):Void{
+//    override public function kick(ball:Ball,?angle:Float):Void{
+////        super.kick(ball,angle);
+//
 //        super.kick(ball,angle);
-        if(!rest){
-            rest = true;
-            Timer.delay(function(){rest = false;},AIPlayer.REST_MILLIONSECOND);
-        }
-        super.kick(ball,angle);
-    }
+//    }
 
 
 

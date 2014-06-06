@@ -12,7 +12,7 @@ class PlayerRightController extends Controller{
 
     override public function update():Void{
 
-        if(FlxG.keys.anyJustPressed(["ENTER"])){
+        if(FlxG.keys.anyPressed(["ENTER"])){
             player.kick(_ball);
         }
         //pressed
