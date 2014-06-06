@@ -1,5 +1,6 @@
 package com.putaolab.football.ui.state;
 
+import com.putaolab.football.ui.model.ModelReg;
 import component.PTFlxUIButton;
 import com.putaolab.football.ui.model.Model;
 import flixel.FlxSprite;
@@ -139,7 +140,6 @@ class SelectTeamState extends PTFlxUIState{
                 case "click_button":
                     switch(cast(params[0], String)) {
                         case "team":
-                            trace("oneplayer"+params[1]);
 //                            var state = new OnePlayerState(params[1]);
 //                            FlxG.switchState(state);
                             playAnimation(params[1]);

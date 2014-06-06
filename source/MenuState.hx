@@ -1,5 +1,7 @@
 package;
 
+import com.putaolab.football.ui.state.SelectTeamState;
+import com.putaolab.football.ui.model.ModelReg;
 import com.putaolab.football.ui.state.StateBG;
 import com.putaolab.football.ui.state.OnePlayerState;
 import com.putaolab.football.ui.state.TwoPlayerState;
@@ -96,8 +98,12 @@ class MenuState extends PTFlxUIState
                 case "click_button":
                     switch(cast(params[0], String)) {
                         case "oneplayer":
-//                            trace("oneplayer");
-                            FlxG.switchState(new OnePlayerState());
+                            if(ModelReg.getTeamAndCountry()!=null){
+                                trace(ModelReg.getTeamAndCountry()[0],ModelReg.getTeamAndCountry()[1]);
+                                FlxG.switchState(new OnePlayerState());
+                            }else{
+                                FlxG.switchState(new SelectTeamState());
+                            }
                         case "twoplayer":
                             FlxG.switchState(new TwoPlayerState());
 //                            trace("twoplayer");

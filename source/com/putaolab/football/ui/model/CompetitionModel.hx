@@ -40,6 +40,9 @@ class CompetitionModel {
     * */
     public function randomSixtween():Array<Dynamic>
     {
+        if(_sixteenarr.length == 16){
+            return _sixteenarr;
+        }
         for(i in 0...8){
             var competition = new CompetitionCountry();
             competition.country = randomCountry(i);

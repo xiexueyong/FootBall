@@ -2,6 +2,7 @@ package com.putaolab.football.ui.model;
 
 
 import com.putaolab.football.ui.model.ModelReg;
+import com.putaolab.football.ui.model.ModelReg;
 import flixel.util.FlxSave;
 import flixel.FlxG;
 import flixel.util.FlxSave;
@@ -26,19 +27,9 @@ class Model {
     public var teamarr:Array<Array<String>>;
     //存储对战记录
     private var _competition:Array<Dynamic>;
+    //一场比赛之后回到哪个界面 0小组排行 1晋级赛
+    public static var resultprestate:Int = 0;
 
-    public static var gameSave:FlxSave;
-
-    public static function SaveScore(?score:Int):Void
-    {
-        if(gameSave == null){
-            gameSave = new FlxSave();
-        }
-        gameSave.bind("score");
-        gameSave.bind("name");
-        gameSave.data.score = "3";
-        gameSave.data.name = "gaoyun";
-    }
 
     public static function getInstance():Model
     {
@@ -48,18 +39,10 @@ class Model {
         return _model;
     }
 
-    public function getScore():Void
-    {
-        trace(gameSave.data.score);
-        trace(gameSave.data.name);
-    }
-
     public function new() {
         new AssistModel(this);
         teamarr = new Array<Array<String>>();
         teamData();
-        SaveScore();
-        getScore();
     }
 
     /*
@@ -101,6 +84,41 @@ class Model {
     */
     public function getTeamCountryScore():Array<Dynamic>
     {
+
+//        trace("_countryscorearr.length : "+_countryscorearr.length);
+        return _countryscorearr;
+    }
+
+    /*
+    *   设置小组里面国家得分情况
+    */
+    public function setTeamCountryScore(country:String,score:String,losescore:String,accumulativescore:String):Void
+    {
+        if(_countryscorearr == null)
+        {
+            _countryscorearr = new Array<Dynamic>();
+        }
+        else{
+            _countryscorearr = ModelReg.getRanking();
+        }
+        if(_countryscorearr.length ==4){
+            var len = _countryscorearr.length;
+            for(i in 0...len){
+                if(_countryscorearr[i].country == country){
+                    _countryscorearr[i].score = score;
+                    _countryscorearr[i].losescore = losescore;
+                    _countryscorearr[i].accumulativescore = accumulativescore;
+                }
+            }
+        }
+        else{
+            _countryscore = new Countryscore();
+            _countryscore.country = country;
+            _countryscore.score = score;
+            _countryscore.losescore = losescore;
+            _countryscore.accumulativescore = accumulativescore;
+            _countryscorearr.push(_countryscore);
+        }
         if(_countryscorearr!=null && _countryscorearr.length!=0){
             var len = _countryscorearr.length;
             for(i in 0...len){
@@ -114,31 +132,13 @@ class Model {
                 }
             }
         }
-        return _countryscorearr;
-    }
-
-    /*
-    *   设置小组里面国家得分情况
-    */
-    public function setTeamCountryScore(country:String,score:String,losescore:String,accumulativescore:String):Void
-    {
-        _countryscore = new Countryscore();
-
-        if(_countryscorearr == null)
-        {
-            _countryscorearr = new Array<Dynamic>();
-        }
-
-        _countryscore.country = country;
-        _countryscore.score = score;
-        _countryscore.losescore = losescore;
-        _countryscore.accumulativescore = accumulativescore;
-        _countryscorearr.push(_countryscore);
+        ModelReg.saveRanking(_countryscorearr);
     }
     /*
-    *球员头像
+    *球员
+    * isclock 1被锁 0未锁
     * */
-    public function initCountryBaller(head:String="head_default",name:String="name",chinaname="chinaname"):Void
+    public function initCountryBaller(head:String="head_default",name:String="name",chinaname="chinaname",isclock:Int=1):Void
     {
         if(_countryballer==null){
             _countryballer = new Array<Dynamic>();
@@ -147,6 +147,7 @@ class Model {
         countryBaller.head = head;
         countryBaller.name = name;
         countryBaller.chinaname = chinaname;
+        countryBaller.isclock = isclock;
         _countryballer.push(countryBaller);
     }
     public function getCountryBallers():Array<Dynamic>{
@@ -169,6 +170,8 @@ class Model {
         _countrys.push(country);
         _countryballer = null;
     }
+
+
 
     /*
     * 根据国家得到球员
@@ -236,6 +239,8 @@ class CountryBaller{
     public var head:String;
     //球员中文名字
     public var chinaname:String;
+    //球员是否被锁
+    public var isclock:Int;
 }
 //设置国家里面的球员
 class Country{

@@ -1,4 +1,6 @@
 package com.putaolab.football.ui.state;
+import com.putaolab.football.ui.model.ModelReg;
+import com.putaolab.football.ui.model.Model;
 import flixel.FlxSprite;
 import com.putaolab.football.ui.model.Model;
 import component.PTFlxUIState;
@@ -20,9 +22,12 @@ class RankingState extends PTFlxUIState{
     //对战次数
     private var _competitionCount:Int;
     private var _toplayerone:PTFlxUIButton;
+    private var _finals:PTFlxUIButton;
+    private var finalicon:FlxSprite;
     private var _play:PTFlxUIButton;
+    private var playicon:FlxSprite;
+    //小组index
     private var _index:Int;
-
     //当前选中的国家
     private var _selectedcountry:String;
 
@@ -30,9 +35,17 @@ class RankingState extends PTFlxUIState{
     {
         super();
         //得到缓存里面的信息
-        _selectedcountry = selectedcountry;
-        _index = index;
-//        _competitionCount = Model.getInstance().getCompetition().length;
+        if(ModelReg.getTeamAndCountry() == null){
+            _selectedcountry = selectedcountry;
+            _index = index;
+        }else{
+            _selectedcountry = ModelReg.getTeamAndCountry()[1];
+            _index = ModelReg.getTeamAndCountry()[0];
+        }
+
+        if(Model.getInstance().getCompetition()!=null){
+            _competitionCount = Model.getInstance().getCompetition().length;
+        }
     }
 
     override public function create():Void
@@ -41,10 +54,8 @@ class RankingState extends PTFlxUIState{
 
         super.create();
         cursor.setDefaultKeys(FlxUICursor.KEYS_DEFAULT_ARROWS | FlxUICursor.KEYS_DEFAULT_TAB);
-
         init();
     }
-
     /*
     *初始化
     * */
@@ -53,7 +64,6 @@ class RankingState extends PTFlxUIState{
         initButton();
         countryRamking();
     }
-
     /*
     * 初始化button
     * */
@@ -61,7 +71,7 @@ class RankingState extends PTFlxUIState{
     {
         _toplayerone = new PTFlxUIButton(0,0,null);
         cursor.addWidget(_toplayerone);
-        _toplayerone.params = ["groups"];
+        _toplayerone.params = ["oneplayer"];
         var oneplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
         var icon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_player");
         _toplayerone.loadGraphicsUpOverDown(oneplayer.getFlxFrameBitmapData());
@@ -76,7 +86,7 @@ class RankingState extends PTFlxUIState{
         cursor.addWidget(_play);
         _play.params = ["play"];
         var twoplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
-        var playicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_play");
+        playicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_play2");
         _play.loadGraphicsUpOverDown(twoplayer.getFlxFrameBitmapData());
         _play.x = FlxG.width-_play.width-50;
         _play.y = FlxG.height - _play.height-40;
@@ -84,6 +94,21 @@ class RankingState extends PTFlxUIState{
         playicon.y = FlxG.height - playicon.height-40;
         add(_play);
         add(playicon);
+
+        _finals = new PTFlxUIButton(0,0,null);
+        cursor.addWidget(_finals);
+        _finals.params = ["finals"];
+        var twoplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
+        finalicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_kostage");
+        _finals.loadGraphicsUpOverDown(twoplayer.getFlxFrameBitmapData());
+        _finals.x = FlxG.width-_finals.width-50;
+        _finals.y = FlxG.height - _finals.height-40;
+        finalicon.x = FlxG.width-finalicon.width-50;
+        finalicon.y = FlxG.height - finalicon.height-40;
+        add(_finals);
+        add(finalicon);
+        _finals.visible = false;
+        finalicon.visible = false;
     }
 
     /*
@@ -108,7 +133,7 @@ class RankingState extends PTFlxUIState{
         var _countryscorearr:Array<Dynamic> = Model.getInstance().getTeamCountryScore();
         var numdist = 13;
         for(i in 0...4){
-//            trace(_countryscorearr[i].country,_countryscorearr[i].score,_countryscorearr[i].losescore,_countryscorearr[i].accumulativescore);
+            trace(_countryscorearr[i].country,_countryscorearr[i].score,_countryscorearr[i].losescore,_countryscorearr[i].accumulativescore);
             var itemgroup = new FlxSpriteGroup();
             var sp;
             if(_countryscorearr[i].country == _selectedcountry){
@@ -166,16 +191,26 @@ class RankingState extends PTFlxUIState{
     * */
     private function competitionRecords():Void
     {
-        if(Model.getInstance().getCompetition() == null){
-            competitionItem(0,competitionitemY +30);
-            competitionItem(0,competitionitemY + 100);
-        }
-        if(Model.getInstance().getCompetition()!=null && _competitionCount == 3){
+//        if(Model.getInstance().getCompetition() == null){
+//            competitionItem(0,competitionitemY +30);
+//            competitionItem(0,competitionitemY + 100);
+//        }
+        if(Model.getInstance().getCompetition() != null &&  _competitionCount<3){
             var comparr = Model.getInstance().getCompetition();
-            for(i in 0...3){
-//                competitionItem(0,competitionitemY +30+i*70,comparr.mycountry,comparr.competitioncountry,comparr.myscore,comparr.competitionscore);
-            }
+            trace(comparr[0].mycountry,comparr[0].competitioncountry,comparr[0].myscore,comparr[0].competitionscore);
+            competitionItem(0,competitionitemY +30,comparr[0].mycountry,comparr[0].competitioncountry,comparr[0].myscore,comparr[0].competitionscore);
+            competitionItem(0,competitionitemY +100);
         }
+//        if(Model.getInstance().getCompetition()!=null && _competitionCount == 3){
+//            _play.visible = false;
+//            playicon.visible = false;
+//            _finals.visible = true;
+//            finalicon.visible = true;
+//            var comparr = Model.getInstance().getCompetition();
+//            for(i in 0...3){
+//                competitionItem(0,competitionitemY +30+i*70,comparr[i].mycountry,comparr[i].competitioncountry,comparr[i].myscore,comparr[i].competitionscore);
+//            }
+//        }
     }
     private function competitionItem(X,Y,mycountry:String="flag_default",competitioncountry:String="flag_default",myscore:Int=0,competitionscore:Int=0):Void
     {
@@ -199,24 +234,67 @@ class RankingState extends PTFlxUIState{
         itemgroup.y = Y;
     }
 
+    private var _matchcountry:String;
+    /*
+    *得到可以对战的国家
+    * */
+    public function getMatchCountry():Void{
+        var allcountry = Model.getInstance().getCountryFromTeam(_index);
+        var matchcountry = Model.getInstance().getCompetition();
+        if(matchcountry == null){
+            var alllen = allcountry.length;
+            for(i in 0...alllen)
+            {
+                if(allcountry[i]!= _selectedcountry){
+                    _matchcountry = allcountry[i];
+                }
+            }
+        }
+        else{
+            var alllen = allcountry.length;
+            var matchlen = matchcountry.length;
+            for(i in 0...alllen)
+            {
+                for(j in 0...matchlen){
+                    if(matchcountry[j].competitioncountry != allcountry[i] && allcountry[i]!= matchcountry[j].mycountry){
+                        _matchcountry = allcountry[i];
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+    *根据国家名字得到可以用的球员
+    * */
+    public function getBallerFromCountry(countryname:String):String{
+        var ballerarr = Model.getInstance().getFootballarFromCountry(countryname);
+        var len = ballerarr.length;
+        for(i in 0...len){
+            if(ballerarr[i].isclock == 0){
+                return ballerarr[i].head;
+            }
+        };
+        trace("return null");
+        return null;
+    }
+
 
     public override function getEvent(id:String, target:Dynamic, data:Dynamic, ?params:Array<Dynamic>):Void {
         if (params != null) {
             switch(id) {
                 case "click_button":
                     switch(cast(params[0], String)) {
-                        case "groups":
+                        case "oneplayer":
                             FlxG.switchState(new OnePlayerState());
-                        case "play":
+                        case "finals":
                             FlxG.switchState(new FinalsState(_selectedcountry));
-
+                        case "play":
+                            Model.resultprestate = 0;
+                            getMatchCountry();
+                            trace(getBallerFromCountry(_matchcountry),_matchcountry,getBallerFromCountry(_selectedcountry),_selectedcountry);
+                            FlxG.switchState(new PlayState(getBallerFromCountry(_matchcountry),_matchcountry.split("_")[1],getBallerFromCountry(_selectedcountry),_selectedcountry.split("_")[1]));
                     }
-                case "over_button":
-                    switch(cast(params[0], String)) {
-                        case "btnflagbg2":
-                            params[1].visible = true;
-                    }
-                case "out_button":
             }
         }
     }

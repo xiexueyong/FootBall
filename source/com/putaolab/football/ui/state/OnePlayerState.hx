@@ -1,4 +1,5 @@
 package com.putaolab.football.ui.state;
+import com.putaolab.football.ui.model.ModelReg;
 import com.putaolab.football.ui.model.Model;
 import component.PTFlxUIButton;
 import flixel.FlxSprite;
@@ -6,6 +7,7 @@ import component.PTFlxUIState;
 import flixel.group.FlxSpriteGroup;
 import flixel.addons.ui.FlxUICursor;
 import flixel.FlxG;
+import flixel.text.FlxText;
 
 /**
  * User: gaoyun
@@ -27,10 +29,16 @@ class OnePlayerState extends PTFlxUIState{
     //当前选中的国家名字
     private var _selectedcountryname:String;
 
-    public function new(index:Int=0):Void
+    public function new(index:Int=-1):Void
     {
         super();
-        _index = index;
+        if(index!=-1){
+            _index = index;
+        }
+        if(ModelReg.getTeamAndCountry()!=null && index==-1){
+            _selectedcountryname = ModelReg.getTeamAndCountry()[1];
+            _index = ModelReg.getTeamAndCountry()[0];
+        }
     }
 
     override public function create():Void
@@ -46,6 +54,7 @@ class OnePlayerState extends PTFlxUIState{
 
         init();
         setCountry();
+        initPropertyPanel();
     }
 
     /*初始化背景*/
@@ -75,7 +84,7 @@ class OnePlayerState extends PTFlxUIState{
         cursor.addWidget(_play);
         _play.params = ["play"];
         var twoplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
-        var playicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_play");
+        var playicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_play2");
         _play.loadGraphicsUpOverDown(twoplayer.getFlxFrameBitmapData());
         _play.x = FlxG.width-_play.width-50;
         _play.y = FlxG.height - _play.height-40;
@@ -107,18 +116,23 @@ class OnePlayerState extends PTFlxUIState{
             add(btnflagbg2);
             add(btnflagbg1);
             btnflagbg1.visible = false;
-            if(i==0){//默认选中第一个
+            if(i==0 && _selectedcountryname==null){//默认选中第一个国家
                 _selectedcountry = btnflagbg1;
                 _selectedcountry.visible = true;
                 _selectedcountryname = countryarr[i];
+                setFootBallerFormCountry(getFootballarFromCountry(countryarr[i]));
+            }
+            if(_selectedcountryname == countryarr[i]){
+                _selectedcountry = btnflagbg1;
+                _selectedcountry.visible = true;
                 setFootBallerFormCountry(getFootballarFromCountry(countryarr[i]));
             }
             var country = AssetsManager.getInstance().getSprite(0,0,countryarr[i]);
             country.x = 66;
             country.y = 67+btnflagbg1.height*i;
             add(country);
-            initPropertyPanel();
         }
+        ModelReg.saveTeamAndCountry(_index,_selectedcountryname);
     }
 
     /*得到每个国家的队员名*/
@@ -128,9 +142,11 @@ class OnePlayerState extends PTFlxUIState{
         return footballerarr;
     }
 
+    private var _countryballerarr:Array<Dynamic>;
     /*设置每个国家的队员*/
     private function setFootBallerFormCountry(?arr:Array<Dynamic> ):Void
     {
+        _countryballerarr = arr;
         if(arr==null){
             arr = [{head:"head_alves",name:"head_balotelli"}];
         }
@@ -140,10 +156,18 @@ class OnePlayerState extends PTFlxUIState{
             footballer.x = footballer.width*i;
             footballer.y = FlxG.height - (Reg.TEERAIN_DEEP+footballer.height);
 
-
-            setFootBallerBody(footballer.x+(footballer.width-30)*0.5,footballer.y+footballer.height-5);
+            setFootBallerBody(footballer.x+(footballer.width-30)*0.5,footballer.y+footballer.height-12);
             footballergroup.add(footballer);
+            if(arr[i].isclock==1){
+                var lock = AssetsManager.getInstance().getSprite(0,0,"ico_lock");
+                lock.x = footballer.width*i+30;
+                lock.y = FlxG.height - (Reg.TEERAIN_DEEP+footballer.height)+100;
+                footballergroup.add(lock);
+            }
             footballergroup.x = (FlxG.width-footballergroup.width)*0.5;
+        }
+        if(_ballername != null){
+            _ballername.text = _countryballerarr[0].name;
         }
     }
 
@@ -176,6 +200,7 @@ class OnePlayerState extends PTFlxUIState{
     }
 
     private var _propertygroup:FlxSpriteGroup;
+    private var _ballername:FlxText;
     /*设置球员属性面板*/
     private function initPropertyPanel():Void{
         if(_propertygroup==null){
@@ -187,8 +212,6 @@ class OnePlayerState extends PTFlxUIState{
         footballeronepanel.origin.x = footballeronepanel.origin.y = 0;
         footballeronepanel.scale.y = 2.6;
         footballeronepanel.scale.x = 2.3;
-//        footballeronepanel.x = (FlxG.width-footballeronepanel.width)*0.5;
-//        footballeronepanel.y = (FlxG.height-footballeronepanel.height)*0.2;
         var effectjump = AssetsManager.getInstance().getSprite(0,0,"effect_ico_jump");
         var effectspeed = AssetsManager.getInstance().getSprite(0,0,"effect_ico_speed");
         var kick = AssetsManager.getInstance().getSprite(0,0,"btn_iko_kick");
@@ -204,6 +227,11 @@ class OnePlayerState extends PTFlxUIState{
         _propertygroup.add(effectspeed);
         _propertygroup.add(effectjump);
 
+        _ballername = new FlxText(0,10,footballeronepanel.width*2.3,"dddd",20);
+        _ballername.alignment = "center";
+        _ballername.color = 0x000000;
+        _ballername.text = _countryballerarr[0].name;
+        _propertygroup.add(_ballername);
 
         refresh1();
         _propertygroup.x = (FlxG.width-footballeronepanel.width)*0.5;
@@ -244,21 +272,19 @@ class OnePlayerState extends PTFlxUIState{
         _propertygroup.add(kickstatsbg);
         _propertygroup.add(kickstatsprogress3);
         _propertygroup.add(kickstatsprogress);
-//        initBuyBtn(effectjumpstatsprogress);
-//        initBuyBtn(effectspeedstatsprogress);
-//        initBuyBtn(kickstatsprogress);
+        initBuyBtn(effectjumpstatsprogress);
+        initBuyBtn(effectspeedstatsprogress);
+        initBuyBtn(kickstatsprogress);
     }
 
-    private function initBuyBtn(sp:FlxSprite):Void
+    private function initBuyBtn(?sp:FlxSprite):Void
     {
         var buy = AssetsManager.getInstance().getSprite(0,0,"btn_iko_buy");
         var buybtn = new PTFlxUIButton();
+        buybtn.params = ["buybtn"];
         buybtn.loadGraphicsUpOverDown(buy.getFlxFrameBitmapData());
-        trace(buybtn);
-//        buybtn.x = sp.x + sp.width + 10;
-//        buybtn.y = sp.y -10;
-        buybtn.x = 100;
-        buybtn.y = 200;
+        buybtn.x = sp.x + sp.width + 15;
+        buybtn.y = sp.y -20;
         _propertygroup.add(buybtn);
     }
 
@@ -271,6 +297,8 @@ class OnePlayerState extends PTFlxUIState{
                     switch(cast(params[0], String)) {
                         case "groups":
                             FlxG.switchState(new SelectTeamState());
+                        case "buybtn":
+//                            openSubState(new AllPopState());
                         case "play":
                             FlxG.switchState(new RankingState(_index,_selectedcountryname));
                         case "btnflagbg2":
@@ -283,6 +311,7 @@ class OnePlayerState extends PTFlxUIState{
                             setFootBallerFormCountry(params[2]);
                             refresh1();
                             _selectedcountryname = params[3];
+                            ModelReg.saveTeamAndCountry(_index,_selectedcountryname);
                     }
                 case "over_button":
                     switch(cast(params[0], String)) {

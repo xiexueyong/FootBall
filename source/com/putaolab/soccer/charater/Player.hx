@@ -89,7 +89,7 @@ class Player extends BoundsSprite {
     }
     private function initializeBody():Void{
         //head
-        AssetsManager.getInstance().uploadTextureToSprite(this,"head_"+_name);
+        AssetsManager.getInstance().uploadTextureToSprite(this,_name);
         //body
         if(leftHand == null){
             leftHand = new LeftHand(0,0,_country);

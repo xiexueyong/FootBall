@@ -1,6 +1,7 @@
 package com.putaolab.football.ui.state;
 
 import com.putaolab.football.ui.model.CompetitionModel;
+import com.putaolab.football.ui.model.Model;
 import flixel.FlxSprite;
 import component.PTFlxUIState;
 import component.PTFlxUIButton;
@@ -22,7 +23,7 @@ class FinalsState extends PTFlxUIState{
     //当前选中的国家
     private var _selectedcountry:String;
 
-    public function new(selectcountry:Dynamic) {
+    public function new(?selectcountry:Dynamic) {
         super();
         _selectedcountry = selectcountry;
     }
@@ -65,7 +66,7 @@ class FinalsState extends PTFlxUIState{
         cursor.addWidget(_play);
         _play.params = ["play"];
         var twoplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
-        var playicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_play");
+        var playicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_play2");
         _play.loadGraphicsUpOverDown(twoplayer.getFlxFrameBitmapData());
         _play.x = FlxG.width-_play.width-50;
         _play.y = FlxG.height - _play.height-10;
@@ -147,6 +148,7 @@ class FinalsState extends PTFlxUIState{
                         case "groups":
                             FlxG.switchState(new RankingState());
                         case "play":
+                            Model.resultprestate = 1;
                             FlxG.switchState(new PlayState());
                     }
                 case "over_button":
@@ -168,9 +170,6 @@ class FinalsState extends PTFlxUIState{
     /* */
     private function PromotionRamking():Void
     {
-
-
-//        getVersusCountry(100,100);
         initsixtween();
         initeight();
         initfour();

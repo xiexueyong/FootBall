@@ -22,22 +22,43 @@ class ModelReg {
             gameSave = new FlxSave();
         }
         gameSave.bind("place");
-        gameSave.data.place = [teamindex,country];
-        gameSave.flush();
+        if(gameSave.data.place == null){
+            gameSave.data.place = [teamindex,country];
+        }else{
+            gameSave.data.place = [teamindex,country];
+            gameSave.flush();
+        }
+
+    }
+    public static function getTeamAndCountry():Array<Dynamic>
+    {
+        if(gameSave == null){
+            gameSave = new FlxSave();
+        }
+        gameSave.bind("place");
+        return gameSave.data.place;
     }
 
 
     /*
     *保存小组排行数据
     * */
-    public static function saveRanking():Void
+    public static function saveRanking(countryscore:Array<Dynamic>):Void
     {
         if(gameSave == null){
             gameSave = new FlxSave();
         }
         gameSave.bind("rank");
-        gameSave.data.rank = "";
+        gameSave.data.rank = countryscore;
         gameSave.flush();
+    }
+    public static function getRanking():Array<Dynamic>
+    {
+        if(gameSave == null){
+            gameSave = new FlxSave();
+        }
+        gameSave.bind("rank");
+        return gameSave.data.rank;
     }
     /*
     *保存小组对战数据
