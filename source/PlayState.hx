@@ -39,6 +39,7 @@ class PlayState extends PTFlxUIState
     public var goalRight:FlxSprite;
     public var ball:Ball;
     private var matchTimer:FlxTimer;
+
     //leftName  rightName
     private var leftName:String;
     private var rightName:String;
@@ -48,6 +49,7 @@ class PlayState extends PTFlxUIState
     private var scores:Array<Int> = [0,0];
     private var _scoreBar:FlxText;
     private var _timeBar:FlxText;
+
 
 
 	/**
@@ -159,6 +161,8 @@ class PlayState extends PTFlxUIState
         matchTimer = new FlxTimer(1,onTimer,MATCH_SECOND);
         PlayState.start = true;
         ball.velocity.y = 1500;
+
+
     }
     private function onTimer(timer:FlxTimer):Void{
         _timeBar.text = Std.string(matchTimer.elapsedLoops);

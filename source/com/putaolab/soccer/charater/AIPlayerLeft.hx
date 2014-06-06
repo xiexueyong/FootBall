@@ -22,7 +22,7 @@ class AIPlayerLeft extends AIPlayer {
 
     override public function kick(ball:Ball,?angle:Float):Void{
 //    trace(angle);
-        if(ball.y > y){
+        if(!rest && ball.y > y){
             var tx:Float = this.x - ball.x;
             if(tx < 0 && tx > -Reg.BALL_EFFECTIVEDISTANCE){
                 if(angle != null){
@@ -32,6 +32,8 @@ class AIPlayerLeft extends AIPlayer {
                 }
             }
         }
+
+        super.kick(ball,angle);
     }
 //    override private function initializeBody():Void{
 //

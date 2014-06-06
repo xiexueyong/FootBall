@@ -15,6 +15,7 @@ class Player extends BoundsSprite {
     private var _parent:FlxTypedGroup<FlxBasic>;
 
     public var controllable:Bool;
+
     //吊球
     public var lob(get,set):Bool;
     private var _lob:Bool = false;
@@ -122,6 +123,9 @@ class Player extends BoundsSprite {
             rightHand.x = this.x;
         }
         return returnx;
+    }
+    public function cry():Void{
+    
     }
     override private function set_y(NewY:Float):Float{
         var returny:Float = super.set_y(NewY);

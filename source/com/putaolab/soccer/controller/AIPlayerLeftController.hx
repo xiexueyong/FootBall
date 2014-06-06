@@ -18,7 +18,6 @@ class AIPlayerLeftController extends Controller{
         stateMachine =  cast(player,AIPlayerLeft).stateMachine;
         stateMachine.setCurrentSate(new AttackState());
         stateMachine.setGlobalSate(new GlobalState());
-//        cast(player,AIPlayerLeft);
     }
 
     override public function update():Void{
