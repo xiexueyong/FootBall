@@ -133,7 +133,7 @@ class RankingState extends PTFlxUIState{
         var _countryscorearr:Array<Dynamic> = Model.getInstance().getTeamCountryScore();
         var numdist = 13;
         for(i in 0...4){
-            trace(_countryscorearr[i].country,_countryscorearr[i].score,_countryscorearr[i].losescore,_countryscorearr[i].accumulativescore);
+//            trace(_countryscorearr[i].country,_countryscorearr[i].score,_countryscorearr[i].losescore,_countryscorearr[i].accumulativescore);
             var itemgroup = new FlxSpriteGroup();
             var sp;
             if(_countryscorearr[i].country == _selectedcountry){
@@ -205,13 +205,14 @@ class RankingState extends PTFlxUIState{
                 competitionItem(0,competitionitemY +100);
             }
         }
-        if(Model.getInstance().getCompetition()!=null && _competitionCount == 3){
+        if(Model.getInstance().getCompetition()!=null && _competitionCount >= 3){
             _play.visible = false;
             playicon.visible = false;
             _finals.visible = true;
             finalicon.visible = true;
             var comparr = Model.getInstance().getCompetition();
             for(i in 0...3){
+                trace(comparr[i].mycountry,comparr[i].competitioncountry,comparr[i].myscore,comparr[i].competitionscore);
                 competitionItem(0,competitionitemY +30+i*70,comparr[i].mycountry,comparr[i].competitioncountry,comparr[i].myscore,comparr[i].competitionscore);
             }
         }
@@ -265,28 +266,41 @@ class RankingState extends PTFlxUIState{
     *得到可以对战的国家
     * */
     public function getMatchCountry():Void{
-        var allcountry = Model.getInstance().getCountryFromTeam(_index);
-        var matchcountry = Model.getInstance().getCompetition();
+
+        var allcountry:Array<String> = Model.getInstance().getCountryFromTeam(_index);
+        var matchcountry:Array<Dynamic> = Model.getInstance().getCompetition();
         if(matchcountry == null){
             var alllen = allcountry.length;
             for(i in 0...alllen)
             {
                 if(allcountry[i]!= _selectedcountry){
                     _matchcountry = allcountry[i];
+                    return;
                 }
             }
         }
         else{
             var alllen = allcountry.length;
             var matchlen = matchcountry.length;
-            for(i in 0...alllen)
+
+            var tempAllCountry = allcountry.slice(0);
+            for(i in 0...matchlen)
             {
-                for(j in 0...matchlen){
-                    if(matchcountry[j].competitioncountry != allcountry[i] && allcountry[i]!= matchcountry[j].mycountry){
-                        _matchcountry = allcountry[i];
-                    }
+                var item = matchcountry[i];
+                var cc:String = item.competitioncountry;
+                var index = tempAllCountry.indexOf(cc);
+                tempAllCountry.splice(index,1);
+            }
+            var comption:String;
+            for(i in 0...tempAllCountry.length)
+            {
+                if(tempAllCountry[i] != _selectedcountry){
+                    _matchcountry = tempAllCountry[i];
                 }
             }
+
+
+
         }
     }
 

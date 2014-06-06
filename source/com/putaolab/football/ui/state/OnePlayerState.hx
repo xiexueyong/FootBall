@@ -120,12 +120,12 @@ class OnePlayerState extends PTFlxUIState{
                 _selectedcountry = btnflagbg1;
                 _selectedcountry.visible = true;
                 _selectedcountryname = countryarr[i];
-                setFootBallerFormCountry(getFootballarFromCountry(countryarr[i]));
+                setFootBallerFormCountry(getFootballarFromCountry(countryarr[i]),countryarr[i].split("_")[1],countryarr[i].split("_")[1]);
             }
             if(_selectedcountryname == countryarr[i]){
                 _selectedcountry = btnflagbg1;
                 _selectedcountry.visible = true;
-                setFootBallerFormCountry(getFootballarFromCountry(countryarr[i]));
+                setFootBallerFormCountry(getFootballarFromCountry(countryarr[i]),countryarr[i].split("_")[1],countryarr[i].split("_")[1]);
             }
             var country = AssetsManager.getInstance().getSprite(0,0,countryarr[i]);
             country.x = 66;
@@ -144,7 +144,7 @@ class OnePlayerState extends PTFlxUIState{
 
     private var _countryballerarr:Array<Dynamic>;
     /*设置每个国家的队员*/
-    private function setFootBallerFormCountry(?arr:Array<Dynamic> ):Void
+    private function setFootBallerFormCountry(?arr:Array<Dynamic>,body:String,hand:String ):Void
     {
         _countryballerarr = arr;
         if(arr==null){
@@ -156,7 +156,7 @@ class OnePlayerState extends PTFlxUIState{
             footballer.x = footballer.width*i;
             footballer.y = FlxG.height - (Reg.TEERAIN_DEEP+footballer.height);
 
-            setFootBallerBody(footballer.x+(footballer.width-30)*0.5,footballer.y+footballer.height-12);
+            setFootBallerBody(footballer.x+(footballer.width-30)*0.5,footballer.y+footballer.height-12,body,hand);
             footballergroup.add(footballer);
             if(arr[i].isclock==1){
                 var lock = AssetsManager.getInstance().getSprite(0,0,"ico_lock");
@@ -174,23 +174,23 @@ class OnePlayerState extends PTFlxUIState{
     /*
     *设置队员的身体
     * */
-    private function setFootBallerBody(X:Float,Y:Float):Void
+    private function setFootBallerBody(X:Float,Y:Float,body:String,hand:String):Void
     {
-        var body = AssetsManager.getInstance().getSprite(0,0,"body_algeria");
+        var body = AssetsManager.getInstance().getSprite(0,0,"body_"+body);
         body.x = X;
         body.y = Y;
         footballergroup.add(body);
-//        setFootBallerHand(body.x,body.y);
+        setFootBallerHand(body.x,body.y,hand);
     }
 
     /*
     *设置队员的手臂
     * */
-    private function setFootBallerHand(X:Float,Y:Float):Void
+    private function setFootBallerHand(X:Float,Y:Float,hand:String):Void
     {
-        var hand = AssetsManager.getInstance().getSprite(0,0,"hand_algeria");
-        hand.x = X;
-        hand.y = Y;
+        var hand = AssetsManager.getInstance().getSprite(0,0,"hand_"+hand);
+        hand.x = X-hand.width +35;
+        hand.y = Y-hand.height+35;
         footballergroup.add(hand);
     }
 
@@ -308,7 +308,7 @@ class OnePlayerState extends PTFlxUIState{
                             params[1].visible = true;
                             _selectedcountry = params[1];
                             footballergroup.clear();
-                            setFootBallerFormCountry(params[2]);
+                            setFootBallerFormCountry(params[2],params[3].split("_")[1],params[3].split("_")[1]);
                             refresh1();
                             _selectedcountryname = params[3];
                             ModelReg.saveTeamAndCountry(_index,_selectedcountryname);

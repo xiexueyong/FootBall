@@ -1,6 +1,7 @@
 package com.putaolab.football.ui.model;
 
 
+import openfl.utils.Int16Array;
 import com.putaolab.football.ui.model.ModelReg;
 import com.putaolab.football.ui.model.ModelReg;
 import flixel.util.FlxSave;
@@ -137,8 +138,8 @@ class Model {
                     }
                     if(_scorearr ==null){
                         _scorearr = new Array<String>();
-                        _scorearr[0] = Std.string(Math.random()*8);
-                        _scorearr[1] = Std.string(Math.random()*8);
+                        _scorearr[0] = Std.string(Math.ceil(Math.random()*8));
+                        _scorearr[1] = Std.string(Math.ceil(Math.random()*8));
                         randomscore = _scorearr[0];
                         randomlosescore = _scorearr[1];
                     }
@@ -216,8 +217,6 @@ class Model {
         _countryballer = null;
     }
 
-
-
     /*
     * 根据国家得到球员
     * */
@@ -231,7 +230,6 @@ class Model {
         }
         return null;
     }
-
 
     /*
     * 设置小组对战记录
@@ -263,16 +261,17 @@ class Model {
     * */
     public function getCompetition():Array<Dynamic>
     {
-//        if(_competition == null){
-//            _competition = ModelReg.getCompetition();
-//        }
+        if(ModelReg.getCompetition() != null){
+            _competition = ModelReg.getCompetition();
+        }
         return _competition;
     }
 
 }
 //国家得分情况
 class Countryscore{
-    public function new(){}
+    public function new(){
+    }
     //国家
     public var country:String;
     //得分

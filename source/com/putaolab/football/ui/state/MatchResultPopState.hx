@@ -1,4 +1,6 @@
 package com.putaolab.football.ui.state;
+import com.putaolab.football.ui.model.CompetitionModel;
+import com.putaolab.football.ui.model.ModelReg;
 import com.putaolab.football.ui.model.Model;
 import component.PTFlxUIButton;
 import flixel.FlxG;
@@ -34,7 +36,7 @@ class MatchResultPopState extends FlxUISubState
 //        cursor.setDefaultKeys(FlxUICursor.KEYS_DEFAULT_ARROWS | FlxUICursor.KEYS_DEFAULT_TAB);
 		super.create();
         initButton();
-        trace(_leftCountry,_rightCountry,Std.string(_scores[0]),Std.string(_scores[1]));
+//        trace(_leftCountry,_rightCountry,Std.string(_scores[0]),Std.string(_scores[1]));
         getVersusCountry(_leftFlag,_rightFlag,Std.string(_scores[0]),Std.string(_scores[1]));
 	}
 
@@ -151,9 +153,18 @@ class MatchResultPopState extends FlxUISubState
                         case "restart":
 //                            FlxG.switchState(new TwoPlayerState());
                         case "play":
+                            if(ModelReg.getCompetitionCtage()== 2){
+                                FlxG.switchState(new ResultState());
+                                return;
+                            }
+                            trace("trace(Model.resultprestate);  "+Model.resultprestate);
                             if(Model.resultprestate == 1){
-//                                Model.getInstance().set
-                                FlxG.switchState(new FinalsState());
+                                if(_scores[1]>_scores[0]){
+                                    FlxG.switchState(new FinalsState());
+                                }else{
+                                    FlxG.switchState(new ResultState());
+                                }
+                                CompetitionModel.getInstance().setTopData(Std.string(_scores[1]),Std.string(_scores[0]));
                             }else{
                                 var accumulativescore:Int = 0;
                                 if(_scores[1]>_scores[0]){

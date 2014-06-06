@@ -1,5 +1,6 @@
 package com.putaolab.football.ui.state;
 
+import com.putaolab.football.ui.model.ModelReg;
 import com.putaolab.football.ui.model.CompetitionModel;
 import com.putaolab.football.ui.model.Model;
 import flixel.FlxSprite;
@@ -25,7 +26,7 @@ class FinalsState extends PTFlxUIState{
 
     public function new(?selectcountry:Dynamic) {
         super();
-        _selectedcountry = selectcountry;
+        _selectedcountry =  ModelReg.getTeamAndCountry()[1];
     }
 
     override public function create():Void
@@ -83,7 +84,13 @@ class FinalsState extends PTFlxUIState{
     private function getVersusCountry(X:Float,Y:Float,country1:String="flag_default",country2:String="flag_default",score1:String="",score2:String=""):FlxSpriteGroup
     {
         var versusgroup = new FlxSpriteGroup();
-        var footballeronepanel = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_stage1");
+        var footballeronepanel:FlxSprite;
+        if(_selectedcountry == country1 || _selectedcountry == country2){
+            footballeronepanel = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_stage2");
+        }else{
+            footballeronepanel = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_stage1");
+        }
+
         versusgroup.add(footballeronepanel);
         var country1 = AssetsManager.getInstance().getSprite(0,0,country1);
         var country2 = AssetsManager.getInstance().getSprite(0,0,country2);
@@ -107,14 +114,14 @@ class FinalsState extends PTFlxUIState{
             versusgroup.add(score2);
         }else{
             if(score1.charAt(1)!=""){
-                var scoreindex1 = AssetsManager.getInstance().getSprite(46,68,score1.charAt(1)+"b");
-                var scoreindex0 = AssetsManager.getInstance().getSprite(30,68,score1.charAt(0)+"b");
+                var scoreindex1 = AssetsManager.getInstance().getSprite(40,68,score1.charAt(1)+"b");
+                var scoreindex0 = AssetsManager.getInstance().getSprite(51,68,score1.charAt(0)+"b");
                 scoreindex1.origin.x = scoreindex1.origin.y = scoreindex0.origin.x = scoreindex0.origin.y = 0;
                 scoreindex1.scale.x = scoreindex1.scale.y = scoreindex0.scale.x = scoreindex0.scale.y = 0.6;
                 versusgroup.add(scoreindex1);
                 versusgroup.add(scoreindex0);
             }else{
-                var score1 = AssetsManager.getInstance().getSprite(30,68,score1+"b");
+                var score1 = AssetsManager.getInstance().getSprite(40,68,score1+"b");
                 score1.origin.x = score1.origin.y  = 0;
                 score1.scale.x = score1.scale.y =0.6;
                 versusgroup.add(score1);
@@ -146,13 +153,14 @@ class FinalsState extends PTFlxUIState{
     * */
     public function getBallerFromCountry(countryname:String):String{
         var ballerarr = Model.getInstance().getFootballarFromCountry(countryname);
+        trace(ballerarr);
         var len = ballerarr.length;
         for(i in 0...len){
             if(ballerarr[i].isclock == 0){
                 return ballerarr[i].head;
             }
         };
-        trace("return null");
+
         return null;
     }
 
@@ -165,7 +173,14 @@ class FinalsState extends PTFlxUIState{
                             FlxG.switchState(new RankingState());
                         case "play":
                             Model.resultprestate = 1;
-                            _matchcountry = _sixteenarr[1];
+                            if(ModelReg.getCompetitionCtage() == 0){
+                                ModelReg.saveCompetitionCtage(Reg.sixtween);
+                            }else{
+                                ModelReg.saveCompetitionCtage(Std.int(ModelReg.getCompetitionCtage()/2));
+                            }
+
+                            trace(_sixteenarr[1].country);
+                            _matchcountry = _sixteenarr[1].country;
                             FlxG.switchState(new PlayState(getBallerFromCountry(_matchcountry),_matchcountry.split("_")[1],getBallerFromCountry(_selectedcountry),_selectedcountry.split("_")[1]));
                     }
                 case "over_button":
@@ -182,6 +197,7 @@ class FinalsState extends PTFlxUIState{
     private var _eightarr:Array<Dynamic>;
     private var _fourarr:Array<Dynamic>;
     private var _twoarr:Array<Dynamic>;
+    private var _threearr:Array<Dynamic>;
     private var _competitionstage:Int;
 
     /* */
@@ -191,7 +207,7 @@ class FinalsState extends PTFlxUIState{
         initeight();
         initfour();
         inittwo(555,230);
-        inittwo(555,460);
+        initthree(555,460);
         initTrophy(580,100,"pohar_gold");
         initTrophy(580,345,"pohar_bronze",0.8);
     }
@@ -207,19 +223,22 @@ class FinalsState extends PTFlxUIState{
     {
         var sixtweenpos:Array<FlxPoint> = [new FlxPoint(50,20),new FlxPoint(50,150),new FlxPoint(50,330),new FlxPoint(50,460),new FlxPoint(1080,20),new FlxPoint(1080,150),new FlxPoint(1080,330),new FlxPoint(1080,460)];
         if(_sixteenarr == null){
-            _sixteenarr = CompetitionModel.getInstance().randomSixtween();
+            _sixteenarr = CompetitionModel.getInstance().randomSixtween(_selectedcountry);
         }
 
         var i:Int = 0;
         while(i<_sixteenarr.length){
 //            trace(sixtweenpos[Std.int(i/2)].x,sixtweenpos[Std.int(i/2)].y);
-            getVersusCountry(sixtweenpos[Std.int(i/2)].x,sixtweenpos[Std.int(i/2)].y,_sixteenarr[i].country,_sixteenarr[i+1].country);//,_sixteenarr[i].country,_sixteenarr[i+1].country
+            getVersusCountry(sixtweenpos[Std.int(i/2)].x,sixtweenpos[Std.int(i/2)].y,_sixteenarr[i].country,_sixteenarr[i+1].country,_sixteenarr[i].score,_sixteenarr[i+1].score);//,_sixteenarr[i].country,_sixteenarr[i+1].country
             i = i+2;
         }
     }
     private function initeight():Void
     {
         var eightpos:Array<FlxPoint> = [new FlxPoint(240,90),new FlxPoint(240,385),new FlxPoint(890,90),new FlxPoint(890,385)];
+//        trace("_eightarr : " + CompetitionModel.getInstance().getTopEight());
+        _eightarr = CompetitionModel.getInstance().getTopEight();
+
         if(_eightarr==null || _eightarr.length==0){
             var i:Int = 0;
             while(i<8){
@@ -229,7 +248,7 @@ class FinalsState extends PTFlxUIState{
         }else{
             var i:Int = 0;
             while(i<_eightarr.length){
-                getVersusCountry(eightpos[Std.int(i/2)].x,eightpos[Std.int(i/2)].y,_eightarr[i].country,_eightarr[i+1].country);
+                getVersusCountry(eightpos[Std.int(i/2)].x,eightpos[Std.int(i/2)].y,_eightarr[i].country,_eightarr[i+1].country,_eightarr[i].score,_eightarr[i+1].score);
                 i = i+2;
             }
         }
@@ -238,14 +257,54 @@ class FinalsState extends PTFlxUIState{
     private function initfour():Void
     {
         var fourpos:Array<FlxPoint> = [new FlxPoint(280,240),new FlxPoint(860,240)];
-        var i:Int = 0;
-        while(i<4){
-            getVersusCountry(fourpos[Std.int(i/2)].x,fourpos[Std.int(i/2)].y);
-            i = i+2;
+        _fourarr = CompetitionModel.getInstance().getTopFour();
+        if(_fourarr==null || _fourarr.length==0){
+            var i:Int = 0;
+            while(i<4){
+                getVersusCountry(fourpos[Std.int(i/2)].x,fourpos[Std.int(i/2)].y);
+                i = i+2;
+            }
+        }else{
+            var i:Int = 0;
+            while(i<_fourarr.length){
+                getVersusCountry(fourpos[Std.int(i/2)].x,fourpos[Std.int(i/2)].y,_fourarr[i].country,_fourarr[i+1].country,_fourarr[i].score,_fourarr[i+1].score);
+                i = i+2;
+            }
         }
+
     }
     private function inittwo(X:Float,Y:Float):Void
     {
-        getVersusCountry(X,Y);
+        _twoarr = CompetitionModel.getInstance().getToptwo();
+        if(_twoarr==null || _twoarr.length==0){
+            var i:Int = 0;
+            while(i<2){
+                getVersusCountry(X,Y);
+                i = i+2;
+            }
+        }else{
+            var i:Int = 0;
+            while(i<_twoarr.length){
+                getVersusCountry(X,Y,_twoarr[i].country,_twoarr[i+1].country,_twoarr[i].score,_twoarr[i+1].score);
+                i = i+2;
+            }
+        }
+    }
+    private function initthree(X:Float,Y:Float):Void
+    {
+        _threearr = CompetitionModel.getInstance().getTopthree();
+        if(_threearr==null || _threearr.length==0){
+            var i:Int = 0;
+            while(i<32){
+                getVersusCountry(X,Y);
+                i = i+2;
+            }
+        }else{
+            var i:Int = 0;
+            while(i<_threearr.length){
+                getVersusCountry(X,Y,_threearr[i].country,_threearr[i+1].country,_threearr[i].score,_threearr[i+1].score);
+                i = i+2;
+            }
+        }
     }
 }
