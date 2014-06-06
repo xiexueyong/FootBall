@@ -1,4 +1,7 @@
 package com.putaolab.soccer.charater;
+import flixel.util.FlxPoint;
+import flixel.util.FlxPoint;
+import com.putaolab.soccer.wiget.CryEffect;
 import flixel.FlxBasic;
 import flixel.group.FlxTypedGroup;
 import com.putaolab.soccer.wiget.Ball;
@@ -7,10 +10,10 @@ import flixel.FlxG;
 import flixel.util.FlxColor;
 import flixel.FlxSprite;
 class PlayerLeft extends Player {
-    public function new(X:Float = 0, Y:Float = 0,parent:FlxTypedGroup<FlxBasic>,name:String="carlos",country:String="brazil")
+    public function new(X:Float = 0, Y:Float = 0,backDecorateGroup:FlxTypedGroup<FlxBasic>,frontDecorateGroup:FlxTypedGroup<FlxBasic>,name:String="carlos",country:String="brazil")
     {
 
-        super(X, Y,parent,name,country);
+        super(X, Y,backDecorateGroup,frontDecorateGroup,name,country);
         facing = FlxObject.RIGHT;
 
         //调整碰撞检测区域
@@ -28,6 +31,25 @@ class PlayerLeft extends Player {
                 ball.beKicked("right",_kickAngle);
             }
         }
+        showEffect(_kickEffect,this.x+54,this.y+51);
+    }
+    override private function initializeEffect():Void{
+        super.initializeEffect();
+
+        _kickEffect.offsetOnParent = new FlxPoint(0,0);
+        _hitEffect.offsetOnParent = new FlxPoint(0,0);
+        _smokeJumpEffect.offsetOnParent = new FlxPoint(0,0);
+
+        _kickEffect.flipX = true;
+    }
+    override public function cry():Void{
+        if(_cryEffect == null){
+        trace("left.......cry................");
+            _cryEffect = new CryEffect();
+            _cryEffect.offsetOnParent = new FlxPoint(0,0);
+        }
+        super.cry();
+
     }
 //    override private function initializeBody():Void{
 //

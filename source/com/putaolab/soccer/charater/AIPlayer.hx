@@ -11,9 +11,9 @@ class AIPlayer extends Player {
     public var rest:Bool = false;
     public static var REST_MILLIONSECOND:Int = 350;
 
-    public function new(X:Float = 0, Y:Float = 0,parent:FlxTypedGroup<FlxBasic>,name:String="carlos",country:String="brazil")
+    public function new(X:Float = 0, Y:Float = 0,backDecorateGroup:FlxTypedGroup<FlxBasic>,frontDecorateGroup:FlxTypedGroup<FlxBasic>,name:String="carlos",country:String="brazil")
     {
-        super(X, Y,parent,name,country);
+        super(X, Y,backDecorateGroup,frontDecorateGroup,name,country);
         stateMachine = new StateMachine(this);
     }
 
@@ -26,6 +26,7 @@ class AIPlayer extends Player {
             rest = true;
             Timer.delay(function(){rest = false;},AIPlayer.REST_MILLIONSECOND);
         }
+        super.kick(ball,angle);
     }
 
 

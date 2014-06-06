@@ -66,7 +66,7 @@ class Reg
     public static var  PLAYER_MAXVELOCITY:Float = 300;
     //球员跑动加速度
     public static var  PLAYER_RUN_ACCELERATION:Float = 1000;
-    public static var  PLAYER_JUMP_VELOCITY:Float = 520;
+    public static var  PLAYER_JUMP_VELOCITY:Float = 580;
 
     //地面的深度
     public static var  TEERAIN_DEEP:Float = 120;

@@ -1,4 +1,9 @@
 package com.putaolab.soccer.charater;
+import Array;
+import com.putaolab.soccer.wiget.Wiget;
+import com.putaolab.soccer.wiget.SpecialEffect;
+import com.putaolab.soccer.wiget.CryEffect;
+import flixel.util.FlxColor;
 import Reg;
 import flixel.util.FlxRect;
 import com.putaolab.soccer.wiget.LeftHand;
@@ -12,7 +17,8 @@ import com.putaolab.soccer.wiget.Ball;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 class Player extends BoundsSprite {
-    private var _parent:FlxTypedGroup<FlxBasic>;
+    private var _backDecorateGroup:FlxTypedGroup<FlxBasic>;
+    private var _frontDecorateGroup:FlxTypedGroup<FlxBasic>;
 
     public var controllable:Bool;
 
@@ -23,20 +29,26 @@ class Player extends BoundsSprite {
     public var push(get,set):Bool;
     private var _push:Bool = false;
     private var _kickAngle:Float;
+    private var _wigets:Array<Wiget> = [];
     //body
     private var body:Body;
     private var rightHand:RightHand;
     private var leftHand:LeftHand;
     //effect
-    private var cry:FlxSprite;
-    private var jumpEffect:FlxSprite;
+    private var _cryEffect:CryEffect;
+    private var _kickEffect:SpecialEffect;
+    private var _hitEffect:SpecialEffect;
+    private var _smokeJumpEffect:SpecialEffect;
+
+
     private var hited:FlxSprite;
     private var _name:String;
     private var _country:String;
-    public function new(X:Float = 0, Y:Float = 0,parent:FlxTypedGroup<FlxBasic>,name:String="carlos",country:String="brazil")
+    public function new(X:Float = 0, Y:Float = 0,backDecorateGroup:FlxTypedGroup<FlxBasic>,frontDecorateGroup:FlxTypedGroup<FlxBasic>,name:String="carlos",country:String="brazil")
     {
         super(X, Y);
-        _parent = parent;
+        _backDecorateGroup = backDecorateGroup;
+        _frontDecorateGroup = frontDecorateGroup;
         _name = name;
         _country = country;
 
@@ -47,9 +59,10 @@ class Player extends BoundsSprite {
         mass = Reg.PLAYER_MASS;
         allowCollisions = FlxObject.ANY;
         initializeBody();
+        initializeEffect();
 
         collisionMap = new FlxRect(20,0,60,120);
-//        collisionMap = new FlxRect(0,0,20,20);
+        cry();
     }
 
     public function jump():Void{
@@ -57,26 +70,41 @@ class Player extends BoundsSprite {
             return;
 
         velocity.y = -Reg.PLAYER_JUMP_VELOCITY;
+        showEffect(_smokeJumpEffect,this.x-47,this.y);
+    }
+//    public function showEffect(effect:):Void{
+//
+//    }
+    private function initializeEffect():Void{
+        _kickEffect = new SpecialEffect("kick","Player_Kick/00",60);
+        _hitEffect = new SpecialEffect("hit","Player_Hit/00",60);
+        _smokeJumpEffect = new SpecialEffect("jump","Smoke_Jump/00",60);
 
+    }
+    public function showEffect(effect:SpecialEffect,x:Float = 0,y:Float = 0):Void{
+        _frontDecorateGroup.add(effect);
+        effect.x = x;
+        effect.y = y;
+        effect.play();
     }
     private function initializeBody():Void{
         //head
         AssetsManager.getInstance().uploadTextureToSprite(this,"head_"+_name);
-        trace("head______________",_name);
-        trace(width,height);
         //body
-
         if(leftHand == null){
             leftHand = new LeftHand(0,0,_country);
-            _parent.add(leftHand);
+            _backDecorateGroup.add(leftHand);
+            _wigets.push(leftHand);
         }
         if(rightHand == null){
             rightHand= new RightHand(0,0,_country);
-            _parent.add(rightHand);
+            _backDecorateGroup.add(rightHand);
+            _wigets.push(rightHand);
         }
         if(body == null){
             body = new Body(0,0,_country);
-            _parent.add(body);
+            _backDecorateGroup.add(body);
+            _wigets.push(rightHand);
         }
 
 //        AssetsManager.getInstance().uploadTextureToSprite(body,"body_france");
@@ -122,10 +150,21 @@ class Player extends BoundsSprite {
         if(rightHand != null){
             rightHand.x = this.x;
         }
+//        for(item in _wigets){
+//            item.x = this.x;
+//        }
+        if(_cryEffect != null){
+            _cryEffect.x = this.x;
+        }
         return returnx;
     }
     public function cry():Void{
-    
+        _frontDecorateGroup.add(_cryEffect);
+    }
+    public function stopCry():Void{
+        if(_cryEffect != null){
+            _frontDecorateGroup.remove(_cryEffect);
+        }
     }
     override private function set_y(NewY:Float):Float{
         var returny:Float = super.set_y(NewY);
@@ -138,12 +177,19 @@ class Player extends BoundsSprite {
         if(rightHand != null){
             rightHand.y = this.y;
         }
-
+//        for(item in _wigets){
+//            trace(".............item....................................");
+//            item.y = this.y;
+//        }
+        if(_cryEffect != null){
+            _cryEffect.y = this.y;
+        }
 
         return returny;
     }
     public function kick(ball:Ball,?angle:Float):Void{
 //        ball.beKicked(false);
+//        showEffect(_kickEffect,this.x,this.y);
     }
     public function forecastDirection(ball:Ball):Void{
     }
