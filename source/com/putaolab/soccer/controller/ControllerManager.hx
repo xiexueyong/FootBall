@@ -21,14 +21,11 @@ class ControllerManager{
     }
 
     public function update():Void{
-
-//            _playerLeftController.update();
-
-        if(PlayState.start){
+//        if(PlayState.start){
             _playerRightController.update();
             _playerRightGamePadController.update();
             _aiPlayerLeftController.update();
-        }
+//        }
     }
 
 }

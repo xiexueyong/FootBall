@@ -89,6 +89,52 @@ class MenuState extends PTFlxUIState
         _twoplayer.scale.y = 0.8;
         group.add(_twoplayer);
         group.add(mainplayer);
+
+return;
+        var sprite:FlxSprite = new FlxSprite();
+        AssetsManager.getInstance().uploadTextureToSprite(sprite,"ball");
+        add(sprite);
+        sprite.x = sprite.y = 50;
+
+        var sprite:FlxSprite = new FlxSprite();
+        AssetsManager.getInstance().uploadTextureToSprite(sprite,"ball_aim");
+        add(sprite);
+        sprite.x = sprite.y = 100;
+
+        var sprite:FlxSprite = new FlxSprite();
+        AssetsManager.getInstance().uploadTextureToSprite(sprite,"ball_aim2");
+        add(sprite);
+        sprite.x = sprite.y = 150;
+
+        var sprite:FlxSprite = new FlxSprite();
+        AssetsManager.getInstance().uploadTextureToSprite(sprite,"ball_big");
+        add(sprite);
+        sprite.x = sprite.y = 200;
+
+        var sprite:FlxSprite = new FlxSprite();
+        AssetsManager.getInstance().uploadTextureToSprite(sprite,"ball_big_odlesk");
+        add(sprite);
+        sprite.x = sprite.y = 250;
+
+        var sprite:FlxSprite = new FlxSprite();
+        AssetsManager.getInstance().uploadTextureToSprite(sprite,"ball_odlesk");
+        add(sprite);
+        sprite.x = 300;
+        sprite.y = 200;
+
+        var sprite:FlxSprite = new FlxSprite();
+        AssetsManager.getInstance().uploadTextureToSprite(sprite,"effect_ico_ball_grow");
+        add(sprite);
+        sprite.x = 400;
+        sprite.y = 200;
+
+        var sprite:FlxSprite = new FlxSprite();
+        AssetsManager.getInstance().uploadTextureToSprite(sprite,"effect_ico_ball_shrink");
+        add(sprite);
+        sprite.x = 500;
+        sprite.y = 200;
+
+
     }
 
     public override function getEvent(id:String, target:Dynamic, data:Dynamic, ?params:Array<Dynamic>):Void {

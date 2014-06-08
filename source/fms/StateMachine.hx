@@ -110,6 +110,8 @@ class StateMachine{
     }
 
     public function update():Void{
+        if(!PlayState.start)
+            return;
         selectState(null);
         if(_currentState != null)
             _currentState.excute(this);

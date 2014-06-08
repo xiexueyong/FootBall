@@ -66,7 +66,6 @@ class PlayState extends PTFlxUIState
 	{
 		super.create();
 
-
         _level = new Level("assets/tiled/map.tmx",this);
         level = _level;
         startMatch(leftName,leftCountry,rightName,rightCountry);
@@ -108,6 +107,22 @@ class PlayState extends PTFlxUIState
 //        _timeBar.visible = false;
         add(_timeBar);
 	}
+    override public function onFocus():Void{
+        FlxG.updateFramerate = 60;
+        FlxG.drawFramerate = 60;
+    }
+    override public function onFocusLost():Void{
+        FlxG.updateFramerate = 0;
+        FlxG.drawFramerate = 0;
+    }
+    public function pauseGame():Void{
+        FlxG.updateFramerate = 1;
+        FlxG.drawFramerate = 1;
+    }
+    public function startG():Void{
+        FlxG.updateFramerate = 60;
+        FlxG.drawFramerate = 60;
+    }
     //开始比赛
     private function startMatch(leftName:String,leftCountry:String,rightName:String,rightCountry:String):Void{
 				playerRight = new PlayerRight(FlxG.width-350, 0,_level.backDecorateGroup,_level.decorateGroup,rightName,rightCountry);
@@ -247,6 +262,13 @@ class PlayState extends PTFlxUIState
         if(PlayState.start == true){
             hitTarget();
         }
+
+       /* if(FlxG.keys.anyJustPressed(["ENTER"])){
+            pauseGame();
+        }
+        if(FlxG.keys.anyJustPressed(["SPACE"])){
+            startG();
+        }*/
 
 	}	
 }

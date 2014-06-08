@@ -22,7 +22,6 @@ class PlayerRightGamePadController extends Controller{
             // processEvent(EventHandler.BACK);
         }
 
-
         //手柄和遥控器方向键
         var gamepadArray:Array<FlxGamepad> = FlxG.gamepads.getActiveGamepads();
         for(i in 0...gamepadArray.length){
