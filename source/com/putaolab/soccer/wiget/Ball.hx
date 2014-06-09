@@ -1,4 +1,7 @@
 package com.putaolab.soccer.wiget;
+import component.PTFlxTrail;
+import flixel.addons.effects.FlxTrail;
+import flixel.util.FlxTimer;
 import flixel.util.FlxRect;
 import com.putaolab.soccer.charater.BoundsSprite;
 import com.putaolab.soccer.wiget.RightFlyDirection;
@@ -12,6 +15,8 @@ class Ball extends BoundsSprite {
     private var _RightDirectionTip:FlxSprite;
     private var _lefting:Bool;
     private var _righting:Bool;
+    private var _trail:PTFlxTrail;
+//    private
     public function new(X:Float = 0, Y:Float = 0, ?SimpleGraphic:Dynamic)
     {
         super(X, Y);
@@ -23,8 +28,13 @@ class Ball extends BoundsSprite {
 //        AssetsManager.getInstance().uploadTextureToSprite(this,"ball_big");
         AssetsManager.getInstance().uploadTextureToSprite(this,"ball");
         collisionMap = new FlxRect(0,0,width,height);
+        _trail = new PTFlxTrail(this,"assets/images/tracks.png",10,2,0.8,0.05,0.8,0.05);
+        _trail.scalesEnabled = false;
+//        _trail = new FlxTrail(this,"assets/images/tracks.png",10,2,0.8,0.05);
+        PlayState.level.comonBackgroundGroup.add(_trail);
 
     }
+
     public function beKicked(direction:String,angle:Float = 0):Void{
         if(direction == "left"){
             this.velocity.x = -Math.cos(angle/180*Math.PI)*Reg.BALL_KICKEDVELOCITY;

@@ -1,4 +1,7 @@
 package com.putaolab.soccer.charater;
+import flixel.util.FlxPoint;
+import com.putaolab.soccer.wiget.CryEffect;
+import com.putaolab.soccer.wiget.CryEffect;
 import flixel.FlxBasic;
 import flixel.group.FlxTypedGroup;
 import com.putaolab.soccer.wiget.Ball;
@@ -7,9 +10,9 @@ import flixel.FlxG;
 import flixel.util.FlxColor;
 import flixel.FlxSprite;
 class PlayerRight extends Player{
-    public function new(X:Float = 0, Y:Float = 0,parent:FlxTypedGroup<FlxBasic>,name:String="carlos",country:String="brazil")
+    public function new(X:Float = 0, Y:Float = 0,backDecorateGroup:FlxTypedGroup<FlxBasic>,frontDecorateGroup:FlxTypedGroup<FlxBasic>,name:String="carlos",country:String="brazil")
     {
-        super(X, Y,parent,name,country);
+        super(X, Y,backDecorateGroup,frontDecorateGroup,name,country);
         facing = FlxObject.LEFT;
         //调整碰撞检测区域
         width = 60;
@@ -19,12 +22,16 @@ class PlayerRight extends Player{
 
 
     override public function kick(ball:Ball,?angle:Float):Void{
-    if(ball.y > y){
-        var tx:Float = this.x - ball.x;
-        if(tx > 0 && tx < Reg.BALL_EFFECTIVEDISTANCE){
-            ball.beKicked("left",_kickAngle);
+
+        if(!rest && ball.y > y-10){
+            var tx:Float = this.x - ball.x;
+            if(tx > 0 && tx < Reg.BALL_EFFECTIVEDISTANCE){
+                ball.beKicked("left",_kickAngle);
+            }
         }
-    }
+        if(!rest)
+            showEffect(_kickEffect,this.x - 60,this.y+55);
+        super.kick(ball,angle);
 
 
     }
@@ -49,6 +56,22 @@ class PlayerRight extends Player{
             _kickAngle = 0;
             ball.removeLeftDirectionTip();
         }
+    }
+    override private function initializeEffect():Void{
+    super.initializeEffect();
+
+    _kickEffect.offsetOnParent = new FlxPoint(0,0);
+    _hitEffect.offsetOnParent = new FlxPoint(0,0);
+    _smokeJumpEffect.offsetOnParent = new FlxPoint(0,0);
+
+}
+    override public function cry():Void{
+        if(_cryEffect == null){
+            _cryEffect = new CryEffect();
+            _cryEffect.offsetOnParent = new FlxPoint(-53,-23);
+        }
+        super.cry();
+
     }
 
    /* override public function update():Void{

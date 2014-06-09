@@ -21,7 +21,8 @@ class GlobalState extends BaseState{
         //踢球
         var dx:Float = stateMachine.ball.x - stateMachine.owner.x;
         if(dx < Reg.BALL_EFFECTIVEDISTANCE && dx > 0 ){
-            stateMachine.owner.kick(stateMachine.ball,stateMachine.getBestKickAngle());
+            //stateMachine.owner.kick(stateMachine.ball,stateMachine.getBestKickAngle());
+            stateMachine.owner.kick(stateMachine.ball);
         }
 
         //回到球的后面

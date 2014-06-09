@@ -1,5 +1,10 @@
 package;
 
+import flixel.tweens.FlxTween;
+import com.putaolab.soccer.QuitPanel;
+import flixel.util.FlxPoint;
+import com.putaolab.football.ui.state.OnePlayerState;
+import flixel.util.FlxPoint;
 import com.putaolab.football.ui.state.MatchResultPopState;
 import flixel.util.FlxTimer;
 import String;
@@ -50,6 +55,13 @@ class PlayState extends PTFlxUIState
     private var _scoreBar:FlxText;
     private var _timeBar:FlxText;
 
+    //暂停时保存球员和球的状态
+    private var _ballVelocity:FlxPoint;
+    private var _leftPlayerVelocity:FlxPoint;
+    private var _rightPlayerVelocity:FlxPoint;
+
+    private var _quitPanel:QuitPanel;
+
 
 
 	/**
@@ -65,7 +77,6 @@ class PlayState extends PTFlxUIState
 	override public function create():Void
 	{
 		super.create();
-
 
         _level = new Level("assets/tiled/map.tmx",this);
         level = _level;
@@ -108,16 +119,100 @@ class PlayState extends PTFlxUIState
 //        _timeBar.visible = false;
         add(_timeBar);
 	}
+    override public function onFocus():Void{
+        FlxG.updateFramerate = 60;
+        FlxG.drawFramerate = 60;
+    }
+    override public function onFocusLost():Void{
+        FlxG.updateFramerate = 0;
+        FlxG.drawFramerate = 0;
+    }
+private function abortQuit(t:FlxTween):Void{
+    remove(_quitPanel);
+    _quitPanel = null;
+
+}
+    public function pauseLogic():Void{
+    trace("--------------------pauseLogic----------------------------------");
+        if(PlayState.start){
+            PlayState.start =false;
+            pause();
+            _quitPanel = new QuitPanel(0,0,abortQuit);
+            add(_quitPanel);
+            return;
+        }else{
+            if(_quitPanel != null){
+                openSubState(new MatchResultPopState(leftName,rightName,leftCountry,rightCountry,[3,1]));
+                abortQuit(null);
+            }else{
+                resume();
+                PlayState.start =true;
+            }
+        }
+
+    }
+    public function pause():Void{
+        _ballVelocity = new FlxPoint(ball.velocity.x,ball.velocity.y);
+        _leftPlayerVelocity = new FlxPoint(playerLeft.velocity.x,playerLeft.velocity.y);
+        _rightPlayerVelocity = new FlxPoint(playerRight.velocity.x,playerRight.velocity.y);
+
+//        trace("pause____ballVelocity.x_________",_ballVelocity.x);
+//        trace("pause____ballVelocity.y_________",_ballVelocity.y);
+
+        playerRight.acceleration.x= 0;
+        playerRight.acceleration.y= 0;
+        playerRight.velocity.x = 0;
+        playerRight.velocity.y = 0;
+
+        playerLeft.acceleration.x= 0;
+        playerLeft.acceleration.y= 0;
+        playerLeft.velocity.x = 0;
+        playerLeft.velocity.y = 0;
+
+        ball.acceleration.x = 0;
+        ball.acceleration.y = 0;
+        ball.velocity.x = 0;
+        ball.velocity.y = 0;
+    }
+    public function resume():Void{
+
+        if( _leftPlayerVelocity == null){
+            _leftPlayerVelocity == new FlxPoint(0,0);
+        }
+        if( _rightPlayerVelocity == null){
+            _rightPlayerVelocity == new FlxPoint(0,0);
+        }
+        if( _ballVelocity == null){
+            _ballVelocity == new FlxPoint(0,0);
+        }
+
+        playerRight.acceleration.x= 0;
+        playerRight.acceleration.y= Reg.PLAYER_GRAVITY;
+        playerRight.velocity.x = 0;
+        playerRight.velocity.y = 0;
+
+        playerLeft.acceleration.x= 0;
+        playerLeft.acceleration.y= Reg.PLAYER_GRAVITY;
+        playerLeft.velocity.x = _leftPlayerVelocity.x;
+        playerLeft.velocity.y = _leftPlayerVelocity.y;
+
+        ball.acceleration.x = 0;
+        ball.acceleration.y = Reg.BALL_GRAVITY;
+        ball.velocity.x = _ballVelocity.x;
+        ball.velocity.y = _ballVelocity.y;
+
+//        trace("pause____ballVelocity.x_________",_ballVelocity.x);
+//        trace("pause____ballVelocity.y_________",_ballVelocity.y);
+    }
     //开始比赛
     private function startMatch(leftName:String,leftCountry:String,rightName:String,rightCountry:String):Void{
-				playerRight = new PlayerRight(FlxG.width-350, 0,_level.backDecorateGroup,rightName,rightCountry);
+				playerRight = new PlayerRight(FlxG.width-350, 0,_level.backDecorateGroup,_level.decorateGroup,rightName,rightCountry);
                 playerRight.y = Reg.BOUNDS.height - playerRight.height;
                 playerRight.setBoundsMap(_level.getBounds());
                 playerRight.controllable = true;
                 _level.characterGroup.add(playerRight);
 
-
-                playerLeft = new AIPlayerLeft(270, 0,_level.backDecorateGroup,leftName,leftCountry);
+                playerLeft = new AIPlayerLeft(270, 0,_level.backDecorateGroup,_level.decorateGroup,leftName,leftCountry);
                 playerLeft.y = Reg.BOUNDS.height-playerLeft.height;
                 playerLeft.setBoundsMap(_level.getBounds());
                 playerLeft.controllable = false;
@@ -130,28 +225,64 @@ class PlayState extends PTFlxUIState
                 ball.setBoundsMap(_level.getBounds());
                 _level.characterGroup.add(ball);
 
+                //国旗
+                var leftFlag:FlxSprite = new FlxSprite();
+                leftFlag.x = 449;
+                leftFlag.y = 628;
+                AssetsManager.getInstance().uploadTextureToSprite(leftFlag,"flag_"+leftCountry);
+                var rightFlag:FlxSprite = new FlxSprite();
+                rightFlag.x = 689;
+                rightFlag.y = 628;
+                AssetsManager.getInstance().uploadTextureToSprite(rightFlag,"flag_"+rightCountry);
+                _level.decorateGroup.add(leftFlag);
+                _level.decorateGroup.add(rightFlag);
+
+
                 Timer.delay(startGame,1000);
+    }
+    private inline function leftLost():Void{
+        PlayState.start = false;
+        playerRight.happy = true;
+        playerRight.velocity.x = 0;
+        playerLeft.velocity.x = 0;
+        playerRight.velocity.y = 0;
+        playerLeft.velocity.y = 0;
+        playerRight.acceleration.x = 0;
+        playerLeft.acceleration.x = 0;
+        playerLeft.cry();
+        scores[1] += 1;
+        _scoreBar.text = scores[0]+":"+scores[1];
+        Timer.delay(
+            function(){
+                serve(420);
+            },1500);
+    }
+
+    private inline function rightLost():Void{
+        PlayState.start = false;
+        playerRight.cry();
+        playerLeft.happy = true;
+        playerRight.velocity.x = 0;
+        playerLeft.velocity.x = 0;
+        playerRight.velocity.y = 0;
+        playerLeft.velocity.y = 0;
+        playerRight.acceleration.x = 0;
+        playerLeft.acceleration.x = 0;
+        scores[0] += 1;
+        _scoreBar.text = scores[0]+":"+scores[1];
+        Timer.delay(
+            function(){
+                serve(860);
+            },1500);
     }
     //是否进球
     public inline function hitTarget():Void{
         if(ball.y > Reg.BOUNDS.height-Reg.GOAL_HEIGHT){
             //1代表左赢  2代表右赢
             if(ball.x<156){
-                PlayState.start = false;
-                scores[1] += 1;
-                _scoreBar.text = scores[0]+":"+scores[1];
-                Timer.delay(
-                    function(){
-                        serve(420);
-                    },1500);
+                leftLost();
             }else if(ball.x > 1085){
-                PlayState.start = false;
-                scores[0] += 1;
-                _scoreBar.text = scores[0]+":"+scores[1];
-                Timer.delay(
-                    function(){
-                        serve(860);
-                    },1500);
+                rightLost();
             }
 
         }
@@ -169,22 +300,29 @@ class PlayState extends PTFlxUIState
         if(matchTimer.elapsedLoops >= PlayState.MATCH_SECOND){
         trace("_______MatchResultPopState___________");
             openSubState(new MatchResultPopState(leftName,rightName,leftCountry,rightCountry,scores));
+
         }
 
     }
     //发球
     private function serve(ball_x:Float):Void{
         //playerleft playerright ball
+        playerLeft.stopCry();
+        playerRight.stopCry();
+        playerLeft.happy = false;
+        playerRight.happy = false;
 
         playerLeft.x = 270;
         playerRight.x = FlxG.width - 350;
         ball.velocity.x = ball.velocity.y = 0;
         ball.x = ball_x;
+        ball.y = Reg.BOUNDS.height - 100;
+        ball.acceleration.y = 0;
         Timer.delay(
             function(){
+                ball.acceleration.y = Reg.BALL_GRAVITY;
                 PlayState.start = true;
-            },1000);
-
+            },700);
     }
 	
 	/**
@@ -207,6 +345,17 @@ class PlayState extends PTFlxUIState
         if(PlayState.start == true){
             hitTarget();
         }
+
+        if(FlxG.keys.anyJustPressed(["ESCAPE"])){
+            pauseLogic();
+        }
+        #if android
+        if(FlxG.android.anyJustPressed(["OK","ENTER"])){
+            processEvent(EventHandler.ANDROID_OK);
+        }else if(FlxG.android.anyJustPressed(["BACK"])){
+            pause();
+        }
+        #end
 
 	}	
 }

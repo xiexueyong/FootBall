@@ -32,7 +32,7 @@ class StateMachine{
 
 
     private inline function startGame():Void{
-        forceAttackTimer = new FlxTimer(0.2,function(timer:FlxTimer){
+        forceAttackTimer = new FlxTimer(0.5,function(timer:FlxTimer){
             if(_forceAttack){
                 _forceAttack = false;
                 return;
@@ -63,7 +63,7 @@ class StateMachine{
 
         //--------------------进攻---------------------------------
         //球在对手的身后，进攻
-        if(_forceAttack){
+        if(_forceAttack && ball.y > owner.y){
             if(_currenName != "attack"){
                 changeState(_attackState,"attack");
             }
@@ -90,7 +90,7 @@ class StateMachine{
     public function new(owner:AIPlayer)
     {
         this.owner = owner;
-//        startGame();
+        startGame();
 
     }
     public function setCurrentSate(state:BaseState):Void{
@@ -110,6 +110,8 @@ class StateMachine{
     }
 
     public function update():Void{
+        if(!PlayState.start)
+            return;
         selectState(null);
         if(_currentState != null)
             _currentState.excute(this);
@@ -141,6 +143,15 @@ class StateMachine{
             var radius:Float = Math.asin(temp*2)/2;
             angle = radius*180/Math.PI;
 //            trace(".......头顶.........",angle);
+        }
+
+        if(ball.x > owner.x && ball.x < opponent.x && opponent.x - ball.x < 250 && opponent.x - ball.x > 110){
+            //球在2球员之间，球往天上踢,2球员距离很近
+            angle = 40;
+        }else
+        if(ball.x > owner.x && ball.x < opponent.x && rightGoal.x - opponent.x > 240){
+            //球在2球员之间，球往天上踢,2球员距离很近
+            angle = 55;
         }
         return  angle;
     }

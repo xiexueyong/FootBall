@@ -54,10 +54,10 @@ class AssetsManager{
         return sp;
     }
     /**/
-     public function uploadAnimationToSprite(sprite:FlxSprite,Ani_Key:String,Ani_Name:String,FrameRate:Int = 30):Void
+     public function uploadAnimationToSprite(sprite:FlxSprite,Ani_Key:String,Ani_Name:String,FrameRate:Int = 30, Looped:Bool = true):Void
      {
          sprite.loadGraphicFromTexture(_sparrowsata);
-         sprite.animation.addByPrefix(Ani_Key,Ani_Name,FrameRate);
+         sprite.animation.addByPrefix(Ani_Key,Ani_Name,FrameRate,Looped);
      }
     /**/
     public function uploadTextureToSprite(sprite:FlxSprite,name:String):Void

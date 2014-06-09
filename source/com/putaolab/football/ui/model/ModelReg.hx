@@ -208,12 +208,12 @@ class ModelReg {
         if(gameSave == null){
             gameSave = new FlxSave();
         }
-//        gameSave.bind("place");
-//        gameSave.data.place=null;
-//        gameSave.bind("rank");
-//        gameSave.data.rank=null;
-//        gameSave.bind("competition");
-//        gameSave.data.competition=null;
+        gameSave.bind("place");
+        gameSave.data.place=null;
+        gameSave.bind("rank");
+        gameSave.data.rank=null;
+        gameSave.bind("competition");
+        gameSave.data.competition=null;
 
         gameSave.bind("CompetitionCtage");
         gameSave.data.CompetitionCtage=null;

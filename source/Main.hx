@@ -72,5 +72,11 @@ class Main extends Sprite
 		}
 
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
+       // extension();
 	}
+//    private function extension(){
+//        #if android
+//		FlxG.android = FlxG.inputs.add(new RCFlxAndroidKeys());
+//		#end
+//    }
 }
