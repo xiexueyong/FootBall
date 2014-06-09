@@ -1,4 +1,5 @@
 package com.putaolab.football.ui.state;
+import flixel.FlxBasic;
 import com.putaolab.football.ui.model.ModelReg;
 import com.putaolab.football.ui.model.Model;
 import flixel.FlxSprite;
@@ -17,6 +18,8 @@ import flixel.group.FlxSpriteGroup;
 
 class RankingState extends PTFlxUIState{
 
+    private var itemgroup:FlxSpriteGroup;
+    private var competitionitemgroup:FlxSpriteGroup;
     //对战记录y坐标起始位置
     private var competitionitemY:Float;
     //对战次数
@@ -52,17 +55,23 @@ class RankingState extends PTFlxUIState{
 
     override public function create():Void
     {
+        add(new StateBG());
         _makeCursor = true;
+        itemgroup = new FlxSpriteGroup();
+        add(itemgroup);
+        competitionitemgroup = new FlxSpriteGroup();
+        add(competitionitemgroup);
 
         super.create();
         cursor.setDefaultKeys(FlxUICursor.KEYS_DEFAULT_ARROWS | FlxUICursor.KEYS_DEFAULT_TAB);
         init();
+        cursor.location = 0;
     }
     /*
     *初始化
     * */
     private function init():Void{
-        add(new StateBG());
+//        add(new StateBG());
         initButton();
         countryRamking();
     }
@@ -136,7 +145,7 @@ class RankingState extends PTFlxUIState{
         var numdist = 13;
         for(i in 0...4){
 //            trace(_countryscorearr[i].country,_countryscorearr[i].score,_countryscorearr[i].losescore,_countryscorearr[i].accumulativescore);
-            var itemgroup = new FlxSpriteGroup();
+
             var sp;
             if(_countryscorearr[i].country == _selectedcountry){
                 _accumulativescore = _countryscorearr[i].accumulativescore;
@@ -145,7 +154,6 @@ class RankingState extends PTFlxUIState{
                 sp = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_group1");
             }
             var bgbtn:PTFlxUIButton = new PTFlxUIButton();
-            cursor.addWidget(bgbtn);
             bgbtn.loadGraphicsUpOverDown(sp.getFlxFrameBitmapData());
             bgbtn.origin.x =bgbtn.origin.y = 0;
             bgbtn.x = (FlxG.width-sp.width)*0.5;
@@ -182,7 +190,7 @@ class RankingState extends PTFlxUIState{
 
             var accscore = AssetsManager.getInstance().getSprite(bgbtn.x+bgbtn.width -50,bgbtn.y + numdist,_countryscorearr[i].accumulativescore+"b");
             itemgroup.add(accscore);
-            add(itemgroup);
+
         }
 
         competitionRecords();
@@ -227,45 +235,42 @@ class RankingState extends PTFlxUIState{
     private function competitionItem(X,Y,mycountry:String="flag_default",competitioncountry:String="flag_default",myscore:String="0",competitionscore:String="0"):Void
     {
         var numdist = 13;
-        var itemgroup = new FlxSpriteGroup();
         var sp = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_group1");
 //        sp.x= (FlxG.width-sp.width*1.45)*0.5;
 //        sp.y= competitionitemY+20;
-        itemgroup.add(sp);
+        competitionitemgroup.add(sp);
         var mycountry = AssetsManager.getInstance().getSprite(sp.x+50,sp.y+4,mycountry);
         mycountry.origin.x = mycountry.origin.y = 0;
         mycountry.scale.x = mycountry.scale.y = 0.6;
-        itemgroup.add(mycountry);
+        competitionitemgroup.add(mycountry);
         var competitioncountry = AssetsManager.getInstance().getSprite(0,sp.y+4,competitioncountry);
         competitioncountry.x = sp.x+sp.width-competitioncountry.width;
         competitioncountry.origin.x = competitioncountry.origin.y = 0;
         competitioncountry.scale.x = competitioncountry.scale.y = 0.6;
-        itemgroup.add(competitioncountry);
+        competitionitemgroup.add(competitioncountry);
 
         var colon = AssetsManager.getInstance().getSprite(sp.x+sp.width*0.5,sp.y + numdist,"colonb");
-        itemgroup.add(colon);
+        competitionitemgroup.add(colon);
         if(myscore.charAt(1)!=""){
             var score1 = AssetsManager.getInstance().getSprite(colon.x -58,colon.y,myscore.charAt(0)+"b");
-            itemgroup.add(score1);
+            competitionitemgroup.add(score1);
             var score2 = AssetsManager.getInstance().getSprite(colon.x -40,colon.y,myscore.charAt(1)+"b");
-            itemgroup.add(score2);
+            competitionitemgroup.add(score2);
         }else{
             var score = AssetsManager.getInstance().getSprite(colon.x -40,colon.y,myscore+"b");
-            itemgroup.add(score);
+            competitionitemgroup.add(score);
         }
         if(competitionscore.charAt(1)!=""){
             var losescore1 = AssetsManager.getInstance().getSprite(colon.x +20,colon.y,competitionscore.charAt(0)+"b");
-            itemgroup.add(losescore1);
+            competitionitemgroup.add(losescore1);
             var losescore2 = AssetsManager.getInstance().getSprite(colon.x +38,colon.y,competitionscore.charAt(1)+"b");
-            itemgroup.add(losescore2);
+            competitionitemgroup.add(losescore2);
         }else{
             var losescore = AssetsManager.getInstance().getSprite(colon.x +20,colon.y,competitionscore+"b");
-            itemgroup.add(losescore);
+            competitionitemgroup.add(losescore);
         }
-
-        add(itemgroup);
-        itemgroup.x = (FlxG.width-sp.width)*0.5;
-        itemgroup.y = Y;
+        competitionitemgroup.x = (FlxG.width-sp.width)*0.5;
+        competitionitemgroup.y = Y;
     }
 
     private var _matchcountry:String;

@@ -66,20 +66,20 @@ class StateBG extends FlxSpriteGroup{
             var peoplex:Float = bg.x;
             var peoplew:Float = 0;
             var j:Int=1;
-//            while(peoplex<(bg.x+bg.width))
-//            {
-//                var tribunapeople = AssetsManager.getInstance().getSprite(0,0,"bg_tribuna_people"+j);
-//                tribunapeople.origin.y = tribunapeople.height;
-//                tribunapeople.y = bg.y;
-//                tribunapeople.x = peoplex;
-//                peoplew = tribunapeople.width;
-//                peoplex+=peoplew;
-//                add(tribunapeople);
-//                j++;
-//                if(j>16){
-//                    j=0;
-//                }
-//            }
+            while(peoplex<(bg.x+bg.width))
+            {
+                var tribunapeople = AssetsManager.getInstance().getSprite(0,0,"bg_tribuna_people"+j);
+                tribunapeople.origin.y = tribunapeople.height;
+                tribunapeople.y = bg.y;
+                tribunapeople.x = peoplex;
+                peoplew = tribunapeople.width;
+                peoplex+=peoplew;
+                add(tribunapeople);
+                j++;
+                if(j>16){
+                    j=0;
+                }
+            }
         }
     }
 

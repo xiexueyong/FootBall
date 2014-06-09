@@ -60,9 +60,11 @@ class OnePlayerState extends PTFlxUIState{
         super.create();
         cursor.setDefaultKeys(FlxUICursor.KEYS_DEFAULT_ARROWS | FlxUICursor.KEYS_DEFAULT_TAB);
 
+
         init();
         setCountry();
         initPropertyPanel();
+        cursor.location = 0;
     }
 
     /*初始化背景*/

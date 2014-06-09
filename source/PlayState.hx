@@ -32,7 +32,7 @@ import flixel.util.FlxMath;
 class PlayState extends PTFlxUIState
 {
     public static var level:Level;
-    public static var MATCH_SECOND:Int = 5;
+    public static var MATCH_SECOND:Int = 500;
     public static var start:Bool = false;
 
     private var _level:Level;
@@ -351,9 +351,9 @@ private function abortQuit(t:FlxTween):Void{
         }
         #if android
         if(FlxG.android.anyJustPressed(["OK","ENTER"])){
-            processEvent(EventHandler.ANDROID_OK);
+           // processEvent(EventHandler.ANDROID_OK);
         }else if(FlxG.android.anyJustPressed(["BACK"])){
-            pause();
+             pauseLogic();
         }
         #end
 
