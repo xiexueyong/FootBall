@@ -298,9 +298,6 @@ class RankingState extends PTFlxUIState{
                     _matchcountry = tempAllCountry[i];
                 }
             }
-
-
-
         }
     }
 

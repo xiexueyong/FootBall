@@ -1,5 +1,7 @@
 package com.putaolab.football.ui.state;
 
+import com.putaolab.football.ui.model.ModelReg;
+import com.putaolab.football.ui.model.Model;
 import com.putaolab.football.ui.model.CompetitionModel;
 import flixel.FlxSprite;
 import component.PTFlxUIState;
@@ -83,18 +85,53 @@ class ResultState extends PTFlxUIState{
         var prethree:Array<String> = CompetitionModel.getInstance().getPreThree();
         for(i in 0...prethree.length){
             trace(prethree[i]);
+
         }
+        setFootBallerFormCountry(370,360,getBallerFromCountry("flag_"+prethree[0]),prethree[0]);
+        setFootBallerFormCountry(585,320,getBallerFromCountry("flag_"+prethree[1]),prethree[1]);
+        setFootBallerFormCountry(800,360,getBallerFromCountry("flag_"+prethree[2]),prethree[2]);
+//        trace(getBallerFromCountry("flag_"+prethree[0]),prethree[0]);
+//        trace(getBallerFromCountry("flag_"+prethree[1]),prethree[1]);
+//        trace(getBallerFromCountry("flag_"+prethree[2]),prethree[2]);
+    }
+
+    /*
+    *根据国家名字得到可以用的球员
+    * */
+    public function getBallerFromCountry(countryname:String):String{
+        var ballerarr = Model.getInstance().getFootballarFromCountry(countryname);
+//        trace(ballerarr);
+        var len = ballerarr.length;
+        for(i in 0...len){
+            if(ballerarr[i].isclock == 0){
+                return ballerarr[i].head;
+            }
+        };
+        return null;
+    }
+
+    /*
+    *设置国旗
+    * */
+    private function setCountry(X:Float,Y:Float,name:String):Void{
+        var flag = AssetsManager.getInstance().getSprite(0,0,"flag_"+name);
+        flag.origin.x = flag.origin.y = 0;
+        flag.scale.x = flag.scale.y = 0.8;
+        flag.x = X;
+        flag.y =  Y- 180;
+        add(flag);
     }
 
     /*设置每个国家的队员*/
-    private function setFootBallerFormCountry(X,Y,name:String):Void
+    private function setFootBallerFormCountry(X,Y,head:String,name:String):Void
     {
-        var footballer = AssetsManager.getInstance().getSprite(0,0,"head_"+name);
-        footballer.x = footballer.width;
-        footballer.y = FlxG.height - (Reg.TEERAIN_DEEP+footballer.height);
+        var footballer = AssetsManager.getInstance().getSprite(0,0,head);
+        footballer.x = X;
+        footballer.y = Y;
         setFootBallerBody(footballer.x+(footballer.width-30)*0.5,footballer.y+footballer.height-12,name);
         add(footballer);
 
+        setCountry(X,Y,name);
     }
 
     /*
@@ -106,7 +143,7 @@ class ResultState extends PTFlxUIState{
         body.x = X;
         body.y = Y;
         add(body);
-        setFootBallerHand(body.x,body.y,name);
+//        setFootBallerHand(body.x,body.y,name);
     }
 
     /*
@@ -129,6 +166,7 @@ class ResultState extends PTFlxUIState{
                             FlxG.switchState(new FinalsState());
                         case "play":
                             FlxG.switchState(new OnePlayerState());
+                            ModelReg.cleardataRestart();
                     }
             }
 

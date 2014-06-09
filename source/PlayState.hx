@@ -168,7 +168,7 @@ class PlayState extends PTFlxUIState
         _timeBar.text = Std.string(matchTimer.elapsedLoops);
         if(matchTimer.elapsedLoops >= PlayState.MATCH_SECOND){
         trace("_______MatchResultPopState___________");
-            openSubState(new MatchResultPopState(leftCountry,rightCountry,scores));
+            openSubState(new MatchResultPopState(leftName,rightName,leftCountry,rightCountry,scores));
         }
 
     }

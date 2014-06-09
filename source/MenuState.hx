@@ -1,5 +1,6 @@
 package;
 
+import com.putaolab.football.ui.state.AllPopState;
 import com.putaolab.football.ui.state.SelectTeamState;
 import com.putaolab.football.ui.model.ModelReg;
 import com.putaolab.football.ui.state.StateBG;
@@ -92,7 +93,6 @@ class MenuState extends PTFlxUIState
     }
 
     public override function getEvent(id:String, target:Dynamic, data:Dynamic, ?params:Array<Dynamic>):Void {
-//        trace(id + target + data + params);
         if (params != null) {
             switch(id) {
                 case "click_button":
@@ -105,8 +105,8 @@ class MenuState extends PTFlxUIState
                                 FlxG.switchState(new SelectTeamState());
                             }
                         case "twoplayer":
-                            FlxG.switchState(new TwoPlayerState());
-//                            trace("twoplayer");
+//                            FlxG.switchState(new TwoPlayerState());
+//                            openSubState(new AllPopState("twoplayer"));
                     }
             }
         }

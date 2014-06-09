@@ -16,12 +16,18 @@ class MatchResultPopState extends FlxUISubState
     private var _leftCountry:String;
     private var _rightCountry:String;
 
+    //leftName  rightName
+    private var leftName:String;
+    private var rightName:String;
+
     private var _leftFlag:String;
     private var _rightFlag:String;
     private var _scores:Array<Int>;
 
-    public function new(leftCountry:String,rightCountry:String,scores:Array<Int>){
+    public function new(liftname,rightname,leftCountry:String,rightCountry:String,scores:Array<Int>){
         super();
+        leftName = liftname;
+        rightName = rightname;
         _leftCountry = leftCountry;
         _rightCountry = rightCountry;
 
@@ -151,7 +157,8 @@ class MatchResultPopState extends FlxUISubState
                 case "click_button":
                     switch(cast(params[0], String)) {
                         case "restart":
-//                            FlxG.switchState(new TwoPlayerState());
+                            trace("closeSubStateddddddddddddddddddddddd");
+                            FlxG.switchState(new PlayState(leftName,_leftCountry,rightName,_rightCountry));
                         case "play":
                             if(ModelReg.getCompetitionCtage()== 2){
                                 FlxG.switchState(new ResultState());
@@ -174,6 +181,7 @@ class MatchResultPopState extends FlxUISubState
                                 }if(_scores[1]==_scores[0]){
                                     accumulativescore = 1;
                                 }
+                                trace("_rightFlag: "+ _rightFlag +"_leftFlag  "+_leftFlag+"dddddddd"+Std.string(accumulativescore));
                                 Model.getInstance().setCompetition(_rightFlag,_leftFlag,Std.string(_scores[1]),Std.string(_scores[0]));
                                 Model.getInstance().setTeamCountryScore(_rightFlag,Std.string(_scores[1]),Std.string(_scores[0]),Std.string(accumulativescore));
                                 FlxG.switchState(new RankingState());

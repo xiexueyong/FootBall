@@ -21,6 +21,7 @@ import flixel.util.FlxPoint;
 class FinalsState extends PTFlxUIState{
     private var _toranking:PTFlxUIButton;
     private var _play:PTFlxUIButton;
+    private var _kostage:PTFlxUIButton;
     //当前选中的国家
     private var _selectedcountry:String;
 
@@ -75,6 +76,19 @@ class FinalsState extends PTFlxUIState{
         playicon.y = FlxG.height - playicon.height-10;
         add(_play);
         add(playicon);
+
+        _kostage = new PTFlxUIButton(0,0,null);
+        cursor.addWidget(_kostage);
+        _kostage.params = ["play"];
+        var twoplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
+        var playicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_play2");
+        _kostage.loadGraphicsUpOverDown(twoplayer.getFlxFrameBitmapData());
+        _kostage.x = FlxG.width-_kostage.width-50;
+        _kostage.y = FlxG.height - _kostage.height-10;
+        playicon.x = FlxG.width-playicon.width-50;
+        playicon.y = FlxG.height - playicon.height-10;
+//        add(_kostage);
+//        add(playicon);
     }
 
     /*
@@ -85,12 +99,15 @@ class FinalsState extends PTFlxUIState{
     {
         var versusgroup = new FlxSpriteGroup();
         var footballeronepanel:FlxSprite;
-        if(_selectedcountry == country1 || _selectedcountry == country2){
+//        if(_selectedcountry == country1 || _selectedcountry == country2){
+        if(_selectedcountry == country1){
             footballeronepanel = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_stage2");
         }else{
             footballeronepanel = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_stage1");
         }
-
+        if(_selectedcountry == country1 && score1<score2){
+        footballeronepanel = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_stage3");
+        }
         versusgroup.add(footballeronepanel);
         var country1 = AssetsManager.getInstance().getSprite(0,0,country1);
         var country2 = AssetsManager.getInstance().getSprite(0,0,country2);

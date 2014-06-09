@@ -228,4 +228,26 @@ class ModelReg {
         gameSave.bind("finalthree");
         gameSave.data.finalthree=null;
     }
+
+    /*
+    *清除比赛数据重新开始
+    * */
+    public static function cleardataRestart():Void{
+        gameSave.bind("rank");
+        gameSave.data.rank=null;
+        gameSave.bind("competition");
+        gameSave.data.competition=null;
+        gameSave.bind("CompetitionCtage");
+        gameSave.data.CompetitionCtage=null;
+        gameSave.bind("finaleight");
+        gameSave.data.finaleight=null;
+        gameSave.bind("finalsixteen");
+        gameSave.data.finalsixteen=null;
+        gameSave.bind("finalfour");
+        gameSave.data.finalfour=null;
+        gameSave.bind("finaltwo");
+        gameSave.data.finaltwo=null;
+        gameSave.bind("finalthree");
+        gameSave.data.finalthree=null;
+    }
 }

@@ -1,4 +1,7 @@
 package com.putaolab.football.ui.state;
+import com.putaolab.soccer.wiget.Body;
+import com.putaolab.soccer.wiget.RightHand;
+import com.putaolab.soccer.wiget.LeftHand;
 import com.putaolab.football.ui.model.ModelReg;
 import com.putaolab.football.ui.model.Model;
 import component.PTFlxUIButton;
@@ -16,6 +19,11 @@ import flixel.text.FlxText;
  * description：
  */
 class OnePlayerState extends PTFlxUIState{
+
+    //body
+    private var body:Body;
+    private var rightHand:RightHand;
+    private var leftHand:LeftHand;
 
     private var _back:PTFlxUIButton;
     private var _play:PTFlxUIButton;
@@ -157,6 +165,7 @@ class OnePlayerState extends PTFlxUIState{
             footballer.y = FlxG.height - (Reg.TEERAIN_DEEP+footballer.height);
 
             setFootBallerBody(footballer.x+(footballer.width-30)*0.5,footballer.y+footballer.height-12,body,hand);
+//            initializeBody(body);
             footballergroup.add(footballer);
             if(arr[i].isclock==1){
                 var lock = AssetsManager.getInstance().getSprite(0,0,"ico_lock");
@@ -164,11 +173,27 @@ class OnePlayerState extends PTFlxUIState{
                 lock.y = FlxG.height - (Reg.TEERAIN_DEEP+footballer.height)+100;
                 footballergroup.add(lock);
             }
-            footballergroup.x = (FlxG.width-footballergroup.width)*0.5;
         }
+        footballergroup.x = (FlxG.width-footballergroup.width)*0.5;
         if(_ballername != null){
             _ballername.text = _countryballerarr[0].name;
         }
+    }
+
+    private function initializeBody(country:String):Void{
+        if(leftHand == null){
+            leftHand = new LeftHand(0,0,country);
+            footballergroup.add(leftHand);
+        }
+        if(rightHand == null){
+            rightHand= new RightHand(0,0,country);
+            footballergroup.add(rightHand);
+        }
+        if(body == null){
+            body = new Body(0,0,country);
+            footballergroup.add(body);
+        }
+
     }
 
     /*
@@ -180,7 +205,7 @@ class OnePlayerState extends PTFlxUIState{
         body.x = X;
         body.y = Y;
         footballergroup.add(body);
-        setFootBallerHand(body.x,body.y,hand);
+//        setFootBallerHand(body.x,body.y,hand);
     }
 
     /*
@@ -189,8 +214,8 @@ class OnePlayerState extends PTFlxUIState{
     private function setFootBallerHand(X:Float,Y:Float,hand:String):Void
     {
         var hand = AssetsManager.getInstance().getSprite(0,0,"hand_"+hand);
-        hand.x = X-hand.width +35;
-        hand.y = Y-hand.height+35;
+        hand.x = X-35;
+        hand.y = Y+35;
         footballergroup.add(hand);
     }
 

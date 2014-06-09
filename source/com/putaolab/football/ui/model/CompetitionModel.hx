@@ -28,10 +28,6 @@ class CompetitionModel {
         _fourarr = new Array<Dynamic>();
         _twoarr = new Array<Dynamic>();
 
-//        _competitiondata.push(_sixteenarr);
-//        _competitiondata.push(_eightarr);
-//        _competitiondata.push(_fourarr);
-//        _competitiondata.push(_twoarr);
     }
 
     public static function getInstance():CompetitionModel
@@ -92,7 +88,9 @@ class CompetitionModel {
         return countrys[countryindex];
     }
 
-
+    /*
+    *设置排行数据
+    * */
     public function setTopData(score1,score2):Void{
         _score1 = score1;
         _score2 = score2;
@@ -168,7 +166,7 @@ class CompetitionModel {
                 }
             }
         }
-        trace("_eightarr.length : "+_eightarr.length);
+//        trace("_eightarr.length : "+_eightarr.length);
         ModelReg.saveFinalsSixteen(_sixteenarr);
         ModelReg.saveFinalsEight(_eightarr);
     }
@@ -307,6 +305,9 @@ class CompetitionModel {
 
     }
 
+    /*
+    *得到前三名数据
+    * */
     public function getPreThree():Array<String>{
         _twoarr = ModelReg.getFinalsTwo();
         _threearr = ModelReg.getFinalsThree();
