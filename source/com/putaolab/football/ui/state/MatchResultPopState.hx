@@ -157,22 +157,22 @@ class MatchResultPopState extends FlxUISubState
                 case "click_button":
                     switch(cast(params[0], String)) {
                         case "restart":
-                            trace("closeSubStateddddddddddddddddddddddd");
                             FlxG.switchState(new PlayState(leftName,_leftCountry,rightName,_rightCountry));
                         case "play":
                             if(ModelReg.getCompetitionCtage()== 2){
                                 FlxG.switchState(new ResultState());
+                                ModelReg.saveGameStatus(1);
                                 return;
                             }
-                            trace("trace(Model.resultprestate);  "+Model.resultprestate);
-                            if(Model.resultprestate == 1){
+                            if(Model.resultprestate == 0){
+                                CompetitionModel.getInstance().setTopData(Std.string(_scores[1]),Std.string(_scores[0]));
                                 if(_scores[1]>_scores[0]){
                                     FlxG.switchState(new FinalsState());
                                 }else{
                                     FlxG.switchState(new ResultState());
+                                    ModelReg.saveGameStatus(1);
                                 }
-                                CompetitionModel.getInstance().setTopData(Std.string(_scores[1]),Std.string(_scores[0]));
-                            }else{
+                            }else {
                                 var accumulativescore:Int = 0;
                                 if(_scores[1]>_scores[0]){
                                     accumulativescore = 3;
@@ -181,10 +181,20 @@ class MatchResultPopState extends FlxUISubState
                                 }if(_scores[1]==_scores[0]){
                                     accumulativescore = 1;
                                 }
-                                trace("_rightFlag: "+ _rightFlag +"_leftFlag  "+_leftFlag+"dddddddd"+Std.string(accumulativescore));
                                 Model.getInstance().setCompetition(_rightFlag,_leftFlag,Std.string(_scores[1]),Std.string(_scores[0]));
                                 Model.getInstance().setTeamCountryScore(_rightFlag,Std.string(_scores[1]),Std.string(_scores[0]),Std.string(accumulativescore));
-                                FlxG.switchState(new RankingState());
+                                if(Model.resultprestate == 3 ){
+                                    var myAccumulativeScore:Int = Model.getInstance().getCountryAccumulativeScore();
+                                    if(myAccumulativeScore>=6){
+                                        FlxG.switchState(new RankingState());
+                                    }else{
+                                        CompetitionModel.getInstance().setTopData(Std.string(_scores[1]),Std.string(_scores[0]),1);
+                                        FlxG.switchState(new ResultState());
+                                        ModelReg.saveGameStatus(1);
+                                    }
+                                }else{
+                                    FlxG.switchState(new RankingState());
+                                }
                             }
                     }
             }

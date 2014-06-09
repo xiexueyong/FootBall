@@ -17,6 +17,24 @@ class ModelReg {
     /*
     *保存上次选择的小组和国家
     * */
+    public static function saveGameStatus(gamevoer:Int):Void{
+        if(gameSave == null){
+            gameSave = new FlxSave();
+        }
+        gameSave.bind("gameover");
+        gameSave.data.gameover = gamevoer;
+    }
+    public static function getGameStatus():Int{
+        if(gameSave == null){
+            gameSave = new FlxSave();
+        }
+        gameSave.bind("gameover");
+        return gameSave.data.gameover;
+    }
+
+    /*
+    *保存上次选择的小组和国家
+    * */
     public static function saveTeamAndCountry(teamindex:Int,country:String):Void
     {
         if(gameSave == null){
@@ -233,6 +251,11 @@ class ModelReg {
     *清除比赛数据重新开始
     * */
     public static function cleardataRestart():Void{
+        if(gameSave == null){
+            gameSave = new FlxSave();
+        }
+        gameSave.bind("gameover");
+        gameSave.data.gameover=null;
         gameSave.bind("rank");
         gameSave.data.rank=null;
         gameSave.bind("competition");

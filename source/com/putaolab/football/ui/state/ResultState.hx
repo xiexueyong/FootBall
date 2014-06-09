@@ -85,7 +85,6 @@ class ResultState extends PTFlxUIState{
         var prethree:Array<String> = CompetitionModel.getInstance().getPreThree();
         for(i in 0...prethree.length){
             trace(prethree[i]);
-
         }
         setFootBallerFormCountry(370,360,getBallerFromCountry("flag_"+prethree[0]),prethree[0]);
         setFootBallerFormCountry(585,320,getBallerFromCountry("flag_"+prethree[1]),prethree[1]);

@@ -79,16 +79,27 @@ class FinalsState extends PTFlxUIState{
 
         _kostage = new PTFlxUIButton(0,0,null);
         cursor.addWidget(_kostage);
-        _kostage.params = ["play"];
+        _kostage.params = ["kostage"];
         var twoplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
-        var playicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_play2");
+        var winscreen = AssetsManager.getInstance().getSprite(0,0,"btn_iko_winscreen");
         _kostage.loadGraphicsUpOverDown(twoplayer.getFlxFrameBitmapData());
         _kostage.x = FlxG.width-_kostage.width-50;
         _kostage.y = FlxG.height - _kostage.height-10;
-        playicon.x = FlxG.width-playicon.width-50;
-        playicon.y = FlxG.height - playicon.height-10;
-//        add(_kostage);
-//        add(playicon);
+        winscreen.x = FlxG.width-winscreen.width-50;
+        winscreen.y = FlxG.height - winscreen.height-10;
+        add(_kostage);
+        add(winscreen);
+        if(ModelReg.getGameStatus()==1){
+            _kostage.visible = true;
+            winscreen.visible = true;
+            _play.visible = false;
+            playicon.visible = false;
+        }else{
+            _kostage.visible = false;
+            winscreen.visible = false;
+            _play.visible = true;
+            playicon.visible = true;
+        }
     }
 
     /*
@@ -188,8 +199,10 @@ class FinalsState extends PTFlxUIState{
                     switch(cast(params[0], String)) {
                         case "groups":
                             FlxG.switchState(new RankingState());
+                        case "kostage":
+                            FlxG.switchState(new ResultState());
                         case "play":
-                            Model.resultprestate = 1;
+                            Model.resultprestate = 0;
                             if(ModelReg.getCompetitionCtage() == 0){
                                 ModelReg.saveCompetitionCtage(Reg.sixtween);
                             }else{

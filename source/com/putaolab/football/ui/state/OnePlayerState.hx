@@ -337,6 +337,9 @@ class OnePlayerState extends PTFlxUIState{
                             refresh1();
                             _selectedcountryname = params[3];
                             ModelReg.saveTeamAndCountry(_index,_selectedcountryname);
+                            if(ModelReg.getGameStatus()==1){
+                                ModelReg.cleardataRestart();
+                            }
                     }
                 case "over_button":
                     switch(cast(params[0], String)) {

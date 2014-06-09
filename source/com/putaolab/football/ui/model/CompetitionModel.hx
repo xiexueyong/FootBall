@@ -20,6 +20,7 @@ class CompetitionModel {
 
     private var _score1:String;
     private var _score2:String;
+    private var _notfinal:Int;
 
     public function new() {
         _competitiondata = new Array<Dynamic>();
@@ -46,7 +47,7 @@ class CompetitionModel {
     /*
     *随机十六强国家，目前存在国家重复问题
     * */
-    public function randomSixtween(mycountry:String):Array<Dynamic>
+    public function randomSixtween(mycountry:String=""):Array<Dynamic>
     {
         if(ModelReg.getFinalsSixteen()!=null && ModelReg.getFinalsSixteen().length==16){
             _sixteenarr = ModelReg.getFinalsSixteen();
@@ -57,7 +58,7 @@ class CompetitionModel {
         }
         for(i in 0...8){
             var competition:CompetitionCountry;
-            if(i==0){
+            if(i==0 && mycountry!=""){
                 competition = new CompetitionCountry();
                 competition.country = mycountry;
                 competition.score = "";
@@ -91,9 +92,18 @@ class CompetitionModel {
     /*
     *设置排行数据
     * */
-    public function setTopData(score1,score2):Void{
+    public function setTopData(score1:String,score2:String,?notfinal:Int):Void{
         _score1 = score1;
         _score2 = score2;
+        _notfinal = notfinal;
+        if(notfinal == 1){
+            randomSixtween();
+            setTopEight();
+            setTopFour();
+            setToptwo();
+            setTopResult();
+            return;
+        }
         if(_score1>_score2){
             if(ModelReg.getCompetitionCtage()==Reg.sixtween){
                 setTopEight();
@@ -140,7 +150,7 @@ class CompetitionModel {
         _sixteenarr = ModelReg.getFinalsSixteen();
         var len = _sixteenarr.length;
         for(i in 0...len){
-            if(_score1>_score2 || ModelReg.getCompetitionCtage()==Reg.sixtween){
+            if(_score1>_score2 || ModelReg.getCompetitionCtage()==Reg.sixtween && _notfinal!=1){
                 if(i==0){
                     _sixteenarr[i].score = _score1;
                 }else if(i==1){
@@ -186,7 +196,7 @@ class CompetitionModel {
         _eightarr = ModelReg.getFinalsEight();
         var len = _eightarr.length;
         for(i in 0...len){
-            if(_score1>_score2 || ModelReg.getCompetitionCtage()==Reg.eight){
+            if(_score1>_score2 || ModelReg.getCompetitionCtage()==Reg.eight && _notfinal!=1){
                 if(i==0){
                     _eightarr[i].score = _score1;
                 }else if(i==1){
@@ -234,7 +244,7 @@ class CompetitionModel {
         _fourarr = ModelReg.getFinalsFour();
         var len = _fourarr.length;
         for(i in 0...len){
-            if(_score1>_score2 || ModelReg.getCompetitionCtage()==Reg.four){
+            if(_score1>_score2 || ModelReg.getCompetitionCtage()==Reg.four && _notfinal!=1){
                 if(i==0){
                     _fourarr[i].score = _score1;
                 }else if(i==1){
@@ -274,6 +284,7 @@ class CompetitionModel {
     }
     public function getToptwo():Array<Dynamic>
     {
+        trace(_twoarr);
         _twoarr = ModelReg.getFinalsTwo();
         return _twoarr;
     }
@@ -284,17 +295,23 @@ class CompetitionModel {
     {
         _twoarr = ModelReg.getFinalsTwo();
         _threearr = ModelReg.getFinalsThree();
-        if(_score1>_score2 || ModelReg.getCompetitionCtage()==Reg.two){
+        if(_score1>_score2 || ModelReg.getCompetitionCtage()==Reg.two && _notfinal!=1){
             _twoarr[0].score = _score1;
             _twoarr[1].score = _score2;
             _threearr[0].score = Math.ceil(Math.random()*7)+"";
             _threearr[1].score = Math.ceil(Math.random()*7)+"";
         }
-        else if(_score1<=_score2 || ModelReg.getCompetitionCtage()==Reg.two){
+        else if(_score1<=_score2 || ModelReg.getCompetitionCtage()==Reg.two  && _notfinal!=1){
             _twoarr[0].score = Math.ceil(Math.random()*7)+"";
             _twoarr[1].score = Math.ceil(Math.random()*7)+"";
             _threearr[0].score = _score1;
             _threearr[1].score = _score2;
+        }else{
+            _twoarr[0].score = Math.ceil(Math.random()*7)+"";
+            _twoarr[1].score = Math.ceil(Math.random()*7)+"";
+            _threearr[0].score = Math.ceil(Math.random()*7)+"";
+            _threearr[1].score = Math.ceil(Math.random()*7)+"";
+            trace(_twoarr[0].score,_twoarr[1].score,_threearr[0].score,_threearr[1].score);
         }
     }
 
@@ -309,6 +326,8 @@ class CompetitionModel {
     *得到前三名数据
     * */
     public function getPreThree():Array<String>{
+//        trace(_twoarr);
+//        trace(_threearr);
         _twoarr = ModelReg.getFinalsTwo();
         _threearr = ModelReg.getFinalsThree();
         var prearr:Array<String> = new Array<String>();

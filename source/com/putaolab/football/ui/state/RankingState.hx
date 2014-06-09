@@ -21,6 +21,8 @@ class RankingState extends PTFlxUIState{
     private var competitionitemY:Float;
     //对战次数
     private var _competitionCount:Int;
+    //我的累计得分
+    private var _accumulativescore:Int;
     private var _toplayerone:PTFlxUIButton;
     private var _finals:PTFlxUIButton;
     private var finalicon:FlxSprite;
@@ -137,6 +139,7 @@ class RankingState extends PTFlxUIState{
             var itemgroup = new FlxSpriteGroup();
             var sp;
             if(_countryscorearr[i].country == _selectedcountry){
+                _accumulativescore = _countryscorearr[i].accumulativescore;
                 sp = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_group2");
             }else{
                 sp = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_group1");
@@ -206,10 +209,14 @@ class RankingState extends PTFlxUIState{
             }
         }
         if(Model.getInstance().getCompetition()!=null && _competitionCount >= 3){
-            _play.visible = false;
-            playicon.visible = false;
-            _finals.visible = true;
-            finalicon.visible = true;
+            //如果赢了或者已经结束晋级赛
+            if(_accumulativescore>=6 || ModelReg.getGameStatus()==1){
+                _play.visible = false;
+                playicon.visible = false;
+                _finals.visible = true;
+                finalicon.visible = true;
+            }
+
             var comparr = Model.getInstance().getCompetition();
             for(i in 0...3){
                 trace(comparr[i].mycountry,comparr[i].competitioncountry,comparr[i].myscore,comparr[i].competitionscore);
@@ -327,7 +334,7 @@ class RankingState extends PTFlxUIState{
                         case "finals":
                             FlxG.switchState(new FinalsState(_selectedcountry));
                         case "play":
-                            Model.resultprestate = 0;
+                            Model.resultprestate = _competitionCount+1;
                             getMatchCountry();
                             trace(getBallerFromCountry(_matchcountry),_matchcountry,getBallerFromCountry(_selectedcountry),_selectedcountry);
                             FlxG.switchState(new PlayState(getBallerFromCountry(_matchcountry),_matchcountry.split("_")[1],getBallerFromCountry(_selectedcountry),_selectedcountry.split("_")[1]));

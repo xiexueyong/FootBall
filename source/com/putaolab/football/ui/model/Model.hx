@@ -30,6 +30,11 @@ class Model {
     private var _competition:Array<Dynamic>;
     //一场比赛之后回到哪个界面 0小组排行 1晋级赛
     public static var resultprestate:Int = 0;
+    //得分数组
+    private var _scorearr:Array<String>;
+    //我的国家现在累计的分数
+    private var _myAccumulativeScore:Int;
+
 
     private var _mycountry:String;
     private var _competitioncountry:String;
@@ -87,14 +92,14 @@ class Model {
     */
     public function getTeamCountryScore():Array<Dynamic>
     {
-//        if(ModelReg.getRanking()!= null && ModelReg.getRanking()!= 0){
-//
-//        }
         _countryscorearr = ModelReg.getRanking();
         return _countryscorearr;
     }
+    public function getCountryAccumulativeScore():Int
+    {
+        return _myAccumulativeScore;
+    }
 
-    private var _scorearr:Array<String>;
     /*
     *   设置小组里面国家得分情况
     */
@@ -111,7 +116,7 @@ class Model {
         if(_countryscorearr.length ==4){
             var len = _countryscorearr.length;
             for(i in 0...len){
-                trace("_competitioncountry : "+_competitioncountry  +"_countryscorearr[i].country :"+_countryscorearr[i].country);
+//                trace("_competitioncountry : "+_competitioncountry  +"_countryscorearr[i].country :"+_countryscorearr[i].country);
                 if(_countryscorearr[i].country == _competitioncountry){
                     var loseaccumulativescore = "";
                     if(score>losescore){
@@ -126,10 +131,11 @@ class Model {
                     _countryscorearr[i].accumulativescore = Std.string(Std.parseInt(_countryscorearr[i].accumulativescore)+Std.parseInt(loseaccumulativescore));
                 }
                 if(_countryscorearr[i].country == country){
-                    trace("score : "+score+"losescore : "+losescore+"accumulativescore: "+accumulativescore);
+//                    trace("score : "+score+"losescore : "+losescore+"accumulativescore: "+accumulativescore);
                     _countryscorearr[i].score = Std.string(Std.parseInt(_countryscorearr[i].score)+Std.parseInt(score));
                     _countryscorearr[i].losescore = Std.string(Std.parseInt(_countryscorearr[i].losescore)+Std.parseInt(losescore));
                     _countryscorearr[i].accumulativescore = Std.string(Std.parseInt(_countryscorearr[i].accumulativescore)+Std.parseInt(accumulativescore));
+                    _myAccumulativeScore = Std.parseInt(_countryscorearr[i].accumulativescore);
                 }
                 if(_countryscorearr[i].country != _mycountry && _countryscorearr[i].country != _competitioncountry){
                     var randomscore = "";
@@ -183,6 +189,7 @@ class Model {
         _scorearr = null;
         ModelReg.saveRanking(_countryscorearr);
     }
+
     /*
     *球员
     * isclock 1被锁 0未锁
@@ -202,6 +209,7 @@ class Model {
     public function getCountryBallers():Array<Dynamic>{
         return _countryballer;
     }
+
     /*
     *    初始化国家都包含球员和身体
     */
