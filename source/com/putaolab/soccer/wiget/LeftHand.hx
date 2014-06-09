@@ -11,7 +11,8 @@ class LeftHand extends Wiget {
         super(X,Y);
         offsetOnParent = new FlxPoint(-1,73);
         AssetsManager.getInstance().uploadTextureToSprite(this,"hand_"+country);
-
     }
+
+
 
 }

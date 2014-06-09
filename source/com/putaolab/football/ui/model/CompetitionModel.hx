@@ -67,8 +67,6 @@ class CompetitionModel {
                 competition.country = randomCountry(i);
                 competition.score = "";
             }
-
-
             _sixteenarr.push(competition);
         }
         for(i in -7...1){
@@ -85,6 +83,14 @@ class CompetitionModel {
     {
         var countrys:Array<String> = Model.getInstance().getCountryFromTeam(index);
         var countryindex = Math.ceil(Math.random()*3);
+        var len:Int = _sixteenarr.length;
+        for(i in 0...len){
+            if(countrys[countryindex] == _sixteenarr[i].country){
+                randomCountry(index);
+            }else{
+                return countrys[countryindex];
+            }
+        }
 
         return countrys[countryindex];
     }

@@ -1,4 +1,5 @@
 package com.putaolab.football.ui.state;
+import com.putaolab.football.footballer.FootBallerPlayer;
 import com.putaolab.soccer.wiget.Body;
 import com.putaolab.soccer.wiget.RightHand;
 import com.putaolab.soccer.wiget.LeftHand;
@@ -11,6 +12,7 @@ import flixel.group.FlxSpriteGroup;
 import flixel.addons.ui.FlxUICursor;
 import flixel.FlxG;
 import flixel.text.FlxText;
+import flixel.tweens.FlxTween;
 
 /**
  * User: gaoyun
@@ -36,6 +38,8 @@ class OnePlayerState extends PTFlxUIState{
     private var _selectedcountry:FlxSprite;
     //当前选中的国家名字
     private var _selectedcountryname:String;
+
+    private var _countryballerarr:Array<Dynamic>;
 
     public function new(index:Int=-1):Void
     {
@@ -152,7 +156,6 @@ class OnePlayerState extends PTFlxUIState{
         return footballerarr;
     }
 
-    private var _countryballerarr:Array<Dynamic>;
     /*设置每个国家的队员*/
     private function setFootBallerFormCountry(?arr:Array<Dynamic>,body:String,hand:String ):Void
     {
@@ -165,10 +168,11 @@ class OnePlayerState extends PTFlxUIState{
             var footballer = AssetsManager.getInstance().getSprite(0,0,arr[i].head);
             footballer.x = footballer.width*i;
             footballer.y = FlxG.height - (Reg.TEERAIN_DEEP+footballer.height);
-
+//
             setFootBallerBody(footballer.x+(footballer.width-30)*0.5,footballer.y+footballer.height-12,body,hand);
 //            initializeBody(body);
             footballergroup.add(footballer);
+//            new FootBallerPlayer(arr[i].head,body,footballergroup);
             if(arr[i].isclock==1){
                 var lock = AssetsManager.getInstance().getSprite(0,0,"ico_lock");
                 lock.x = footballer.width*i+30;
@@ -176,26 +180,11 @@ class OnePlayerState extends PTFlxUIState{
                 footballergroup.add(lock);
             }
         }
-        footballergroup.x = (FlxG.width-footballergroup.width)*0.5;
+        footballergroup.x = (FlxG.width-200);
         if(_ballername != null){
             _ballername.text = _countryballerarr[0].name;
         }
-    }
-
-    private function initializeBody(country:String):Void{
-        if(leftHand == null){
-            leftHand = new LeftHand(0,0,country);
-            footballergroup.add(leftHand);
-        }
-        if(rightHand == null){
-            rightHand= new RightHand(0,0,country);
-            footballergroup.add(rightHand);
-        }
-        if(body == null){
-            body = new Body(0,0,country);
-            footballergroup.add(body);
-        }
-
+        FlxTween.tween(footballergroup,{ x: (FlxG.width-footballergroup.width)*0.5, y: 0 },0.3);
     }
 
     /*
@@ -339,9 +328,9 @@ class OnePlayerState extends PTFlxUIState{
                             refresh1();
                             _selectedcountryname = params[3];
                             ModelReg.saveTeamAndCountry(_index,_selectedcountryname);
-                            if(ModelReg.getGameStatus()==1){
+//                            if(ModelReg.getGameStatus()==1){
                                 ModelReg.cleardataRestart();
-                            }
+//                            }
                     }
                 case "over_button":
                     switch(cast(params[0], String)) {

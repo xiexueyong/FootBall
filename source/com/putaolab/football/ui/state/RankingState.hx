@@ -9,6 +9,8 @@ import component.PTFlxUIButton;
 import flixel.addons.ui.FlxUICursor;
 import flixel.FlxG;
 import flixel.group.FlxSpriteGroup;
+import flixel.tweens.FlxTween;
+
 /**
  * User: gaoyun
  * Date: 14-6-2
@@ -35,6 +37,7 @@ class RankingState extends PTFlxUIState{
     private var _index:Int;
     //当前选中的国家
     private var _selectedcountry:String;
+    private var _matchcountry:String;
 
     public function new(index:Int=0,?selectedcountry:Dynamic):Void
     {
@@ -145,7 +148,6 @@ class RankingState extends PTFlxUIState{
         var numdist = 13;
         for(i in 0...4){
 //            trace(_countryscorearr[i].country,_countryscorearr[i].score,_countryscorearr[i].losescore,_countryscorearr[i].accumulativescore);
-
             var sp;
             if(_countryscorearr[i].country == _selectedcountry){
                 _accumulativescore = _countryscorearr[i].accumulativescore;
@@ -192,7 +194,6 @@ class RankingState extends PTFlxUIState{
             itemgroup.add(accscore);
 
         }
-
         competitionRecords();
     }
 
@@ -224,7 +225,6 @@ class RankingState extends PTFlxUIState{
                 _finals.visible = true;
                 finalicon.visible = true;
             }
-
             var comparr = Model.getInstance().getCompetition();
             for(i in 0...3){
                 trace(comparr[i].mycountry,comparr[i].competitioncountry,comparr[i].myscore,comparr[i].competitionscore);
@@ -236,8 +236,8 @@ class RankingState extends PTFlxUIState{
     {
         var numdist = 13;
         var sp = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_group1");
-//        sp.x= (FlxG.width-sp.width*1.45)*0.5;
-//        sp.y= competitionitemY+20;
+        sp.x= (FlxG.width-sp.width)*0.5;
+        sp.y= Y;
         competitionitemgroup.add(sp);
         var mycountry = AssetsManager.getInstance().getSprite(sp.x+50,sp.y+4,mycountry);
         mycountry.origin.x = mycountry.origin.y = 0;
@@ -269,11 +269,11 @@ class RankingState extends PTFlxUIState{
             var losescore = AssetsManager.getInstance().getSprite(colon.x +20,colon.y,competitionscore+"b");
             competitionitemgroup.add(losescore);
         }
-        competitionitemgroup.x = (FlxG.width-sp.width)*0.5;
-        competitionitemgroup.y = Y;
+//        competitionitemgroup.x = (FlxG.width-sp.width)*0.5;
+//        competitionitemgroup.y = Y;
     }
 
-    private var _matchcountry:String;
+
     /*
     *得到可以对战的国家
     * */
