@@ -1,4 +1,6 @@
 package com.putaolab.football.ui.state;
+import flixel.addons.ui.FlxUICursor;
+import component.PTFlxUISubState;
 import com.putaolab.football.ui.model.CompetitionModel;
 import com.putaolab.football.ui.model.ModelReg;
 import com.putaolab.football.ui.model.Model;
@@ -9,7 +11,7 @@ import flixel.addons.ui.FlxUISubState;
 import flixel.group.FlxSpriteGroup;
 import flixel.tweens.FlxTween;
 
-class MatchResultPopState extends FlxUISubState
+class MatchResultPopState extends PTFlxUISubState
 {
     private var _restart:PTFlxUIButton;
     private var _play:PTFlxUIButton;
@@ -37,13 +39,15 @@ class MatchResultPopState extends FlxUISubState
     }
 	public override function create():Void
 	{
-//        _makeCursor = true;
-//        super.create();
-//        cursor.setDefaultKeys(FlxUICursor.KEYS_DEFAULT_ARROWS | FlxUICursor.KEYS_DEFAULT_TAB);
-		super.create();
+        _makeCursor = true;
+        super.create();
+        cursor.setDefaultKeys(FlxUICursor.KEYS_DEFAULT_ARROWS | FlxUICursor.KEYS_DEFAULT_TAB);
+
         initButton();
 //        trace(_leftCountry,_rightCountry,Std.string(_scores[0]),Std.string(_scores[1]));
         getVersusCountry(_leftFlag,_rightFlag,Std.string(_scores[0]),Std.string(_scores[1]));
+
+        cursor.location = 0;
 	}
 
     /*
@@ -61,6 +65,7 @@ class MatchResultPopState extends FlxUISubState
         _restart.y = icon.y = 550;
         add(_restart);
         add(icon);
+        cursor.addWidget(_restart);
 
         _play = new PTFlxUIButton(0,0,null);
 //        cursor.addWidget(_play);
@@ -72,6 +77,7 @@ class MatchResultPopState extends FlxUISubState
         _play.y = playicon.y = 550;
         add(_play);
         add(playicon);
+        cursor.addWidget(_play);
     }
     /*
      * 对战国家面板
