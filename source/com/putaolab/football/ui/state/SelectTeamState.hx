@@ -37,6 +37,7 @@ class SelectTeamState extends PTFlxUIState{
         super.create();
         cursor.setDefaultKeys(FlxUICursor.KEYS_DEFAULT_ARROWS | FlxUICursor.KEYS_DEFAULT_TAB);
         init();
+        cursor.location = 0;
     }
 
     private function init():Void
@@ -58,22 +59,22 @@ class SelectTeamState extends PTFlxUIState{
         var icon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_player");
         _toranking.loadGraphicsUpOverDown(oneplayer.getFlxFrameBitmapData());
         _toranking.x = FlxG.width-_toranking.width-50;
-        _toranking.y = FlxG.height - _toranking.height-10;
+        _toranking.y = FlxG.height - _toranking.height;
         icon.x = FlxG.width-icon.width-50;
-        icon.y = FlxG.height - icon.height-10;
+        icon.y = FlxG.height - icon.height;
         add(_toranking);
         add(icon);
 
-        _play = new PTFlxUIButton(0,0,null);
-        cursor.addWidget(_play);
-        _play.params = ["play"];
-        var twoplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
-        var playicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_play");
-        _play.loadGraphicsUpOverDown(twoplayer.getFlxFrameBitmapData());
-        _play.x = FlxG.width-_play.width-50;
-        _play.y = FlxG.height - _play.height-10;
-        playicon.x = FlxG.width-playicon.width-50;
-        playicon.y = FlxG.height - playicon.height-10;
+//        _play = new PTFlxUIButton(0,0,null);
+////        cursor.addWidget(_play);
+//        _play.params = ["play"];
+//        var twoplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
+//        var playicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_play");
+//        _play.loadGraphicsUpOverDown(twoplayer.getFlxFrameBitmapData());
+//        _play.x = FlxG.width-_play.width-50;
+//        _play.y = FlxG.height - _play.height-10;
+//        playicon.x = FlxG.width-playicon.width-50;
+//        playicon.y = FlxG.height - playicon.height-10;
 //        add(_play);
 //        add(playicon);
     }
@@ -114,7 +115,7 @@ class SelectTeamState extends PTFlxUIState{
             }
             group.add(itemgroup);
             _gruparr.push(itemgroup);
-            FlxTween.tween(itemgroup,{ x: 0, y: 40+i*(bgbtn.height +25) },0.3);
+            FlxTween.tween(itemgroup,{ x: 0, y: 15+i*(bgbtn.height +25) },0.3);
         }
     }
 

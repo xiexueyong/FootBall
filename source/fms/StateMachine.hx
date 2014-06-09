@@ -8,7 +8,7 @@ import com.putaolab.soccer.wiget.Ball;
 import com.putaolab.soccer.charater.AIPlayer;
 import com.putaolab.soccer.charater.Player;
 class StateMachine{
-    private static var SWITCH_INTERVAL:Float = 0.2;
+    private static var SWITCH_INTERVAL:Float = 2;
     public var owner:AIPlayer;
     //环境成员
     public var opponent:Player;
@@ -32,7 +32,7 @@ class StateMachine{
 
 
     private inline function startGame():Void{
-        forceAttackTimer = new FlxTimer(0.5,function(timer:FlxTimer){
+        forceAttackTimer = new FlxTimer(StateMachine.SWITCH_INTERVAL,function(timer:FlxTimer){
             if(_forceAttack){
                 _forceAttack = false;
                 return;

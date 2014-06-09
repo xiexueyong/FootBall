@@ -43,6 +43,7 @@ class MenuState extends PTFlxUIState
         super.create();
         cursor.setDefaultKeys(FlxUICursor.KEYS_DEFAULT_ARROWS | FlxUICursor.KEYS_DEFAULT_TAB);
         init();
+        cursor.location = 1;
 
 //        var sp = AssetsManager.getInstance().getSprite(200,200,"bg_mrak2");
 //        var sp = AssetsManager.getInstance().getAnimation(200,200,"giroud","bg_tribuna_people",15);
