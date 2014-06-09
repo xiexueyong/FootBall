@@ -1,4 +1,5 @@
 package com.putaolab.soccer.wiget;
+import component.PTFlxTrail;
 import flixel.addons.effects.FlxTrail;
 import flixel.util.FlxTimer;
 import flixel.util.FlxRect;
@@ -14,7 +15,7 @@ class Ball extends BoundsSprite {
     private var _RightDirectionTip:FlxSprite;
     private var _lefting:Bool;
     private var _righting:Bool;
-    private var _trail:FlxTrail;
+    private var _trail:PTFlxTrail;
 //    private
     public function new(X:Float = 0, Y:Float = 0, ?SimpleGraphic:Dynamic)
     {
@@ -27,8 +28,9 @@ class Ball extends BoundsSprite {
 //        AssetsManager.getInstance().uploadTextureToSprite(this,"ball_big");
         AssetsManager.getInstance().uploadTextureToSprite(this,"ball");
         collisionMap = new FlxRect(0,0,width,height);
-
-        _trail = new FlxTrail(this,"assets/images/tracks.png",10,2,0.8,0.05);
+        _trail = new PTFlxTrail(this,"assets/images/tracks.png",10,2,0.8,0.05,0.8,0.05);
+        _trail.scalesEnabled = false;
+//        _trail = new FlxTrail(this,"assets/images/tracks.png",10,2,0.8,0.05);
         PlayState.level.comonBackgroundGroup.add(_trail);
 
     }

@@ -1,5 +1,10 @@
 package;
 
+import flixel.tweens.FlxTween;
+import com.putaolab.soccer.QuitPanel;
+import flixel.util.FlxPoint;
+import com.putaolab.football.ui.state.OnePlayerState;
+import flixel.util.FlxPoint;
 import com.putaolab.football.ui.state.MatchResultPopState;
 import flixel.util.FlxTimer;
 import String;
@@ -49,6 +54,13 @@ class PlayState extends PTFlxUIState
     private var scores:Array<Int> = [0,0];
     private var _scoreBar:FlxText;
     private var _timeBar:FlxText;
+
+    //暂停时保存球员和球的状态
+    private var _ballVelocity:FlxPoint;
+    private var _leftPlayerVelocity:FlxPoint;
+    private var _rightPlayerVelocity:FlxPoint;
+
+    private var _quitPanel:QuitPanel;
 
 
 
@@ -115,13 +127,82 @@ class PlayState extends PTFlxUIState
         FlxG.updateFramerate = 0;
         FlxG.drawFramerate = 0;
     }
-    public function pauseGame():Void{
-        FlxG.updateFramerate = 1;
-        FlxG.drawFramerate = 1;
+private function abortQuit(t:FlxTween):Void{
+    remove(_quitPanel);
+    _quitPanel = null;
+
+}
+    public function pauseLogic():Void{
+    trace("--------------------pauseLogic----------------------------------");
+        if(PlayState.start){
+            PlayState.start =false;
+            pause();
+            _quitPanel = new QuitPanel(0,0,abortQuit);
+            add(_quitPanel);
+            return;
+        }else{
+            if(_quitPanel != null){
+                openSubState(new MatchResultPopState(leftCountry,rightCountry,[3,1]));
+                abortQuit(null);
+            }else{
+                resume();
+                PlayState.start =true;
+            }
+        }
+
     }
-    public function startG():Void{
-        FlxG.updateFramerate = 60;
-        FlxG.drawFramerate = 60;
+    public function pause():Void{
+        _ballVelocity = new FlxPoint(ball.velocity.x,ball.velocity.y);
+        _leftPlayerVelocity = new FlxPoint(playerLeft.velocity.x,playerLeft.velocity.y);
+        _rightPlayerVelocity = new FlxPoint(playerRight.velocity.x,playerRight.velocity.y);
+
+//        trace("pause____ballVelocity.x_________",_ballVelocity.x);
+//        trace("pause____ballVelocity.y_________",_ballVelocity.y);
+
+        playerRight.acceleration.x= 0;
+        playerRight.acceleration.y= 0;
+        playerRight.velocity.x = 0;
+        playerRight.velocity.y = 0;
+
+        playerLeft.acceleration.x= 0;
+        playerLeft.acceleration.y= 0;
+        playerLeft.velocity.x = 0;
+        playerLeft.velocity.y = 0;
+
+        ball.acceleration.x = 0;
+        ball.acceleration.y = 0;
+        ball.velocity.x = 0;
+        ball.velocity.y = 0;
+    }
+    public function resume():Void{
+
+        if( _leftPlayerVelocity == null){
+            _leftPlayerVelocity == new FlxPoint(0,0);
+        }
+        if( _rightPlayerVelocity == null){
+            _rightPlayerVelocity == new FlxPoint(0,0);
+        }
+        if( _ballVelocity == null){
+            _ballVelocity == new FlxPoint(0,0);
+        }
+
+        playerRight.acceleration.x= 0;
+        playerRight.acceleration.y= Reg.PLAYER_GRAVITY;
+        playerRight.velocity.x = 0;
+        playerRight.velocity.y = 0;
+
+        playerLeft.acceleration.x= 0;
+        playerLeft.acceleration.y= Reg.PLAYER_GRAVITY;
+        playerLeft.velocity.x = _leftPlayerVelocity.x;
+        playerLeft.velocity.y = _leftPlayerVelocity.y;
+
+        ball.acceleration.x = 0;
+        ball.acceleration.y = Reg.BALL_GRAVITY;
+        ball.velocity.x = _ballVelocity.x;
+        ball.velocity.y = _ballVelocity.y;
+
+//        trace("pause____ballVelocity.x_________",_ballVelocity.x);
+//        trace("pause____ballVelocity.y_________",_ballVelocity.y);
     }
     //开始比赛
     private function startMatch(leftName:String,leftCountry:String,rightName:String,rightCountry:String):Void{
@@ -263,12 +344,16 @@ class PlayState extends PTFlxUIState
             hitTarget();
         }
 
-       /* if(FlxG.keys.anyJustPressed(["ENTER"])){
-            pauseGame();
+        if(FlxG.keys.anyJustPressed(["ESCAPE"])){
+            pauseLogic();
         }
-        if(FlxG.keys.anyJustPressed(["SPACE"])){
-            startG();
-        }*/
+        #if android
+        if(FlxG.android.anyJustPressed(["OK","ENTER"])){
+            processEvent(EventHandler.ANDROID_OK);
+        }else if(FlxG.android.anyJustPressed(["BACK"])){
+            pause();
+        }
+        #end
 
 	}	
 }
