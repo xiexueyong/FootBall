@@ -43,7 +43,7 @@ class MenuState extends PTFlxUIState
         super.create();
         cursor.setDefaultKeys(FlxUICursor.KEYS_DEFAULT_ARROWS | FlxUICursor.KEYS_DEFAULT_TAB);
         init();
-        cursor.location = 1;
+        cursor.location = 0;
 
 //        var sp = AssetsManager.getInstance().getSprite(200,200,"bg_mrak2");
 //        var sp = AssetsManager.getInstance().getAnimation(200,200,"giroud","bg_tribuna_people",15);
@@ -64,13 +64,14 @@ class MenuState extends PTFlxUIState
     private function initButton():Void
     {
         _oneplayer = new PTFlxUIButton(0,0,null);
-        cursor.addWidget(_oneplayer);
+
         _oneplayer.params = ["oneplayer"];
         var oneplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
         var playicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_play");
         _oneplayer.loadGraphicsUpOverDown(oneplayer.getFlxFrameBitmapData());
         _oneplayer.x = (FlxG.width-_oneplayer.width)*0.5;
         _oneplayer.y = (FlxG.height-200)*0.5;
+        cursor.addWidget(_oneplayer);
         playicon.x = (FlxG.width-_oneplayer.width)*0.5;
         playicon.y = (FlxG.height-200)*0.5;
         group.add(_oneplayer);
@@ -78,7 +79,7 @@ class MenuState extends PTFlxUIState
 
 
         _twoplayer = new PTFlxUIButton(0,0,null);
-        cursor.addWidget(_twoplayer);
+
         _twoplayer.params = ["twoplayer"];
         var twoplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
         var mainplayer = AssetsManager.getInstance().getSprite(0,0,"btn_iko_multiplayer");
@@ -89,6 +90,7 @@ class MenuState extends PTFlxUIState
         mainplayer.y = (FlxG.height-0)*0.5;
         _twoplayer.scale.x = 0.8;
         _twoplayer.scale.y = 0.8;
+        cursor.addWidget(_twoplayer);
         group.add(_twoplayer);
         group.add(mainplayer);
 

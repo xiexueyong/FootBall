@@ -27,18 +27,18 @@ class ResultState extends PTFlxUIState{
     override public function create():Void
     {
         _makeCursor = true;
-
+        add(new StateBG());
         super.create();
         cursor.setDefaultKeys(FlxUICursor.KEYS_DEFAULT_ARROWS | FlxUICursor.KEYS_DEFAULT_TAB);
 
         init();
+        cursor.location = 0;
     }
 
     /*
     *
     * */
     private function init():Void{
-        add(new StateBG());
         initButton();
         Top();
     }
@@ -46,26 +46,26 @@ class ResultState extends PTFlxUIState{
     private function initButton():Void
     {
         _kostage = new PTFlxUIButton(0,0,null);
-        cursor.addWidget(_kostage);
         _kostage.params = ["kostage"];
         var oneplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
         var icon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_kostage");
         _kostage.loadGraphicsUpOverDown(oneplayer.getFlxFrameBitmapData());
         _kostage.x = 50;
         _kostage.y = FlxG.height - _kostage.height-40;
+        cursor.addWidget(_kostage);
         icon.x = 50;
         icon.y = FlxG.height - icon.height-40;
         add(_kostage);
         add(icon);
 
         _mainmenu = new PTFlxUIButton(0,0,null);
-        cursor.addWidget(_mainmenu);
         _mainmenu.params = ["play"];
         var twoplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
         var playicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_mainmenu");
         _mainmenu.loadGraphicsUpOverDown(twoplayer.getFlxFrameBitmapData());
         _mainmenu.x = FlxG.width-_mainmenu.width-50;
         _mainmenu.y = FlxG.height - _mainmenu.height-40;
+        cursor.addWidget(_mainmenu);
         playicon.x = FlxG.width-playicon.width-50;
         playicon.y = FlxG.height - playicon.height-40;
         add(_mainmenu);
@@ -86,8 +86,8 @@ class ResultState extends PTFlxUIState{
         for(i in 0...prethree.length){
             trace(prethree[i]);
         }
-        setFootBallerFormCountry(370,360,getBallerFromCountry("flag_"+prethree[0]),prethree[0]);
-        setFootBallerFormCountry(585,320,getBallerFromCountry("flag_"+prethree[1]),prethree[1]);
+        setFootBallerFormCountry(370,360,getBallerFromCountry("flag_"+prethree[1]),prethree[1]);
+        setFootBallerFormCountry(585,320,getBallerFromCountry("flag_"+prethree[0]),prethree[0]);
         setFootBallerFormCountry(800,360,getBallerFromCountry("flag_"+prethree[2]),prethree[2]);
 //        trace(getBallerFromCountry("flag_"+prethree[0]),prethree[0]);
 //        trace(getBallerFromCountry("flag_"+prethree[1]),prethree[1]);

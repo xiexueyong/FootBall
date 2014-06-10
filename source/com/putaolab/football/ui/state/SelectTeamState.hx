@@ -53,13 +53,13 @@ class SelectTeamState extends PTFlxUIState{
     private function initButton():Void
     {
         _toranking = new PTFlxUIButton(0,0,null);
-        cursor.addWidget(_toranking);
         _toranking.params = ["groups"];
         var oneplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
         var icon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_player");
         _toranking.loadGraphicsUpOverDown(oneplayer.getFlxFrameBitmapData());
         _toranking.x = FlxG.width-_toranking.width-50;
         _toranking.y = FlxG.height - _toranking.height;
+        cursor.addWidget(_toranking);
         icon.x = FlxG.width-icon.width-50;
         icon.y = FlxG.height - icon.height;
         add(_toranking);
@@ -90,7 +90,6 @@ class SelectTeamState extends PTFlxUIState{
             var itemgroup = new FlxSpriteGroup();
             var sp = AssetsManager.getInstance().getSprite(0,0,"podklad_ko_group1");
             var bgbtn:PTFlxUIButton = new PTFlxUIButton();
-            cursor.addWidget(bgbtn);
             bgbtn.params = ["team",i];
             bgbtn.loadGraphicsUpOverDown(sp.getFlxFrameBitmapData());
             bgbtn.scale.x = 1.2;
@@ -116,6 +115,7 @@ class SelectTeamState extends PTFlxUIState{
             group.add(itemgroup);
             _gruparr.push(itemgroup);
             FlxTween.tween(itemgroup,{ x: 0, y: 15+i*(bgbtn.height +25) },0.3);
+            cursor.addWidget(bgbtn);
         }
     }
 

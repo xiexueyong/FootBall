@@ -1,4 +1,5 @@
 package com.putaolab.football.ui.state;
+import com.putaolab.football.ui.model.CompetitionModel;
 import flixel.addons.ui.FlxUICursor;
 import component.PTFlxUISubState;
 import com.putaolab.football.ui.model.CompetitionModel;
@@ -168,6 +169,7 @@ class MatchResultPopState extends PTFlxUISubState
                             if(ModelReg.getCompetitionCtage()== 2){
                                 FlxG.switchState(new ResultState());
                                 ModelReg.saveGameStatus(1);
+                                CompetitionModel.getInstance().setMyTop();
                                 return;
                             }
                             if(Model.resultprestate == 0){
@@ -177,6 +179,7 @@ class MatchResultPopState extends PTFlxUISubState
                                 }else{
                                     FlxG.switchState(new ResultState());
                                     ModelReg.saveGameStatus(1);
+                                    CompetitionModel.getInstance().setMyTop();
                                 }
                             }else {
                                 var accumulativescore:Int = 0;
@@ -197,6 +200,7 @@ class MatchResultPopState extends PTFlxUISubState
                                         CompetitionModel.getInstance().setTopData(Std.string(_scores[1]),Std.string(_scores[0]),1);
                                         FlxG.switchState(new ResultState());
                                         ModelReg.saveGameStatus(1);
+                                        CompetitionModel.getInstance().setMyTop();
                                     }
                                 }else{
                                     FlxG.switchState(new RankingState());

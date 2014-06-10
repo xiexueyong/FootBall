@@ -337,6 +337,7 @@ class RankingState extends PTFlxUIState{
                         case "oneplayer":
                             FlxG.switchState(new OnePlayerState());
                         case "finals":
+                            Model.resultprestate = 0;
                             FlxG.switchState(new FinalsState(_selectedcountry));
                         case "play":
                             Model.resultprestate = _competitionCount+1;

@@ -15,7 +15,7 @@ class ModelReg {
     }
 
     /*
-    *保存上次选择的小组和国家
+    *保存
     * */
     public static function saveGameStatus(gamevoer:Int):Void{
         if(gameSave == null){
@@ -220,6 +220,24 @@ class ModelReg {
         gameSave.bind("CompetitionCtage");
         return gameSave.data.CompetitionCtage;
     }
+    /*
+    *我的排名
+    * */
+    public static function saveMyRanking(rank:Int):Void{
+        if(gameSave == null){
+            gameSave = new FlxSave();
+        }
+        gameSave.bind("myrank");
+        gameSave.data.myrank = rank;
+        gameSave.flush();
+    }
+    public static function getMyRanking():Int{
+        if(gameSave == null){
+            gameSave = new FlxSave();
+        }
+        gameSave.bind("myrank");
+        return gameSave.data.myrank;
+    }
 
     public static function clearData():Void
     {
@@ -260,6 +278,7 @@ class ModelReg {
         gameSave.data.rank=null;
         gameSave.bind("competition");
         gameSave.data.competition=null;
+
         gameSave.bind("CompetitionCtage");
         gameSave.data.CompetitionCtage=null;
         gameSave.bind("finaleight");

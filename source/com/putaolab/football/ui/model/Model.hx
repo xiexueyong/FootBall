@@ -272,9 +272,7 @@ class Model {
     * */
     public function getCompetition():Array<Dynamic>
     {
-        if(ModelReg.getCompetition() != null){
-            _competition = ModelReg.getCompetition();
-        }
+        _competition = ModelReg.getCompetition();
         return _competition;
     }
 

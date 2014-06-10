@@ -33,16 +33,15 @@ class FinalsState extends PTFlxUIState{
     override public function create():Void
     {
         _makeCursor = true;
-
+        add(new StateBG());
         super.create();
         cursor.setDefaultKeys(FlxUICursor.KEYS_DEFAULT_ARROWS | FlxUICursor.KEYS_DEFAULT_TAB);
-
         init();
+        cursor.location = 0;
     }
 
     /**/
     private function init():Void{
-        add(new StateBG());
         initButton();
         PromotionRamking();
     }
@@ -52,20 +51,19 @@ class FinalsState extends PTFlxUIState{
     private function initButton():Void
     {
         _toranking = new PTFlxUIButton(0,0,null);
-        cursor.addWidget(_toranking);
         _toranking.params = ["groups"];
         var oneplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
         var icon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_groupstats");
         _toranking.loadGraphicsUpOverDown(oneplayer.getFlxFrameBitmapData());
         _toranking.x = 50;
         _toranking.y = FlxG.height - _toranking.height-10;
+        cursor.addWidget(_toranking);
         icon.x = 50;
         icon.y = FlxG.height - icon.height-10;
         add(_toranking);
         add(icon);
 
         _play = new PTFlxUIButton(0,0,null);
-        cursor.addWidget(_play);
         _play.params = ["play"];
         var twoplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
         var playicon = AssetsManager.getInstance().getSprite(0,0,"btn_iko_play2");
@@ -78,7 +76,6 @@ class FinalsState extends PTFlxUIState{
         add(playicon);
 
         _kostage = new PTFlxUIButton(0,0,null);
-        cursor.addWidget(_kostage);
         _kostage.params = ["kostage"];
         var twoplayer = AssetsManager.getInstance().getSprite(0,0,"btn_maly_bg1");
         var winscreen = AssetsManager.getInstance().getSprite(0,0,"btn_iko_winscreen");
@@ -100,6 +97,8 @@ class FinalsState extends PTFlxUIState{
             _play.visible = true;
             playicon.visible = true;
         }
+        cursor.addWidget(_play);
+        cursor.addWidget(_kostage);
     }
 
     /*

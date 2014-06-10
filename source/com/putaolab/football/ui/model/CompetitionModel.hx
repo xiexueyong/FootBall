@@ -98,7 +98,7 @@ class CompetitionModel {
     /*
     *设置排行数据
     * */
-    public function setTopData(score1:String,score2:String,?notfinal:Int):Void{
+    public function setTopData(score1:String,score2:String,?notfinal:Int=0):Void{
         _score1 = score1;
         _score2 = score2;
         _notfinal = notfinal;
@@ -144,6 +144,7 @@ class CompetitionModel {
                 setTopResult();
             }
         }
+        _notfinal = 0;
     }
     /*
     *设置八强数据国家没有比分、添加16强的比分
@@ -290,7 +291,6 @@ class CompetitionModel {
     }
     public function getToptwo():Array<Dynamic>
     {
-        trace(_twoarr);
         _twoarr = ModelReg.getFinalsTwo();
         return _twoarr;
     }
@@ -317,15 +317,33 @@ class CompetitionModel {
             _twoarr[1].score = Math.ceil(Math.random()*7)+"";
             _threearr[0].score = Math.ceil(Math.random()*7)+"";
             _threearr[1].score = Math.ceil(Math.random()*7)+"";
-            trace(_twoarr[0].score,_twoarr[1].score,_threearr[0].score,_threearr[1].score);
+//            trace(_twoarr[0].score,_twoarr[1].score,_threearr[0].score,_threearr[1].score);
         }
+        ModelReg.saveFinalsTwo(_twoarr);
+        ModelReg.saveFinalsThree(_threearr);
     }
 
     /*
     *得到自己的排名
     * */
-    public function getMyTop():Void{
+    public function setMyTop():Void{
+        if(_notfinal==1){
+            ModelReg.saveMyRanking(16+Std.int(Math.random()*6));
+        }else{
 
+            if(ModelReg.getCompetitionCtage()==Reg.sixtween){
+                ModelReg.saveMyRanking(ModelReg.getCompetitionCtage()-1);
+            }
+            if(ModelReg.getCompetitionCtage()==Reg.eight){
+                ModelReg.saveMyRanking(ModelReg.getCompetitionCtage()-1);
+            }
+            if(ModelReg.getCompetitionCtage()==Reg.four){
+                ModelReg.saveMyRanking(ModelReg.getCompetitionCtage()-1);
+            }
+            if(ModelReg.getCompetitionCtage()==Reg.two){
+
+            }
+        }
     }
 
     /*
